@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    transition: all .2s ease 0s;
+    /* Visualisation des éléments */
+    /*border: 1px dotted rgba(0,0,0,0.3);*/
+}
+
+*:hover {
+    transition: all .2s ease 0s;
+}
+
+html {font-size: 62.5%;}
+
+body {
+    font-family: monospace, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #fbf9af;
+    background-color: #db2d43;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+a, a:hover, a:visited, a:active {
+    text-decoration: none;
+    color: #fbf9af;
+}
+
+header, footer {
+    background-color: #e76838;
+    color: #fbf9af;
+    height: 5rem;
+    padding: 0 3rem;
+}
+
+header h1 {
+    margin-top: 0;
+}
+
+footer {
+    align-items: end;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1; /* pour occuper toute la hauteur */
+    padding: 3rem 0;
+    width: 600px
+}
+
+/*Pour faire un colspan de la première ligne du main*/
+ main span {
+     margin: 25px 50px 50px 20px;
+ }
+
+ /*la dernière recette*/
+main aside {
+    align-self: center;
+    border: 2px solid #fbf9af;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/*Bouton Trouver*/
+#buttonSearchRecipe {
+    color: #a8026f;
+    border-radius: 50%;
+}
+aside h2 {
+    flex-grow: 1;
+}
+
+aside img {
+    width: 200px;
+}
+
+.input {
+    color: #222222;
+    border-radius: 5px;
+    background-color: #fbf9af;
+}
+.container {
+    max-width: 1000px;
+
+    margin: 0 auto;
+    background-color: #a8026f;
+}
+
+.left {float: left;}
+.right {float: right;}
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hidden {display: none;}
+
+.bold {font-weight: bold;}
