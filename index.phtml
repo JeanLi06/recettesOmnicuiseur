@@ -1,12 +1,13 @@
 <!--page d'accueil-->
 <span>
-            <label for="findRecipe" class="bold">Rechercher une recette</label>
-            <input type="text" id="findRecipe" class="input">
-            <button id="buttonSearchRecipe" title="Trouver la recette"><i class="fab fa-searchengin"></i></button>
-        </span>
+        <label for="findRecipe" class="bold">Rechercher une recette</label>
+        <input type="text" id="findRecipe" class="input">
+        <button id="buttonSearchRecipe" title="Trouver la recette">
+            <i class="fab fa-searchengin"></i></button>
+</span>
 <aside>
     <h2>Dernière recette créée</h2>
-    <h3>Cake Pommes Amandes</h3>
-    <img src="img/ob_c364af_cake-pommes-amandes-97-02-jpg.jpg" alt="Cake Pommes Amandes"
-         title="Cake Pommes Amandes">
+    <h3><?= htmlspecialchars($recettes['name']) ?></h3>
+    <img src="img/<?= htmlspecialchars($recettes['photo']) ?>" alt="<?= htmlspecialchars($recettes['name']) ?>"
+         title="<?= htmlspecialchars($recettes['name']) ?>">
 </aside>

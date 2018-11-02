@@ -10,11 +10,6 @@
     max-width: 1200px;
 }
 
-.flex {
-    display: flex;
-    justify-content: space-between;
-}
-
 .flex-row { flex-direction: column; }
 
 .flex-row > * + * { margin-top: 1rem; }

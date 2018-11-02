@@ -29,21 +29,17 @@ body {
 a, a:hover, a:visited, a:active {
     text-decoration: none;
     color: #fbf9af;
+    font-size: 2rem;
 }
 
 header, footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #e76838;
     color: #fbf9af;
     height: 5rem;
     padding: 0 3rem;
-}
-
-header h1 {
-    margin-top: 0;
-}
-
-footer {
-    align-items: end;
 }
 
 main {
@@ -71,6 +67,7 @@ main aside {
 /*Bouton Trouver*/
 #buttonSearchRecipe {
     color: #a8026f;
+    border: none;
     border-radius: 50%;
 }
 aside h2 {
@@ -103,3 +100,12 @@ aside img {
 .hidden {display: none;}
 
 .bold {font-weight: bold;}
+
+/********* page viewRecipe ************/
+.viewRecipeImage {
+    width: 200px;
+}
+
+#viewRecipeArticle {
+    padding: 0 25px;
+}

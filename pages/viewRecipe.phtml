@@ -1,0 +1,21 @@
+<!--page afficher une recette-->
+<p>Recette N° <?= "$currentRecipe / $recipeQuantity" ?></p>
+<nav id="recipeNavigation">
+    <a href="" title="début"><i class="fas fa-fast-backward"></i></a>
+    <a href="" title=précédente""><i class="fas fa-step-backward"></i></a>
+    <a href="" title="suivante"><i class="fas fa-step-forward"></i></a>
+    <a href="" title="fin"><i class="fas fa-fast-forward"></i></a>
+</nav>
+<article id="viewRecipeArticle">
+    <h3><?= htmlspecialchars($recette['name']) ?></h3>
+    <img src="img/<?= htmlspecialchars($recette['photo']) ?>"
+         alt="<?= htmlspecialchars($recette['name']) ?>"
+         title="<?= htmlspecialchars($recette['name']) ?>" class="viewRecipeImage">
+
+    <p>Catégorie : <?= $recette['category']?></p>
+    <p>Pour <?= $recette['how_many_persons']?> personnes</p>
+    <p>Temps de cuisson : <?= $recette['cooking_time_minutes']?> mn</p>
+    <p>Instructions :<p>
+        <p><?= $recette['note']?></p>
+    <p>Date de creation : <?= $recette['creation_date']?></p>
+</article>
