@@ -21,9 +21,29 @@ body {
     line-height: 1.6;
     color: #fbf9af;
     background-color: #db2d43;
+    /*background-image: url("../img/omnicuiseur-v6000-rouge.jpg");*/
     display: flex;
     flex-direction: column;
     height: 100vh;
+}
+
+body {
+    position: relative;
+}
+body:after {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../img/omnicuiseur-v6000-rouge.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    opacity : 0.05;
+    /*z-index: -1;*/
 }
 
 a, a:hover, a:visited, a:active {
@@ -40,6 +60,7 @@ header, footer {
     color: #fbf9af;
     height: 5rem;
     padding: 0 3rem;
+    z-index: 100;
 }
 
 main {
@@ -48,7 +69,8 @@ main {
     justify-content: center;
     flex-grow: 1; /* pour occuper toute la hauteur */
     padding: 3rem 0;
-    width: 600px
+    width: 1200px;
+    z-index: 10;
 }
 
 /*Pour faire un colspan de la première ligne du main*/

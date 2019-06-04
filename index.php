@@ -1,10 +1,20 @@
 <?php
+
+//activer le debuggage (ou pas)
+$debug = false;
+
+// génération d'une constante HOME, qui contient l'url absolue vers la racine du site
+define('HOME', 'http://' . $_SERVER['SERVER_NAME'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
+
+//recette par défaut pour la page recipe
 $currentRecipe = 1;
-include 'application/bdd_connection.php';
-include 'pages/header.php';
-include 'pages/viewRecipe.php';
-//interrogation pour voir la dernière recette
-    $query = '
+
+require_once 'application/bdd_connection.php';
+include 'php/header.php';
+include 'php/recipe.php';
+
+//interrogation pour voir la dernière recette : A DEPLACER DANS MODELE
+$query = '
         SELECT
             id,
             name,
@@ -12,19 +22,22 @@ include 'pages/viewRecipe.php';
         FROM recette
         ORDER BY creation_date DESC
     ';
-    $resultSet = $pdo->query($query);
-    $recettes = $resultSet->fetch();
-    $resultSet->closeCursor();//fermeture
+$resultSet = $pdo->query($query);
+$recettes = $resultSet->fetch();
+//$resultSet->closeCursor();//fermeture
 
-    // génération d'une constante HOME, qui contient l'url absolue vers la racine du site
-    define("HOME", 'http://' . $_SERVER['SERVER_NAME'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
 
-    //on choisit quelle page afficher avec le DISPATCHER
-    require_once "php/dispatcher.php";
+//on choisit quelle page afficher avec le DISPATCHER
+    require_once "php\dispatcher.php";
 
     // 2. On récupère les données à afficher et on reçoit les formulaires, c'est le CONTROLLEUR
-    //require_once "php\controller.php";
+    require_once "php\controller.php";
 
     // chargement de la vue
     $template = 'index';
-    include 'pages/layout.phtml';
+    include 'pages\layout.phtml';
+
+//TODO URL Rewriting avec .htaccess - 20mn mettre en place MVC
+
+
+
