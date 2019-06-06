@@ -8,8 +8,11 @@
     <!-- chargement de la librairie jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Shadows+Into+Light&display=swap" rel="stylesheet">
+
     <!-- CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -19,14 +22,15 @@
 
 </head>
 <body>
-    <?php include "header.phtml" ?>
+<?php include "header.phtml" ?>
 
-    <main class="container center">
-        <!-- Chargement du template PHTML spécifié par le PHP -->
-       <?php include $template.'.phtml' ?>
-    </main>
+<main class="container center">
+    <!-- Chargement du template PHTML spécifié par dispatcher.php -->
+    <?php include "application/view/$template.phtml"; ?>
+</main>
 
-    <?php include "footer.phtml" ?>
-    <script src="js/main.js"></script>
+<?php include "footer.phtml" ?>
+
+<script src="js/main.js"></script>
 </body>
 </html>
