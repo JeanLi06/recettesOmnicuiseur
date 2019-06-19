@@ -1,21 +1,24 @@
-<!--page afficher une recette-->
-<p>Recette N° <?= "$currentRecipe / $recipeQuantity" ?></p>
+<!--page afficher une recette parmi d'autres-->
+
+
+
+<p>Recette N°  <?= $_SESSION['indexCurrentRecipe'] + 1 ?> / <?= $recipeQuantity ?></p>
 <nav id="recipeNavigation">
-    <a href="" title="début"><i class="fas fa-fast-backward"></i></a>
-    <a href="" title=précédente""><i class="fas fa-step-backward"></i></a>
-    <a href="" title="suivante"><i class="fas fa-step-forward"></i></a>
-    <a href="" title="fin"><i class="fas fa-fast-forward"></i></a>
+    <a href="<?php echo 'index.php?page=recipes&action=first'?>" title="Début"><i class="fas fa-fast-backward"></i></a>
+    <a href="<?php echo 'index.php?page=recipes&action=previous'?>" title=Précédente"><i class="fas fa-step-backward"></i></a>
+    <a href="<?php echo 'index.php?page=recipes&action=next'?>" title="Suivante"><i class="fas fa-step-forward"></i></a>
+    <a href="<?php echo 'index.php?page=recipes&action=last'?>" title="Dernière"><i class="fas fa-fast-forward"></i></a>
 </nav>
 <article id="viewRecipeArticle">
-    <h3><?= htmlspecialchars($recette['name']) ?></h3>
-    <img src="img/<?= htmlspecialchars($recette['photo']) ?>"
-         alt="<?= htmlspecialchars($recette['name']) ?>"
-         title="<?= htmlspecialchars($recette['name']) ?>" class="viewRecipeImage">
+    <h3><?= htmlspecialchars($recette_from_id['name']) ?></h3>
+    <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>"
+         alt="<?= htmlspecialchars($recette_from_id['name']) ?>"
+         title="<?= htmlspecialchars($recette_from_id['name']) ?>" class="viewRecipeImage">
 
-    <p>Catégorie : <?= $recette['category']?></p>
-    <p>Pour <?= $recette['how_many_persons']?> personnes</p>
-    <p>Temps de cuisson : <?= $recette['cooking_time_minutes']?> mn</p>
+    <p>Catégorie : <?= htmlspecialchars($recette_from_id['category'])?></p>
+    <p>Pour <?= htmlspecialchars($recette_from_id['how_many_persons'])?> personnes</p>
+    <p>Temps de cuisson : <?= htmlspecialchars($recette_from_id['cooking_time_minutes'])?> mn</p>
     <p>Instructions :<p>
-        <p><?= $recette['note']?></p>
-    <p>Date de creation : <?= $recette['creation_date']?></p>
+        <p id="instructions"><?= htmlspecialchars($recette_from_id['note'])?></p>
+    <p>Date de creation : <?= htmlspecialchars($recette_from_id['creation_date'])?></p>
 </article>

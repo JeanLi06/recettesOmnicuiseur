@@ -3,6 +3,7 @@
     outline: none;
     text-decoration: none;
     transition: all .2s ease 0s;
+
     /* Visualisation des éléments */
     /*border: 1px dotted rgba(0,0,0,0.3);*/
 }
@@ -11,27 +12,27 @@
     transition: all .2s ease 0s;
 }
 
-html {font-size: 62.5%;}
+html {
+    font-size: 62.5%;
+}
 
+/*TODO flex ou block after ou pas ????? */
 body {
-    font-family: monospace, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     font-size: 1.6rem;
     line-height: 1.6;
-    color: #fbf9af;
+    color: #e76838;
     background-color: #db2d43;
-    /*background-image: url("../img/omnicuiseur-v6000-rouge.jpg");*/
     display: flex;
     flex-direction: column;
     height: 100vh;
-}
-
-body {
     position: relative;
 }
+
 body:after {
-    content : "";
+    content: "";
     display: block;
     position: absolute;
     top: 0;
@@ -40,25 +41,29 @@ body:after {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 100%;
-    height: 100%;
-    opacity : 0.05;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.05;
     /*z-index: -1;*/
 }
 
 a, a:hover, a:visited, a:active {
     text-decoration: none;
-    color: #fbf9af;
     font-size: 2rem;
 }
 
-header, footer {
+nav #recipeNavigation{
+    color: #fbf9af;
+}
+
+header {
     display: flex;
+    position: fixed;
     justify-content: space-between;
     align-items: center;
-    background-color: #e76838;
-    color: #fbf9af;
+    background-color: #fbf9af;
     height: 5rem;
+    width: 100%;
     padding: 0 3rem;
     z-index: 100;
 }
@@ -72,18 +77,48 @@ main {
     width: 1200px;
     z-index: 10;
 }
+#mainNavigation a{
+    color: #fefefe;
+}
+
+nav ul li{
+    margin: 0 5px;
+    padding: 0 15px;
+    background-color: #e76838;
+}
+
+nav ul li {
+    display: inline-block;
+    border-radius: 5px;
+}
+
+nav ul:hover > li{
+    background-color: #c0512a;
+    opacity: 0.5;
+}
+
+nav ul:hover > li:hover{
+    opacity: 1;
+}
 
 /*Pour faire un colspan de la première ligne du main*/
- main span {
-     margin: 25px 50px 50px 20px;
- }
+main span {
+    margin: 25px 50px 50px 20px;
+}
 
- /*la dernière recette*/
+/*la recette*/
 main aside {
     align-self: center;
-    border: 2px solid #fbf9af;
+    border: 2px solid #a8026f;
     border-radius: 5px;
     padding: 10px;
+}
+
+p#instructions {
+    width: 75%;
+    margin: 0 auto;
+    white-space: pre-line;
+    text-align: left;
 }
 
 /*Bouton Trouver*/
@@ -92,8 +127,13 @@ main aside {
     border: none;
     border-radius: 50%;
 }
+
 aside h2 {
     flex-grow: 1;
+}
+
+aside h3 {
+    font-family: 'Shadows Into Light', cursive;
 }
 
 aside img {
@@ -103,25 +143,37 @@ aside img {
 .input {
     color: #222222;
     border-radius: 5px;
-    background-color: #fbf9af;
+    background-color: #fefefe;
 }
+
 .container {
     max-width: 1000px;
-
     margin: 0 auto;
-    background-color: #a8026f;
+    background-color: #fefefe;
+    border: #a8026f 2px solid;
+    border-radius: 5px;
 }
 
-.left {float: left;}
-.right {float: right;}
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
 .center {
     margin: 0 auto;
     text-align: center;
 }
 
-.hidden {display: none;}
+.hidden {
+    display: none;
+}
 
-.bold {font-weight: bold;}
+.bold {
+    font-weight: bold;
+}
 
 /********* page viewRecipe ************/
 .viewRecipeImage {
