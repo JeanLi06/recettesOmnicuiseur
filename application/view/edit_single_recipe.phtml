@@ -1,0 +1,40 @@
+<!--Formulaire d'ajout de recette-->
+<?php if (array_key_exists('error', $_GET) && !empty($_GET['error'])): ?>
+    
+    <p class="error">
+        <?= htmlspecialchars($_GET['error']) ?>
+        <?=  $_SESSION['name'] ?>
+    </p>
+<?php endif ?>
+
+<form action="application\php\add_recipe.php" method="POST" class="form" enctype="multipart/form-data">
+    <label for="name">Nom</label>
+    <input type="text" id="name" name="name" placeholder="Nom de la recette" required>
+    
+    <label for="photo">Choisir une photo</label>
+    <input type="file" id="photo" name="photo" required>
+
+    <label for="ingredients_list">Ingrédients</label>
+    <textarea id="ingredients_list" name="ingredients_list" placeholder="Liste des ingrédients" rows="10" required></textarea>
+    
+    <label for="how_many_persons">Personnes</label>
+    <input type="text" id="how_many_persons" name="how_many_persons" placeholder="Combien de personnes" required>
+    
+    <label for="cooking_time_minutes">Temps de cuisson</label>
+    <input type="text" id="cooking_time_minutes" name="cooking_time_minutes" placeholder="Temps en minutes" required>
+
+    <label for="cooking_instructions">Intructions</label>
+    <textarea id="cooking_instructions" name="cooking_instructions" placeholder="Instructions" rows="10" required></textarea>
+    
+    <label for="category">Catégorie</label>
+    <select name="category" id="category" required>
+        <option value="Entrée">Entrée</option>
+        <option value="Plat">Plat</option>
+        <option value="Dessert">Dessert</option>
+    </select>
+
+    <label for="note">Notes</label>
+    <textarea id="note" name="note" placeholder="Notes / Instructions supplémentaires" rows="5"></textarea>
+
+    <button type="submit" name="submit">Enregistrer</button>
+</form>
