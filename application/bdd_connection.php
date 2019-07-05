@@ -1,5 +1,4 @@
 <?php
-echo 'connection bdd';
 	//	Connexion à la base de données
 	$pdo = new PDO
 	(

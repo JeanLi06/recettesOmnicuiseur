@@ -1,15 +1,13 @@
 <!--page afficher une recette parmi d'autres-->
 
-
-
 <p>Recette N°  <?= $_SESSION['indexCurrentRecipe'] + 1 ?> / <?= $recipeQuantity ?></p>
-<nav id="recipeNavigation">
+<nav id="recipe_navigation">
     <a href="<?php echo 'index.php?page=recipes&action=first'?>" title="Début"><i class="fas fa-fast-backward"></i></a>
     <a href="<?php echo 'index.php?page=recipes&action=previous'?>" title=Précédente"><i class="fas fa-step-backward"></i></a>
     <a href="<?php echo 'index.php?page=recipes&action=next'?>" title="Suivante"><i class="fas fa-step-forward"></i></a>
     <a href="<?php echo 'index.php?page=recipes&action=last'?>" title="Dernière"><i class="fas fa-fast-forward"></i></a>
 </nav>
-<article id="viewRecipeArticle">
+<article id="view_recipe_article">
     <h3><?= htmlspecialchars($recette_from_id['name']) ?></h3>
     <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>"
          alt="<?= htmlspecialchars($recette_from_id['name']) ?>"
@@ -18,7 +16,11 @@
     <p>Catégorie : <?= htmlspecialchars($recette_from_id['category'])?></p>
     <p>Pour <?= htmlspecialchars($recette_from_id['how_many_persons'])?> personnes</p>
     <p>Temps de cuisson : <?= htmlspecialchars($recette_from_id['cooking_time_minutes'])?> mn</p>
+    <p>Ingrédients : <?= nl2br(htmlspecialchars($recette_from_id['ingredients_list']))?></p>
     <p>Instructions :<p>
-        <p id="instructions"><?= htmlspecialchars($recette_from_id['note'])?></p>
+<!--    TODO Verfifier de partout nl2br-->
+    <p id="instructions"><?= nl2br(htmlspecialchars($recette_from_id['cooking_instructions']))?></p>
+    <p>Notes :<p>
+    <p id="note"><?= nl2br(htmlspecialchars($recette_from_id['note'])) ?></p>
     <p>Date de creation : <?= htmlspecialchars($recette_from_id['creation_date'])?></p>
 </article>

@@ -1,13 +1,9 @@
 <!--page d'accueil-->
-<span>
-        <label for="findRecipe" class="bold">Rechercher une recette</label>
-        <input type="text" id="findRecipe" class="input">
-        <button id="buttonSearchRecipe" title="Trouver la recette">
-            <i class="fab fa-searchengin"></i></button>
-</span>
 <aside>
     <h2>Dernière recette créée</h2>
     <h3><?= htmlspecialchars($recettes['name']) ?></h3>
-    <img src="img/<?= htmlspecialchars($recettes['photo']) ?>" alt="<?= htmlspecialchars($recettes['name']) ?>"
+        <a href="index.php?page=recipes&action=first">
+            <img src="img/<?= htmlspecialchars($recettes['photo']) ?>" alt="<?= htmlspecialchars($recettes['name']) ?>"
          title="<?= htmlspecialchars($recettes['name']) ?>">
+    </a>
 </aside>

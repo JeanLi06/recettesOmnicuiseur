@@ -1,0 +1,27 @@
+<table class="recettes">
+    <caption>Liste des recettes</caption>
+    <tr>
+        <th>Photo</th>
+        <th class="nom">Nom</th>
+        <th class="date">Date</th>
+        <th>Action</th>
+    </tr>
+    <?php foreach ($list_recipes as $list_recipe): ?>
+        <tr>
+            <td hidden><?= htmlspecialchars($list_recipe['id']) ?></td>
+            <td><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>" alt="" width="100px" height="auto" class="photo"></td>
+            <td class="td nom"><?= htmlspecialchars($list_recipe['name']) ?></td>
+            <td class="td date"><?= htmlspecialchars($list_recipe['creation_date']) ?></td>cooking_instructions
+            <td>
+                <a href="index.php?page=edit_recipes&action=edit_single_recipe&id=<?= $list_recipe['id']?>"><i class="fa fa-pen-alt" title="Editer"></i></a>
+<!--                TODO Rajouter confirmation de suppression - MODAL-->
+                <a href="index.php?page=edit_single_recipe&action=deleteRecipe&id=<?= $list_recipe['id']?>"><i class="fa fa-trash" title="Effacer"></i></a>
+<!--   TODO confirmation effacement             -->
+<!--                <script>-->
+<!--                    confirm('test');-->
+<!--                </script>-->
+            </td>
+        </tr>
+    <?php endforeach ?>
+</table>
+ 

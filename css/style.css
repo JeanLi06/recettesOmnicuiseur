@@ -4,31 +4,11 @@
 
  *******************************************************/
 
-.content {
-    margin: 0 auto;
-    width: 90%;
-    max-width: 1200px;
-}
-
-.flex-row { flex-direction: column; }
-
-.flex-row > * + * { margin-top: 1rem; }
-
-.flex-wrap { flex-wrap: wrap; }
-
-.flex-wrap > * { white-space: nowrap; }
-
-.text-right { text-align: right; }
-
-.flex-right, .flex-end { justify-content: flex-end; }
-
-.float-right { float: right; }
-
-.text-left { text-align: left; }
-
-.flex-left, .flex-start { justify-content: flex-start; }
-
-.float-left { float: left; }
+/*.content {*/
+    /*margin: 0 auto;*/
+    /*width: 90%;*/
+    /*max-width: 1200px;*/
+/*}*/
 
 .hidden { display: none }
 

@@ -2,7 +2,6 @@
 //    echo getcwd() . "\n";
     
     if (isset($_GET) && !empty($_GET['id']) && empty($_POST['submit'])) {
-//        session_start();
         require_once 'application/bdd_connection.php';
         $query = '
         SELECT
@@ -22,43 +21,37 @@
         $resultSet = $pdo->prepare($query);
         $resultSet->execute([(int)$_GET['id']]);
         $recette_from_id = $resultSet->fetch();
-        
-        //on stocke en session pour transmettre sur la page envoyée en post
-        $_SESSION['recette_from_id'] = $recette_from_id;
     }
     
     
     if (isset($_POST['submit'])) {
-        session_start();
         //On récupère les infos d'une recette donnée par son ID
-        $recette_from_id =  $_SESSION['recette_from_id'];
-        echo 'post';
 //        TODO c'est le même code que pour sur recipes.php
+            echo 'post';
 //        if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] === 'recipes') {
 //            if (!isset($id_recette)) $id_recette = 0; //id recette par défaut, si non définie
-        if (empty($_POST['name']) || empty($_POST['ingredients_list']) || empty($_POST['how_many_persons']) || empty($_POST['cooking_time_minutes'])
-            || empty($_POST['cooking_instructions']) || empty($_POST['category']) || empty($_POST['recette_id'])) {
-          
+            if (empty($_POST['name']) || empty($_POST['ingredients_list']) || empty($_POST['how_many_persons']) || empty($_POST['cooking_time_minutes'])
+                || empty($_POST['cooking_instructions']) || empty($_POST['category']) || empty($_POST['recette_id'])) {
 //            TODO Afficher erreur
-            header('Location: ../../index.php?page=edit_single_recipe&&error=Certains%20champs%20sont%20les%20vides');
-        } elseif (is_nan($_POST['how_many_persons']) || is_nan($_POST['cooking_time_minutes']) || $_POST['recette_id']) {
-            //Si les champs de sont pas des nombre, alors erreur
-            header('Location: ../../index.php?page=edit_single_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
-        } else {
-            $_GET['error'] = '';
-            //On extrait les variables de $_POST
-            $recette_id = (int)$_POST['recette_id'];
-            $name = trim($_POST['name']);
-            $photo = $_FILES['photo']['name'];
-            $ingredients_list = $_POST['ingredients_list'];
-            $how_many_persons = (int)trim($_POST['how_many_persons']);
-            $cooking_time_minutes = (int)trim($_POST['cooking_time_minutes']);
-            $cooking_instructions = $_POST['cooking_instructions'];
-            $category = $_POST['category'];
-            $note = $_POST['note'];
-            
-            //Test si fichier photo bien envoyé et pas d'erreurs
-            // +   test si la taille < 1Mo
+                header('Location: ../../index.php?page=edit_single_recipe&&error=Certains%20champs%20sont%20les%20vides');
+            } elseif (is_nan($_POST['how_many_persons']) || is_nan($_POST['cooking_time_minutes']) || $_POST['recette_id']) {
+                //Si les champs de sont pas des nombre, alors erreur
+                header('Location: ../../index.php?page=edit_single_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
+            } else {
+                $_GET['error'] = '';
+                //On extrait les variables de $_POST
+                $recette_id = (int)$_POST['recette_id'];
+                $name = trim($_POST['name']);
+                $photo = $_FILES['photo']['name'];
+                $ingredients_list = $_POST['ingredients_list'];
+                $how_many_persons = (int)trim($_POST['how_many_persons']);
+                $cooking_time_minutes = (int)trim($_POST['cooking_time_minutes']);
+                $cooking_instructions = $_POST['cooking_instructions'];
+                $category = $_POST['category'];
+                $note = $_POST['note'];
+
+                //Test si fichier photo bien envoyé et pas d'erreurs
+                // +   test si la taille < 1Mo
 //                if (isset($_FILES['photo']) && $_FILES['photo']['error'] === 0 && $_FILES['photo']['size'] <= 1048576) {
 //                    //On récupère l'extension
 //                    $infosfichier = pathinfo($_FILES['photo']['name']);
@@ -71,9 +64,9 @@
 ////                    }
 //                }
 //    On peut alors écrire dans la base
-            require_once 'application/bdd_connection.php';
-            
-            $query = "UPDATE `recette`
+                require_once 'application/bdd_connection.php';
+
+                $query = "UPDATE `recette`
                       SET name = ?,
                           photo = ?,
                           ingredients_list = ?,
@@ -84,11 +77,14 @@
                           note = ?,
                           creation_date = NOW()
                       WHERE id = ?";
-
-                execute($query, [$name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, $recette_id]);
- 
-        }
-//        header('Location: ../../index.php?page=edit_recipes');
+                try {
+                    execute($query, [$name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, $recette_id]);
+                } catch (Exception $e) {
+                    echo 'erreur PDO ' . $e->getMessage();
+                    die();
+                }
+            }
+            header('Location: ../../index.php?pages=add_recipe');
 //        }
     }
    
