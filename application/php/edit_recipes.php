@@ -1,15 +1,15 @@
 <?php
 
 //    On génère la liste des recettes
-    $query = '
+    $query = "
         SELECT
             id,
             name,
             photo,
-            creation_date
+            DATE_FORMAT(creation_date, '%d-%m-%Y à %Hh%i') as creation_date_formatted
         FROM recette
         ORDER BY creation_date DESC
-    ';
+    ";
     $result_set = $pdo->prepare($query);
     $result_set->execute();
     $list_recipes = $result_set->fetchAll();
@@ -29,11 +29,13 @@
 //                    Si la session pointe sur la recette effacée, on la remet à l'index 0
                     if ($_GET['id'] === $_SESSION['indexCurrentRecipe']) $_SESSION['indexCurrentRecipe'] = 0;
                     header('Location: index.php?page=home');
+                    exit();
                 }
                 break;
     
                 case 'edit_single_recipe':
                     header('Location: index.php?page=edit_single_recipe&id='.$_GET['id']);
+                    exit();
         }
     }
 

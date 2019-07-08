@@ -10,9 +10,11 @@
         if (empty($_POST['name']) || empty($_POST['ingredients_list']) || empty($_POST['how_many_persons']) || empty($_POST['cooking_time_minutes'])
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
             header('Location: ../../index.php?page=add_recipe&error=Veuillez%20remplir%20tous%20les%20champs');
+            exit();
         } elseif (is_nan($_POST['how_many_persons']) || is_nan($_POST['cooking_time_minutes'])) {
             //Si les champs de sont pas des nombre, alors erreur
             header('Location: ../../index.php?page=add_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
+            exit();
         } else {
             $_GET['error'] = '';
             //On extrait les variables de $_POST
@@ -51,4 +53,5 @@
         }
 //        Ajouter un message de confirmation d'ajout
         header('Location: index.php?page=home');
+        exit();
     }

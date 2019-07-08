@@ -32,9 +32,11 @@
                 || empty($_POST['cooking_instructions']) || empty($_POST['category']) || empty($_POST['recette_id'])) {
 //            TODO Afficher erreur
                 header('Location: ../../index.php?page=edit_single_recipe&&error=Certains%20champs%20sont%20les%20vides');
+                exit();
             } elseif (is_nan($_POST['how_many_persons']) || is_nan($_POST['cooking_time_minutes']) || $_POST['recette_id']) {
                 //Si les champs de sont pas des nombre, alors erreur
                 header('Location: ../../index.php?page=edit_single_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
+                exit();
             } else {
                 $_GET['error'] = '';
                 //On extrait les variables de $_POST
@@ -83,6 +85,7 @@
                 }
             }
             header('Location: ../../index.php?pages=add_recipe');
+        exit();
 //        }
     }
    

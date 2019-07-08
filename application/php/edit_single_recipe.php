@@ -38,10 +38,12 @@
 
 //            TODO Afficher erreur
             header('Location: ../../index.php?page=edit_single_recipe&&error=Certains%20champs%20sont%20les%20vides');
+            exit();
             //Si les champs de sont pas des nombre, alors erreur
         } elseif (!ctype_digit($_POST['how_many_persons']) || !ctype_digit($_POST['cooking_time_minutes'])) {
 //            TODO Verifier affichage erreur
             header('Location: ../../index.php?page=edit_single_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
+            exit();
         } else {
             $_GET['error'] = '';
             //On extrait les variables de $_POST
@@ -95,6 +97,6 @@
             
         }
         header('Location: ../../index.php?page=edit_recipes');
-//        }
+        exit();
     }
    

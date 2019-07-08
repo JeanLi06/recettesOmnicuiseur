@@ -35,7 +35,7 @@ if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] ==
             cooking_instructions,
             category,
             note,
-            creation_date
+            DATE_FORMAT(creation_date, \'%d-%m-%Y à %Hh%i\') as creation_date_formatted
         FROM recette
         WHERE id = ?
         ORDER BY creation_date DESC 
@@ -52,6 +52,7 @@ if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] ==
             case 'first':
                 $_SESSION['indexCurrentRecipe']  = 0;
                 header('Location: index.php?page=recipes');
+                exit();
                 break;
 
             case 'previous':
@@ -60,6 +61,7 @@ if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] ==
                     $_SESSION['indexCurrentRecipe'] = 0;
                 }
                 header('Location: index.php?page=recipes');
+                exit();
                 break;
 
             case 'next':
@@ -68,11 +70,13 @@ if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] ==
                     $_SESSION['indexCurrentRecipe']  = count($tableIDs)-1;
                 }
                 header('Location: index.php?page=recipes');
+                exit();
                 break;
 
             case 'last':
                 $_SESSION['indexCurrentRecipe']  = count($tableIDs) - 1;
                 header('Location: index.php?page=recipes');
+                exit();
                 break;
         }
     }
