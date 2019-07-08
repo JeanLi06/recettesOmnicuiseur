@@ -49,5 +49,6 @@
                 echo 'erreur' . $e->getMessage();
             }
         }
-        header('Location: index.php?pages=add_recipe');
+//        Ajouter un message de confirmation d'ajout
+        header('Location: index.php?page=home');
     }

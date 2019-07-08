@@ -11,11 +11,16 @@
             <td hidden><?= htmlspecialchars($list_recipe['id']) ?></td>
             <td><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>" alt="" width="100px" height="auto" class="photo"></td>
             <td class="td nom"><?= htmlspecialchars($list_recipe['name']) ?></td>
-            <td class="td date"><?= htmlspecialchars($list_recipe['creation_date']) ?></td>cooking_instructions
+            <td class="td date"><?= htmlspecialchars($list_recipe['creation_date']) ?></td>
             <td>
                 <a href="index.php?page=edit_recipes&action=edit_single_recipe&id=<?= $list_recipe['id']?>"><i class="fa fa-pen-alt" title="Editer"></i></a>
 <!--                TODO Rajouter confirmation de suppression - MODAL-->
-                <a href="index.php?page=edit_single_recipe&action=deleteRecipe&id=<?= $list_recipe['id']?>"><i class="fa fa-trash" title="Effacer"></i></a>
+<!--                <a href="index.php?page=edit_single_recipe&action=deleteRecipe&id=--><?//= $list_recipe['id']?><!--"><i class="fa fa-trash" title="Effacer"></i></a>-->
+<!--                On demande confirmation avant d'effacer -->
+                <a onClick="return confirm('Voulez-vous vraimenent supprimer la recette ?');"
+                   href='index.php?page=edit_recipes&action=delete_recipe&id=<?= $list_recipe['id']?>'>
+                   <i class="fa fa-trash" title="Effacer"></i>
+                 </a>
 <!--   TODO confirmation effacement             -->
 <!--                <script>-->
 <!--                    confirm('test');-->

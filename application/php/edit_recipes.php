@@ -14,12 +14,12 @@
     $result_set->execute();
     $list_recipes = $result_set->fetchAll();
 
-//    Traitement de la commande depuis edit_recipes.phtml
+//    Traitement de la commande transmise depuis edit_recipes.phtml
     if (isset($_GET['action']) && !empty($_GET['action'])) {
         
         switch ($_GET['action']) {
-            
-            case 'deleteRecipe':
+//            Effacement de la recette
+            case 'delete_recipe':
                 if (isset($_GET['id']) && !empty($_GET['id']) && ctype_digit($_GET['id'])) {
                     $sql = 'DELETE FROM `recette`
                             WHERE `id` = ?';
@@ -28,7 +28,7 @@
                     unlink('img/test.jpg');
 //                    Si la session pointe sur la recette effacée, on la remet à l'index 0
                     if ($_GET['id'] === $_SESSION['indexCurrentRecipe']) $_SESSION['indexCurrentRecipe'] = 0;
-                    header('Location: index.php?page=edit_recipes');
+                    header('Location: index.php?page=home');
                 }
                 break;
     

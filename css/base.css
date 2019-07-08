@@ -183,6 +183,7 @@ section a, section a:visited {
 .form {
     display: flex;
     flex-direction: column;
+    margin-top: 4rem;
     padding: 0 5rem;
 }
 

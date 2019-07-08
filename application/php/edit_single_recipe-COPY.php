@@ -26,8 +26,6 @@
     
     if (isset($_POST['submit'])) {
         //On récupère les infos d'une recette donnée par son ID
-//        TODO c'est le même code que pour sur recipes.php
-            echo 'post';
 //        if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] === 'recipes') {
 //            if (!isset($id_recette)) $id_recette = 0; //id recette par défaut, si non définie
             if (empty($_POST['name']) || empty($_POST['ingredients_list']) || empty($_POST['how_many_persons']) || empty($_POST['cooking_time_minutes'])
