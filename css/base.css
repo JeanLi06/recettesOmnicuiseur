@@ -105,6 +105,19 @@ main span {
     margin: 25px 50px 50px 20px;
 }
 
+.flash_error, .flash_confirm {
+    margin-top: 1em;
+    color: #eeeeee;
+}
+
+.flash_error {
+     background-color: red;
+ }
+
+.flash_confirm {
+    background-color: green;
+}
+
 /*la recette*/
 main aside {
     align-self: center;

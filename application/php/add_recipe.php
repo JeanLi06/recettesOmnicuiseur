@@ -47,11 +47,12 @@
                       VALUES (?,?,?,?,?,?,?,?, NOW())";
             try {
                 execute($query, [$name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note]);
-            } catch (Exception $e) {
+            } catch (PDOException $e) {
                 echo 'erreur' . $e->getMessage();
             }
         }
 //        Ajouter un message de confirmation d'ajout
+        $_SESSION['message']['confirm'] = "Ajout de la recette effectué"
         header('Location: index.php?page=home');
         exit();
     }
