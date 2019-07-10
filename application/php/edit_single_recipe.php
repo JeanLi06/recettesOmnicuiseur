@@ -71,13 +71,17 @@
             $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
             if (in_array($extension_upload, $extensions_autorisees, true)) {
 //                        // Jusqu'ici, tout va bien, donc on peut stocker le fichhier temporaire sur le disque
-                move_uploaded_file($_FILES['photo']['tmp_name'], '../../img/' . basename($_FILES['photo']['name']));
+                //            On génère un nom de fichier unique avec un hash md5 + time
+                $unique_filename = md5(basename($photo) . time());
+                $file_extension = strrchr($photo, '.');
+                $full_unique_name = $unique_filename . $file_extension;
+                move_uploaded_file($_FILES['photo']['tmp_name'], '../../img/' . $full_unique_name);
 //                    On efface l'ancienne photo
 //                    echo unlink('../img/'. $photo . '\')';
 //                    define("WEB_ROOT",substr(__DIR__,0,strlen(__DIR__)-3));
                 $image_to_delete = "../../img/{$photo}";
                 unlink($image_to_delete);
-                $photo = $_FILES['photo']['name']; //Il faut mettre à jour le nom de la photo
+                $photo = $full_unique_name; //mise à jour le nom de la photo
             }
         }
 //    On peut alors écrire dans la base

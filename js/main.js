@@ -1,12 +1,13 @@
 "use strict";
 
 // ecouteur d'évènement sur le changement du fichier photo de edit_single_recipe.phtml
-$(function () {
-    $('#photo').change( function () {
-        // on change le src de l'image
-        $('#image_recette').attr('src', 'img/test.jpg');
-    })
-});
+// $(function () {
+//     $('#photo').change( function () {
+//         // on change le src de l'image
+//         //TODO coder en dynamique
+//         $('#image_recette').attr('src', 'img/test.jpg');
+//     })
+// });
 
 /////////////Update de l'image après choix utilisateur sur pages update & create////////////////
 function readURL(input) {
@@ -16,7 +17,6 @@ function readURL(input) {
         reader.onload = function (e) {
             $('#image_recette').attr('src', e.target.result);
         }
-
         reader.readAsDataURL(input.files[0]);
     }
 }

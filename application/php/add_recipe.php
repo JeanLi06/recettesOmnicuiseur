@@ -1,5 +1,4 @@
 <?php
-    
 //    TODO On verifie que la session n'est déjà pas créée'
     if (session_status() === PHP_SESSION_NONE) session_start();
     $_SESSION['name'] = isset($_SESSION['name']) ? $_SESSION['name'] : null;
@@ -11,48 +10,53 @@
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
             header('Location: ../../index.php?page=add_recipe&error=Veuillez%20remplir%20tous%20les%20champs');
             exit();
-        } elseif (is_nan($_POST['how_many_persons']) || is_nan($_POST['cooking_time_minutes'])) {
+        }
+    
+        if (is_nan($_POST['how_many_persons']) || is_nan($_POST['cooking_time_minutes'])) {
             //Si les champs de sont pas des nombre, alors erreur
             header('Location: ../../index.php?page=add_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
             exit();
-        } else {
-            $_GET['error'] = '';
-            //On extrait les variables de $_POST
-            $name = trim($_POST['name']);
-            $photo = $_FILES['photo']['name'];
-            $ingredients_list = $_POST['ingredients_list'];
-            $how_many_persons = (int)trim($_POST['how_many_persons']);
-            $cooking_time_minutes = (int)trim($_POST['cooking_time_minutes']);
-            $cooking_instructions = $_POST['cooking_instructions'];
-            $category = $_POST['category'];
-            $note = $_POST['note'];
-            
-            //Test si fichier photo bien envoyé et pas d'erreurs
-            // +   test si la taille < 1Mo
-            if (isset($_FILES['photo']) && $_FILES['photo']['error'] === 0 && $_FILES['photo']['size'] <= 1048576) {
-                //On récupère l'extension
-                $infosfichier = pathinfo($_FILES['photo']['name']);
-                $extension_upload = $infosfichier['extension'];
-                // On teste si elle fait partie des celles autorisées
-                $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
-                if (in_array($extension_upload, $extensions_autorisees, true)) {
-                    // Jusqu'ici, tout va bien, donc on peut stocker le fichhier temporaire sur le disque
-                    move_uploaded_file($_FILES['photo']['tmp_name'], '../../img/' . basename($_FILES['photo']['name']));
-                }
+        }
+        $_GET['error'] = '';
+        //On extrait les variables de $_POST
+        $name = trim($_POST['name']);
+        $photo = $_FILES['photo']['name'];
+        $ingredients_list = $_POST['ingredients_list'];
+        $how_many_persons = (int)trim($_POST['how_many_persons']);
+        $cooking_time_minutes = (int)trim($_POST['cooking_time_minutes']);
+        $cooking_instructions = $_POST['cooking_instructions'];
+        $category = $_POST['category'];
+        $note = $_POST['note'];
+    
+        //Test si fichier photo bien envoyé et pas d'erreurs
+        // +   test si la taille < 1Mo
+        if (isset($_FILES['photo']) && $_FILES['photo']['error'] === 0 && $_FILES['photo']['size'] <= 1048576) {
+            //On récupère l'extension
+            $infosfichier = pathinfo($_FILES['photo']['name']);
+            $extension_upload = $infosfichier['extension'];
+            // On teste si elle fait partie des celles autorisées
+            $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+            if (in_array($extension_upload, $extensions_autorisees, true)) {
+//                    Jusqu'ici, tout va bien, donc on peut stocker le fichhier temporaire sur le disque
+//            On génère un nom de fichier unique avec un hash md5 + time
+                $unique_filename = md5(basename($photo) . time());
+                $file_extension = strrchr($photo, '.');
+                $full_unique_name = $unique_filename . $file_extension;
+                move_uploaded_file($_FILES['photo']['tmp_name'], '../../img/' . $full_unique_name);
             }
+        }
 //    On peut alors écrire dans la base
-            require_once '../bdd_connection.php';
-            $query = "INSERT
-                      INTO recette (name, photo, ingredients_list, how_many_persons, cooking_time_minutes, cooking_instructions, category, note, creation_date)
-                      VALUES (?,?,?,?,?,?,?,?, NOW())";
-            try {
-                execute($query, [$name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note]);
-            } catch (PDOException $e) {
-                echo 'erreur' . $e->getMessage();
-            }
+        require_once '../bdd_connection.php';
+        $query = "INSERT
+                  INTO recette (name, photo, ingredients_list, how_many_persons, cooking_time_minutes, cooking_instructions, category, note, creation_date)
+                  VALUES (?,?,?,?,?,?,?,?, NOW())";
+        try {
+            execute($query, [$name, $full_unique_name, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note]);
+        } catch (PDOException $e) {
+            echo 'erreur' . $e->getMessage();
         }
 //        Ajouter un message de confirmation d'ajout
         $_SESSION['flash_confirm_message'] = "Ajout de la recette effectué";
-        header('Location: index.php?page=home');
+        header('Location: ../../index.php?page=home');
         exit();
     }
