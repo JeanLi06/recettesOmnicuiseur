@@ -6,7 +6,7 @@
     $_SESSION['name'] = isset($_GET['name']) ? $_POST['name'] : $_SESSION['name'];
     
     if (isset($_POST['submit'])) {
-//Si des champs sont vides (normalement, le navigateur gère ça, avec l'attribut required, mais bon...), on affiche une erreur et on redirige
+//Si des champs sont vides (normalement, le navigateur gère ça, avec l'attribut required, mais il ne faut jamais faire confiance aux données utilisateur...), on affiche une erreur et on redirige
         if (empty($_POST['name']) || empty($_POST['ingredients_list']) || empty($_POST['how_many_persons']) || empty($_POST['cooking_time_minutes'])
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
             header('Location: ../../index.php?page=add_recipe&error=Veuillez%20remplir%20tous%20les%20champs');
@@ -52,7 +52,7 @@
             }
         }
 //        Ajouter un message de confirmation d'ajout
-        $_SESSION['message']['confirm'] = "Ajout de la recette effectué"
+        $_SESSION['flash_confirm_message'] = "Ajout de la recette effectué";
         header('Location: index.php?page=home');
         exit();
     }

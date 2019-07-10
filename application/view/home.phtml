@@ -1,33 +1,6 @@
 <!--page d'accueil-->
-<?php if (session_status() === PHP_SESSION_NONE) session_start() ?>
-
 <aside>
-    <?php $_SESSION['flash_confirm_message'] = "Erreur !" ?>
-    <!--    Gestion des messages flash -->
-    <?php if (isset($_SESSION['flash_error_message']) && !empty($_SESSION['flash_error_message']) || (isset($_SESSION['flash_confirm_message']) && !empty($_SESSION['flash_confirm_message']))): ?>
-        <div class="<?php //on charge la bonne classe selon le type de message
-            if (isset($_SESSION['flash_error_message'])): ?>
-                <?= 'flash_error' ?>
-            <?php elseif (isset($_SESSION['flash_confirm_message'])): ?>
-                <?= 'flash_confirm' ?>
-            <?php endif; ?>
-        " id="flash_message">
-            <?php if (isset($_SESSION['flash_error_message'])): ?>
-                      <?= $_SESSION['flash_error_message'] ?>
-            <?php endif; ?>
-            <?php if (isset($_SESSION['flash_confirm_message'])): ?>
-                <?= $_SESSION['flash_confirm_message'] ?>
-            <?php endif; ?>
-        
-        </div>
-        <script>
-            $(function () {
-                $('#flash_message').delay(2000).fadeOut("slow");
-            });
-        </script>
-        <?php unset($_SESSION['flash_error_message'])?>
-        <?php unset($_SESSION['flash_confirm_message'])?>
-    <?php endif ?>
+<?php include('application/php/flash_message.php'); ?>
     <h2>Dernière recette créée</h2>
     <h3><?= htmlspecialchars($recettes['name']) ?></h3>
     <a href="index.php?page=recipes&action=first">

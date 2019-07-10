@@ -1,10 +1,5 @@
 <!--Formulaire d'édition de recette-->
-<?php if (array_key_exists('error', $_GET) && !empty($_GET['error'])): ?>
-    <p class="error">
-        <?= htmlspecialchars($_GET['error']) ?>
-        <?= $_SESSION['name'] ?>
-    </p>
-<?php endif ?>
+<?php include('application/php/flash_message.php'); ?>
 
 <form action="application\php\edit_single_recipe.php" method="POST" class="form" enctype="multipart/form-data">
 

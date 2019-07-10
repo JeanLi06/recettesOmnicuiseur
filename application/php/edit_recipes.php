@@ -1,4 +1,5 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) session_start();
 
 //    On génère la liste des recettes
     $query = "
@@ -28,7 +29,8 @@
                     unlink('img/test.jpg');
 //                    Si la session pointe sur la recette effacée, on la remet à l'index 0
                     if ($_GET['id'] === $_SESSION['indexCurrentRecipe']) $_SESSION['indexCurrentRecipe'] = 0;
-                    header('Location: index.php?page=home');
+                    $_SESSION['flash_confirm_message'] = "Effacement de la recette effectué";
+                    header('Location: index.php?page=edit_recipes');
                     exit();
                 }
                 break;

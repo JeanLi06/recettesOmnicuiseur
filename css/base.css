@@ -106,8 +106,14 @@ main span {
 }
 
 .flash_error, .flash_confirm {
-    margin-top: 1em;
+    display: block;
+    position: fixed;
+    margin-top: 5px;
+    top: 30%;
+    left: 50%;
+    transform: translateY(-30%) translateX(-50%);
     color: #eeeeee;
+
 }
 
 .flash_error {
