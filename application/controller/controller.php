@@ -28,14 +28,13 @@ switch ($template) {
         break;
 
     case 'admin':
-        require_once 'application/php/admin.php';
+        require_once 'application/php/login_admin.php';
         echo '****** admin ******';
         break;
 
     case 'home':
 //        TODO reparer le home
 //        require_once '../php/home.php';
-        echo '****** home ******';
         break;
 
     default :

@@ -1,6 +1,6 @@
 <?php
 // TODO mettre controller et model
-session_start();
+if (session_status() === PHP_SESSION_NONE) session_start();
 
 //On stocke la recette consultée courante, afin d'y revenir en cas de navigation sur une autre page.
 //et on l'initialise à la dernière créée (index 0 car classement par date décroissante, dans la query SQL
@@ -41,6 +41,7 @@ if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] ==
         ORDER BY creation_date DESC 
     ';
     $resultSet = $pdo->prepare($query);
+//    TODO MEttre à jour indexCurrentRecipe dans les autre pages si effacement de la recette en cours
     $resultSet->execute($tableIDs[$_SESSION['indexCurrentRecipe']]);
     $recette_from_id = $resultSet->fetch();
 

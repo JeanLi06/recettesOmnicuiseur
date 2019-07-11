@@ -1,6 +1,6 @@
 <?php
 /**
- * Ce fichier va choisir quelle vue à afficher
+ * Ce fichier va choisir quelle vue afficher
  * Tout dépend de données fournies dans la chaine de requête
  */
 // définition d'une page par défaut "home"

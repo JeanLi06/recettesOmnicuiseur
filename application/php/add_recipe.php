@@ -1,6 +1,8 @@
 <?php
+
 //    TODO On verifie que la session n'est déjà pas créée'
     if (session_status() === PHP_SESSION_NONE) session_start();
+//    TODO Refactoriser
     $_SESSION['name'] = isset($_SESSION['name']) ? $_SESSION['name'] : null;
     $_SESSION['name'] = isset($_GET['name']) ? $_POST['name'] : $_SESSION['name'];
     

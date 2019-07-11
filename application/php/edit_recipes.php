@@ -22,7 +22,6 @@
 //            Effacement de la recette
             case 'delete_recipe':
                 if (isset($_GET['id']) && !empty($_GET['id']) && ctype_digit($_GET['id'])) {
-//
                     $sql = 'DELETE FROM `recette`
                             WHERE `id` = ?';
                     execute($sql, [(int)$_GET['id']]);
@@ -37,7 +36,7 @@
                     unlink('img/' . $photo_to_delete);
 //                    TODO SESSION nécessaire ?
 //                    Si la session pointe sur la recette effacée, on la remet à l'index 0
-                    if ($_GET['id'] === $_SESSION['indexCurrentRecipe']) $_SESSION['indexCurrentRecipe'] = 0;
+                    if ($_GET['id'] === $list_recipes[$_SESSION['indexCurrentRecipe']]['id']) $_SESSION['indexCurrentRecipe'] = 0;
                     $_SESSION['flash_confirm_message'] = "Effacement de la recette effectué";
                     header('Location: index.php?page=edit_recipes');
                     exit();
