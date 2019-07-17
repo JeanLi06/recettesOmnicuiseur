@@ -13,14 +13,14 @@
          alt="<?= htmlspecialchars($recette_from_id['name']) ?>"
          title="<?= htmlspecialchars($recette_from_id['name']) ?>" class="viewRecipeImage">
 
-    <p>Catégorie : <?= htmlspecialchars($recette_from_id['category'])?></p>
-    <p>Pour <?= htmlspecialchars($recette_from_id['how_many_persons'])?> personnes</p>
-    <p>Temps de cuisson : <?= htmlspecialchars($recette_from_id['cooking_time_minutes'])?> mn</p>
-    <p>Ingrédients : <?= nl2br(htmlspecialchars($recette_from_id['ingredients_list']))?></p>
-    <p>Instructions :<p>
+    <h4>Catégorie :</h4><p><?= htmlspecialchars($recette_from_id['category'])?></p>
+    <h4>Pour <?= htmlspecialchars($recette_from_id['how_many_persons'])?> personnes</h4>
+    <h4>Temps de cuisson :</h4><p><?= htmlspecialchars($recette_from_id['cooking_time_minutes'])?> mn</p>
+    <h4>Ingrédients :</h4><p><?= nl2br(htmlspecialchars($recette_from_id['ingredients_list']))?></p>
+    <h4>Instructions :</h4>
 <!--    TODO Verfifier de partout nl2br-->
-    <p id="instructions"><?= nl2br(htmlspecialchars($recette_from_id['cooking_instructions']))?></p>
-    <p>Notes :<p>
-    <p id="note"><?= nl2br(htmlspecialchars($recette_from_id['note'])) ?></p>
-    <p>Date de creation : <?= htmlspecialchars($recette_from_id['creation_date_formatted'])?></p>
+    <p><?= nl2br(htmlspecialchars($recette_from_id['cooking_instructions']))?></p>
+    <h4>Notes :</h4>
+    <p><?= nl2br(htmlspecialchars($recette_from_id['note'])) ?></p>
+    <h4>Date de creation :</h4><p id="recipe"><?= htmlspecialchars($recette_from_id['creation_date_formatted'])?></p>
 </article>

@@ -1,7 +1,8 @@
 <?php include_once 'application/php/flash_message.php' ?>
+<?php     unset($_SESSION['connected']); ?>
 
 <form method="POST" action="application\php\login_admin.php" class="form">
     <input type="text" placeholder="Nom d'utilisateur" name="admin_name">
     <input type="password" placeholder="Mot de passe" name="admin_password">
-    <input type="submit" placeholder="Connection" name="connection">
+    <button type="submit" name="connection">Connection</button>
 </form>

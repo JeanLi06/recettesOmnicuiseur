@@ -1,6 +1,6 @@
 <?php
     
-    if (isset($_GET) && !empty($_GET['id']) && empty($_POST['submit'])) {
+    if (!empty($_GET) && !empty($_GET['id']) && empty($_POST['submit'])) {
         require_once 'application/bdd_connection.php';
         $query = '
         SELECT
@@ -22,7 +22,7 @@
         $recette_from_id = $resultSet->fetch();
     }
     
-    if (isset($_POST['submit'])) {
+    if (!empty($_POST['submit'])) {
         echo getcwd() . "\n";
     
         //On extrait les variables de $_POST
@@ -35,7 +35,7 @@
         $cooking_instructions = $_POST['cooking_instructions'];
         $category = $_POST['category'];
         $note = $_POST['note'];
-        if (isset($_POST['submit'])) {
+        if (!empty($_POST['submit'])) {
             require_once '../bdd_connection.php';
         var_dump($name);
             $query = "UPDATE `recette`

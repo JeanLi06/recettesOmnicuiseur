@@ -4,7 +4,7 @@ RewriteEngine On
 #RewriteCond "%{REQUEST_FILENAME}" "!-f"
 #RewriteCond "%{REQUEST_FILENAME}" "!-d"
 RewriteRule	^admin             index.php?page=admin	[QSA]
-RewriteRule ^([a-zA-Z0-9]+)$ index.php?p=$1 [L]
+RewriteRule ^([a-zA-Z0-9_]+)$ index.php?page=$1 [L]
 
 #TODO vérifier la page 404
 ErrorDocument 404 /application/view/404.phtml

@@ -1,7 +1,7 @@
 <?php
 //    echo getcwd() . "\n";
     
-    if (isset($_GET) && !empty($_GET['id']) && empty($_POST['submit'])) {
+    if (!empty($_GET) && !empty($_GET['id']) && empty($_POST['submit'])) {
         require_once 'application/bdd_connection.php';
         $query = '
         SELECT
@@ -24,7 +24,7 @@
     }
     
     
-    if (isset($_POST['submit'])) {
+    if (!empty($_POST['submit'])) {
         //On récupère les infos d'une recette donnée par son ID
 //        if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] === 'recipes') {
 //            if (!isset($id_recette)) $id_recette = 0; //id recette par défaut, si non définie

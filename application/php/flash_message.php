@@ -2,20 +2,20 @@
 <!--TODO Essayer de mettre html et script sur une autre page -->
 <?php if (session_status() === PHP_SESSION_NONE) session_start() ?>
 
-    <?php if ((isset($_SESSION['flash_error_message']) && !empty($_SESSION['flash_error_message'])) || (isset($_SESSION['flash_confirm_message']) && !empty($_SESSION['flash_confirm_message']))): ?>
+    <?php if ((!empty($_SESSION['flash_error_message']) && !empty($_SESSION['flash_error_message'])) || (isset($_SESSION['flash_confirm_message']) && !empty($_SESSION['flash_confirm_message']))): ?>
 <!--        on charge la bonne classe selon le type de message-->
         <div class="
         <?php
-            if (isset($_SESSION['flash_error_message'])): ?>
+            if (!empty($_SESSION['flash_error_message'])): ?>
                 <?= 'flash_error' ?>
-            <?php elseif (isset($_SESSION['flash_confirm_message'])): ?>
+            <?php elseif (!empty($_SESSION['flash_confirm_message'])): ?>
                 <?= 'flash_confirm' ?>
             <?php endif; ?>
 <!--            Le message est caché à l'origne et sera révélé avec du JQuery-->
         " id="flash_message" hidden>
-            <?php if (isset($_SESSION['flash_error_message'])): ?>
+            <?php if (!empty($_SESSION['flash_error_message'])): ?>
                 <?= $_SESSION['flash_error_message'] ?>
-            <?php elseif (isset($_SESSION['flash_confirm_message'])): ?>
+            <?php elseif (!empty($_SESSION['flash_confirm_message'])): ?>
                 <?= $_SESSION['flash_confirm_message'] ?>
             <?php endif; ?>
         </div>
