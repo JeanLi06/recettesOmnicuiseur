@@ -10,8 +10,6 @@
     if (isset($_POST['connection']) && !empty($_POST['admin_name']) && !empty($_POST['admin_password'])) {
         $admin_name = htmlspecialchars(trim($_POST['admin_name']));
         $admin_password = htmlspecialchars(trim($_POST['admin_password']));
-        //    TODO A EFFACER echo password_hash('3waLive10', PASSWORD_BCRYPT);
-//        TODO EFFACER if(password_verify('3waLive10', '$2y$10$9i2QbBUELCFWLaxL0RVmjOkOfv/Ks1Aok/LvaPN8vTN3K.OZzF7Nq')) {
         if(password_verify($admin_password, '$2y$10$9i2QbBUELCFWLaxL0RVmjOkOfv/Ks1Aok/LvaPN8vTN3K.OZzF7Nq')) {
             $_SESSION['connected'] = true;
             $_SESSION['flash_confirm_message'] = 'Connection Admin effectuée';
