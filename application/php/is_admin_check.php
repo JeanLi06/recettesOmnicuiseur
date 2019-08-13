@@ -1,5 +1,5 @@
 <?php
-//    Ce code est à mettre au début de chaque page dont l'accès est interdit si on n'est pas un admin connecté
+//    Ce code est à inclure au début de chaque page dont l'accès est interdit si on n'est pas un admin connecté
     if (session_status() === PHP_SESSION_NONE) session_start();
 
 //    Si on n'est pas connecté, on envoie un message message d'erreur et on stoppe

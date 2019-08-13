@@ -1,7 +1,7 @@
 <?php include('application/php/flash_message.php'); ?>
 
 <?php // Protection de la page si non connecté ?>
-<?php require_once 'application/php/is_admin_check.php' ?>;
+<?php require_once 'application/php/is_admin_check.php' ?>
 
 <table class="recettes">
     <caption>Liste des recettes</caption>
@@ -20,14 +20,11 @@
             <td>
                 <a href="index.php?page=edit_recipes&action=edit_single_recipe&id=<?= $list_recipe['id']?>"><i class="fa fa-pen-alt" title="Editer"></i></a>
 <!--                On demande confirmation avant d'effacer -->
+<!--                TODO point virgule ? -->
                 <a onClick="return confirm('Voulez-vous vraimenent supprimer la recette ?');"
                    href='index.php?page=edit_recipes&action=delete_recipe&id=<?= $list_recipe['id']?>'>
                    <i class="fa fa-trash" title="Effacer"></i>
                  </a>
-<!--   TODO confirmation effacement             -->
-<!--                <script>-->
-<!--                    confirm('test');-->
-<!--                </script>-->
             </td>
         </tr>
     <?php endforeach ?>

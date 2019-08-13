@@ -26,4 +26,4 @@
         </script>
         <?php unset($_SESSION['flash_error_message']) ?>
         <?php unset($_SESSION['flash_confirm_message']) ?>
-    <?php endif ?>
+    <?php endif; ?>

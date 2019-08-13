@@ -40,7 +40,7 @@
             $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
             if (in_array($extension_upload, $extensions_autorisees, true)) {
 //                    Jusqu'ici, tout va bien, donc on peut stocker le fichhier temporaire sur le disque
-//            On génère un nom de fichier unique avec un hash md5 + time
+//            On génère un nom de fichier unique avec un hash md5 + time, ainsi on peut avoir des fichiers avec le même nom à l'origne.
                 $unique_filename = md5(basename($photo) . time());
                 $file_extension = strrchr($photo, '.');
                 $full_unique_name = $unique_filename . $file_extension;

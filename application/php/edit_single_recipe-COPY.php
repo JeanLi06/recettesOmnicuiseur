@@ -68,8 +68,8 @@
 
                 $query = "UPDATE `recette`
                       SET name = ?,
-                          photo = ?,
-                          ingredients_list = ?,
+                              photo = ?,
+                              ingredients_list = ?,
                           how_many_persons = ?,
                           cooking_time_minutes = ?,
                           cooking_instructions = ?,

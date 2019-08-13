@@ -4,7 +4,7 @@
 
 //On stocke la recette consultée courante, afin d'y revenir en cas de navigation sur une autre page.
 //et on l'initialise à la dernière créée (index 0 car classement par date décroissante, dans la query SQL
-//pour créer $tableIDs)
+//pour créer la table des id disponibles : $tableIDs)
     if (!isset($_SESSION['indexCurrentRecipe'])) $_SESSION['indexCurrentRecipe'] = 0;
 
 //On récup la liste des ID des recettes, dans un tableau triè par date décroissante

@@ -34,9 +34,8 @@
 //                    on peut alors récupérer le nom de la photo
                     $photo_to_delete = ($list_recipes[$found_index]['photo']);
                     unlink('img/' . $photo_to_delete);
-//                    TODO SESSION nécessaire ?
-//                    Si la recette courante (stokée en session pour l'afficahge sur recipes.php) pointe sur la recette effacée, on la remet à l'index 0
-                    if ($_GET['id'] === $list_recipes[$_SESSION['indexCurrentRecipe']]['id']) $_SESSION['indexCurrentRecipe'] = 0;
+//                    On efface l'index stocké en session
+                    $_SESSION['indexCurrentRecipe'] = 0;
                     $_SESSION['flash_confirm_message'] = "Effacement de la recette effectué";
                     header('Location: index.php?page=edit_recipes');
                     exit();

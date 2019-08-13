@@ -13,8 +13,18 @@
         if(password_verify($admin_password, '$2y$10$9i2QbBUELCFWLaxL0RVmjOkOfv/Ks1Aok/LvaPN8vTN3K.OZzF7Nq')) {
             $_SESSION['connected'] = true;
             $_SESSION['flash_confirm_message'] = 'Connection Admin effectuée';
+
             header('Location: ../../index.php?page=home');
-            echo 'conncecté';
             exit();
         }
     }
+
+if (isset($_POST['deconnection']) && $_SESSION['connected']) {
+    unset($_SESSION['connected']);
+    $_SESSION['flash_confirm_message'] = 'Déconnection Admin effectuée';
+
+    header('Location: ../../index.php?page=home');
+    exit();
+
+}
+

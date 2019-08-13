@@ -3,6 +3,9 @@
 //activer le debuggage (ou pas)
 $debug = false;
 
+//echo md5("cake_chocolat_ducasse" . time());
+//die();
+
 //on efface la session précédente
     $_SESSION = array();
 
