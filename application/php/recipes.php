@@ -40,14 +40,11 @@
         ORDER BY creation_date DESC 
     ';
         $resultSet = $pdo->prepare($query);
-//    TODO MEttre à jour indexCurrentRecipe dans les autre pages si effacement de la recette en cours
         $resultSet->execute($tableIDs[$_SESSION['indexCurrentRecipe']]);
         $recette_from_id = $resultSet->fetch();
 
-
-//navigation entre les recettes
-        
-        if (!empty($_GET['action'])) {
+        //navigation entre les recettes
+                if (!empty($_GET['action'])) {
             switch ($_GET['action']) {
                 case 'first':
                     $_SESSION['indexCurrentRecipe'] = 0;
