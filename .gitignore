@@ -1,1 +1,2 @@
 .idea
+/application/php/secret_key_captcha.php

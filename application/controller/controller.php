@@ -33,8 +33,7 @@ switch ($template) {
         break;
 
     case 'home':
-//        TODO reparer le home
-//        require_once '../php/home.php';
+        require_once './index.php';
         break;
 
     default :

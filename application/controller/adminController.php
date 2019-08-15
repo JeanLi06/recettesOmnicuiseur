@@ -1,8 +1,6 @@
 <?php
-
-/****************************************************************
- *                   Suppression d'une recette
- ****************************************************************/
+    
+    // Suppression d'une recette
 
 if (array_key_exists('id', $_GET) && ctype_digit($_GET['id']) && array_key_exists('action', $_GET)) {
     $action = $_GET['action'];
@@ -11,6 +9,7 @@ if (array_key_exists('id', $_GET) && ctype_digit($_GET['id']) && array_key_exist
     switch ($action) {
         case 'delete_recipe':
             // requête de suppression de l'article contenant l'id spécifié dans la query string
+//            TODO supprimer : voir edit_recipes.php
             die();
             $sql = "DELETE FROM `recette`
                     WHERE `id` = ?";

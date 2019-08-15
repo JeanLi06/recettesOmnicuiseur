@@ -26,7 +26,6 @@ html {
     /*background-color: #db2d43;*/
 }
 
-/*TODO flex ou block after ou pas ????? */
 body {
     font-size: 1.6rem;
     line-height: 1.6;
@@ -73,7 +72,7 @@ header {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     flex-grow: 1; /* pour occuper toute la hauteur */
     margin-top: 60px;
     padding: 3rem 0;
@@ -180,7 +179,7 @@ aside img {
 .container {
     max-width: 1000px;
     width: 80%;
-    margin: 20px auto 0;
+    margin: 55px auto;
     background-color: #1e3799;
     border-radius: 10px;
 }

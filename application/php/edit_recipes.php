@@ -1,7 +1,8 @@
 <?php
     if (session_status() === PHP_SESSION_NONE) session_start();
     require_once('application/bdd_connection.php');
-//    On génère la liste des recettes
+
+//Genère un tableau contenant une liste des recettes existantes, avec l'ID le nom, le nom de la photo et la date de création
     $query = "
         SELECT
             id,
@@ -26,7 +27,6 @@
                             WHERE `id` = ?';
                     execute($sql, [(int)$_GET['id']]);
 //                Il faut aussi effacer l'image correspondante dans le répertoire img
-//                    TODO Voir si on ne peut pas faire plus simple...
 //                    On récupère la liste des ID des différentes recettes
                     $id_list = array_column($list_recipes, 'id');
 //                    Et on cherche l'index qui correspond à l'ID que l'on veut

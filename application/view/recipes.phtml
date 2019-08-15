@@ -2,7 +2,7 @@
 
 <p>Recette N°  <?= $_SESSION['indexCurrentRecipe'] + 1 ?> / <?= $recipeQuantity ?></p>
 <nav id="recipe_navigation">
-    <a href="<?php echo 'index.php?page=recipes&action=first'?>" title="Début"><i class="fas fa-fast-backward"></i></a>
+    <a href="<?php echo 'index.php?page=recipes&action=first'?>" title="Première"><i class="fas fa-fast-backward"></i></a>
     <a href="<?php echo 'index.php?page=recipes&action=previous'?>" title=Précédente"><i class="fas fa-step-backward"></i></a>
     <a href="<?php echo 'index.php?page=recipes&action=next'?>" title="Suivante"><i class="fas fa-step-forward"></i></a>
     <a href="<?php echo 'index.php?page=recipes&action=last'?>" title="Dernière"><i class="fas fa-fast-forward"></i></a>
@@ -18,7 +18,6 @@
     <h4>Temps de cuisson :</h4><p><?= htmlspecialchars($recette_from_id['cooking_time_minutes'])?> mn</p>
     <h4>Ingrédients :</h4><p><?= nl2br(htmlspecialchars($recette_from_id['ingredients_list']))?></p>
     <h4>Instructions :</h4>
-<!--    TODO Verfifier de partout nl2br-->
     <p><?= nl2br(htmlspecialchars($recette_from_id['cooking_instructions']))?></p>
     <h4>Notes :</h4>
     <p><?= nl2br(htmlspecialchars($recette_from_id['note'])) ?></p>
