@@ -5,7 +5,7 @@
 //    on stocke le nom de la recette envoyée par get, en session
     $_SESSION['name'] = isset($_SESSION['name']) ? $_SESSION['name'] : null;
     if (isset($_GET['name'])){
-        $_SESSION['name'] = _POST['name'];
+        $_SESSION['name'] = $_POST['name'];
     }
     
     if (isset($_POST['submit'])) {

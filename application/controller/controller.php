@@ -31,11 +31,16 @@ switch ($template) {
         require_once 'application/php/login_admin.php';
         echo '****** admin ******';
         break;
-
+    
+    case 'search':
+        require_once 'application/php/search.php';
+        break;
+        
     case 'home':
         require_once './index.php';
         break;
-
+    
+    
     default :
         echo "Erreur : ce template n'existe pas";
 }

@@ -36,6 +36,7 @@
         }
         
 //        Si le password et le captcha sont bon, tout roule...
+//        TODO Ajouter l'URL de l'hébergeur dans les Paramètres de google.com/captcha
         if(password_verify($admin_password, '$2y$10$9i2QbBUELCFWLaxL0RVmjOkOfv/Ks1Aok/LvaPN8vTN3K.OZzF7Nq') && $responseKeys["success"]) {
             $_SESSION['connected'] = true;
             $_SESSION['flash_confirm_message'] = 'Connection Admin effectuée';

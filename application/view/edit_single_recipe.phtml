@@ -2,7 +2,7 @@
 <?php include('application/php/flash_message.php'); ?>
 
 <?php // Protection de la page si non connecté ?>
-<?php require_once 'application/php/is_admin_check.php' ?>;
+<?php require_once 'application/php/is_admin_check.php' ?>
 
 <form action="application\php\edit_single_recipe.php" method="POST" class="form" enctype="multipart/form-data">
 
@@ -13,7 +13,9 @@
     <input type="text" id="name" name="name" value="<?= htmlspecialchars($recette_from_id['name']) ?>" required>
     <label for="photo">Photo</label>
     <input type="hidden" name="recipe_photo" value="<?= htmlspecialchars($recette_from_id['photo'])?>">
+    <figure>
     <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>" id="image_recette" width="100px" height="auto" class="photo">
+    </figure>
     <input type="file" id="photo" name="photo">
    
     <label for="ingredients_list">Ingrédients</label>

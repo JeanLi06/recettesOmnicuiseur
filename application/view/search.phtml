@@ -1,0 +1,29 @@
+<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+
+<form method="POST" action="application\php\search.php" class="form">
+    <label for="search_item">Recherche (dans titre ou description)</label>
+    <input type="text" id="search_item" name="search_item" placeholder="Que cherchez vous ?" required>
+    <p>
+        <button type="submit" name="submit">Rechercher</button>
+    </p>
+</form>
+
+<?php if (isset($_SESSION['list_recipes'])): ?>
+    <?php $list_recipes = $_SESSION['list_recipes'] ?>
+    <table class="recettes">
+    <caption>Résultats de la recherche pour "<?php if (isset($_SESSION['search_item'])): ?> <?= $_SESSION['search_item'] ?> <?php endif ?>"</caption>
+    <tr>
+        <th>Photo</th>
+        <th class="nom">Nom</th>
+        <th class="date">Date</th>
+    </tr>
+    <?php foreach ($list_recipes as $list_recipe): ?>
+        <tr>
+            <td hidden><?= htmlspecialchars($list_recipe['id']) ?></td>
+            <td><figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>" alt="" width="100px" height="auto" class="photo"></figure></td>
+            <td class="td nom"><?= htmlspecialchars($list_recipe['name']) ?></td>
+            <td class="td date"><?= htmlspecialchars($list_recipe['creation_date_formatted']) ?></td>
+        </tr>
+    <?php endforeach ?>
+    </table>
+<?php endif ?>

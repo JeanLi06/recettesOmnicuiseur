@@ -14,7 +14,7 @@
     <?php foreach ($list_recipes as $list_recipe): ?>
         <tr>
             <td hidden><?= htmlspecialchars($list_recipe['id']) ?></td>
-            <td><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>" alt="" width="100px" height="auto" class="photo"></td>
+            <td><figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>" alt="" width="100px" height="auto" class="photo"></td></figure>
             <td class="td nom"><?= htmlspecialchars($list_recipe['name']) ?></td>
             <td class="td date"><?= htmlspecialchars($list_recipe['creation_date_formatted']) ?></td>
             <td>
