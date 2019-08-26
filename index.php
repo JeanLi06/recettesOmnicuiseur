@@ -5,7 +5,13 @@
     $_SESSION = array();
 
 // génération d'une constante HOME, qui contient l'url absolue vers la racine du site
+//    TODO à utiliser ?
     define('HOME', 'http://' . $_SERVER['SERVER_NAME'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
+    
+//    Activation chargement automatique des classes
+    spl_autoload_register(function ($class){
+        require(__DIR__ . '/application/model/' . $class . '.class.php');
+    });
 
 // Connection à la base avec pdo
     include_once 'application\bdd_connection.php';

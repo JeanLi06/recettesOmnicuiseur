@@ -2,8 +2,8 @@
 <aside>
 <?php include('application/php/flash_message.php'); ?>
     <h2>Dernière recette</h2>
-    <h3><?= htmlspecialchars($recettes['name']) ?></h3>
     <a href="index.php?page=recipes&action=first">
+    <h3><?= htmlspecialchars($recettes['name']) ?></h3>
         <figure>
         <img src="img/<?= htmlspecialchars($recettes['photo']) ?>" alt="<?= htmlspecialchars($recettes['name']) ?>"
              ">

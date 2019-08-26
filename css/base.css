@@ -4,9 +4,9 @@
     padding: 0;
 }
 
-/**:hover {*/
-/*transition: all 0.3s ease-in-out;*/
-/*}*/
+*:hover {
+transition: all 0.3s ease-in-out;
+}
 
 body, html {
     height: 100%;
@@ -91,7 +91,6 @@ nav li {
 nav ul:hover > li {
     background-color: #c0512a;
     opacity: 0.5;
-    transition: all 0.3s ease-in-out;
 }
 
 nav ul:hover > li:hover {
@@ -120,9 +119,8 @@ nav ul:hover > li:hover {
 /*la recette*/
 main aside {
     align-self: center;
-    border: 2px solid #a8026f;
-    border-radius: 5px;
-    padding: 5rem;
+    border: 15px ridge #a8026f;
+    padding: 3rem;
     margin-top: 50px;
 }
 
@@ -279,7 +277,7 @@ form .error {
     transform: scale(1.02);
 }
 
-/********* page edit_recipe ************/
+/********* page edit_recipes ************/
 .nom, .date {
     text-align: left;
 }
@@ -298,8 +296,16 @@ form .error {
     background-color: #0c2461;
 }
 
-tbody tr > th {
+ th {
     padding: 0.3rem 0;
     color: #1e3799;
     background-color: #e58e26;
+}
+
+/********* page search ************/
+
+.search_result tr:hover {
+    cursor: pointer;
+    background-color: #4b3019;
+
 }
