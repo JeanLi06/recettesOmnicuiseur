@@ -10,26 +10,7 @@
 //On récupère les infos d'une recette donnée par son ID
     if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] === 'recipes') {
         if (!isset($id_recette)) $id_recette = 0; //id recette par défaut, si non définie
-        
-        $query = '
-        SELECT 
-            name,
-            photo,
-            how_many_persons,
-            ingredients_list,
-            cooking_time_minutes,
-            cooking_instructions,
-            category,
-            note,
-            DATE_FORMAT(creation_date, \'%d-%m-%Y à %Hh%i\') as creation_date_formatted
-        FROM recette
-        WHERE id = ?
-        ORDER BY creation_date DESC 
-    ';
-        $resultSet = $pdo->prepare($query);
-        $resultSet->execute($tableIDs[$_SESSION['indexCurrentRecipe']]);
-        $recette_from_id = $resultSet->fetch();
-
+        $recette_from_id = RecipeModel::RecipeFromId($tableIDs[$_SESSION['indexCurrentRecipe']]);
         //navigation entre les recettes
                 if (!empty($_GET['action'])) {
             switch ($_GET['action']) {

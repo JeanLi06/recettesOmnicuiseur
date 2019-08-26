@@ -2,27 +2,7 @@
    if (session_status() === PHP_SESSION_NONE) session_start();
 
     if (isset($_GET) && !empty($_GET['id']) && empty($_POST['submit'])) {
-//        session_start();
-        require_once 'application/bdd_connection.php';
-        $query = '
-        SELECT
-            name,
-            photo,
-            how_many_persons,
-            ingredients_list,
-            cooking_time_minutes,
-            cooking_instructions,
-            category,
-            note,
-            creation_date
-        FROM recette
-        WHERE id = ?
-        ORDER BY creation_date DESC
-    ';
-        $resultSet = $pdo->prepare($query);
-        $resultSet->execute([(int)$_GET['id']]);
-        $recette_from_id = $resultSet->fetch();
-        
+        $recette_from_id = RecipeModel::RecipeFromId($_GET['id']);
         //on stocke en session pour transmettre sur la page envoyée en post
         $_SESSION['recette_from_id'] = $recette_from_id;
     }
