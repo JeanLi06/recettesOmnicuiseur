@@ -1,8 +1,5 @@
 <!--Cette page affiche la recette qui correspond au choix cliqué depuis la page search-->
-<?= getcwd()?>
-<?php print_r(RecipeModel::RecipeFromId([(int)$_GET['id']])) ?>
-<?php die(); ?>
-<p>Recette N° <?= $_SESSION['indexCurrentRecipe'] + 1 ?> / <?= $recipeQuantity ?></p>
+<?php $recette_from_id = RecipeModel::recipeFromId([(int)$_GET['id']]) ?>
 
 <article id="view_recipe_article">
     <h3><?= htmlspecialchars($recette_from_id['name']) ?></h3>

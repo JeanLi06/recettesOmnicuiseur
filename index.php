@@ -7,19 +7,17 @@
 // génération d'une constante HOME, qui contient l'url absolue vers la racine du site
 //    TODO à utiliser ?
     define('HOME', 'http://' . $_SERVER['SERVER_NAME'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
+    
+    // Save the project root directory as a global constant.
+    define('ROOT_PATH', __DIR__);
 
 //    Activation chargement automatique des classes
-    spl_autoload_register(function ($class) {
-        $path = '/application/model/';
-        $file_name = __DIR__ . $path . $class . '.class.php';
-        if (file_exists($file_name)) {
-            require_once $file_name;
-        }
-    });
-
-// Connection à la base avec pdo
-    include_once 'application\bdd_connection.php';
+    require_once 'application/php/classes_autoload.php';
     
+    // Connection à la base avec pdo
+    include_once 'application\bdd_connection.php';
+
+//    Chargement différents éléments de la page
     include_once 'application\php\header.php';
     include_once 'application\php\recipes.php';
     include_once 'application\controller\last_recipe_infos.php';

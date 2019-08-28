@@ -10,7 +10,7 @@
 //On récupère les infos d'une recette donnée par son ID
     if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] === 'recipes') {
         if (!isset($id_recette)) $id_recette = 0; //id recette par défaut, si non définie
-        $recette_from_id = RecipeModel::RecipeFromId($tableIDs[$_SESSION['indexCurrentRecipe']]);
+        $recette_from_id = RecipeModel::recipeFromId($tableIDs[$_SESSION['indexCurrentRecipe']]);
         //navigation entre les recettes
                 if (!empty($_GET['action'])) {
             switch ($_GET['action']) {
