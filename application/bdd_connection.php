@@ -30,8 +30,6 @@ function fetch($sql, array $params = []) {
 
 function execute($sql, array $params = []) {
     global $pdo;
-
     $request = $pdo->prepare($sql);
-
     $request->execute($params);
 }

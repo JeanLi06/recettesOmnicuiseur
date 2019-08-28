@@ -62,8 +62,8 @@
             }
         }
 //    On peut alors mettre à jour la recette
-        require_once '../bdd_connection.php';
         require_once '../model/RecipeModel.class.php';
+        require_once '../bdd_connection.php';
         RecipeModel::recipeUpdate($name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, $recette_id);
         $_SESSION['flash_confirm_message'] = 'Modification de la recette effectuée';
         header('Location: ../../index.php?page=edit_recipes');

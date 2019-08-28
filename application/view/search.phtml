@@ -10,8 +10,8 @@
     </p>
 </form>
 
-<?php if (isset($_SESSION['list_recipes'])): ?>
-    <?php $list_recipes = $_SESSION['list_recipes'] ?>
+<?php if (isset($_SESSION['search_result_list_recipes'])): ?>
+    <?php $list_recipes = $_SESSION['search_result_list_recipes'] ?>
     <table class="recettes search_result">
         <caption><?= count($list_recipes) ?> Résultats pour
             "<?php if (isset($_SESSION['search_item'])): ?>
