@@ -58,4 +58,18 @@
                   WHERE id = ?';
             execute($query, [$name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, (int)$recette_id]);
         }
+        
+//        Cette fonction récupère la liste des ID des recettes, dans le tableau $tableIDs trié par date décroissante
+        public static function reccipesListOfIDs() {
+            global $pdo;
+            $query = '
+            SELECT
+               id
+            FROM recette
+            ORDER BY creation_date DESC
+            ';
+            $resultSet = $pdo->prepare($query);
+            $resultSet->execute(array());
+            return $resultSet->fetchAll(PDO::FETCH_NUM);
+        }
     }
