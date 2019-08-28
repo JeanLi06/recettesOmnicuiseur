@@ -2,19 +2,8 @@
     if (session_status() === PHP_SESSION_NONE) session_start();
     require_once('application/bdd_connection.php');
 
-//Genère un tableau contenant une liste des recettes existantes, avec l'ID le nom, le nom de la photo et la date de création
-    $query = "
-        SELECT
-            id,
-            name,
-            photo,
-            DATE_FORMAT(creation_date, '%d-%m-%Y à %Hh%i') as creation_date_formatted
-        FROM recette
-        ORDER BY creation_date DESC
-    ";
-    $result_set = $pdo->prepare($query);
-    $result_set->execute();
-    $list_recipes = $result_set->fetchAll();
+// Génère un tableau contenant une liste des recettes existantes, avec l'ID le nom, le nom de la photo et la date de création
+    $list_recipes = RecipeModel::listOfRecipes();
 
 //    Traitement de la commande transmise depuis edit_recipes.phtml
     if (isset($_GET['action']) && !empty($_GET['action'])) {
@@ -23,10 +12,8 @@
 //            Effacement de la recette
             case 'delete_recipe':
                 if (isset($_GET['id']) && !empty($_GET['id']) && ctype_digit($_GET['id'])) {
-                    $sql = 'DELETE FROM `recette`
-                            WHERE `id` = ?';
-                    execute($sql, [(int)$_GET['id']]);
-//                Il faut aussi effacer l'image correspondante dans le répertoire img
+                    RecipeModel::recipeDelete((int)$_GET['id']);
+//                Il faut aussi effacer l'image correspondante dans le répertoire img :
 //                    On récupère la liste des ID des différentes recettes
                     $id_list = array_column($list_recipes, 'id');
 //                    Et on cherche l'index qui correspond à l'ID que l'on veut

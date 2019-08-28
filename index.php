@@ -17,12 +17,12 @@
     // Connection à la base avec pdo
     include_once 'application\bdd_connection.php';
 
-//    Chargement différents éléments de la page
+    // Chargement différents éléments de la page
     include_once 'application\php\header.php';
     include_once 'application\php\recipes.php';
     include_once 'application\controller\last_recipe_infos.php';
 
-//on choisit quelle page afficher avec le DISPATCHER
+    // On choisit quelle page afficher avec le DISPATCHER
     require_once "application\php\dispatcher.php";
     
     // On récupère les données à afficher et on reçoit les formulaires, c'est le CONTROLLEUR
