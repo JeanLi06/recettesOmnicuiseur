@@ -20,15 +20,16 @@
     <section>
         <h5>Catégorie&nbsp;:&nbsp; <span><?= htmlspecialchars($recette_from_id['category']) ?></span></h5>
         <h5>Pour <span><?= htmlspecialchars($recette_from_id['how_many_persons']) ?></span> personnes</h5>
-        <h5>Temps de cuisson : <span><?= htmlspecialchars($recette_from_id['cooking_time_minutes']) ?> mn</span></h5>
+        <h5>Temps : <span><?= htmlspecialchars($recette_from_id['cooking_time_minutes']) ?> mn</span></h5>
+        <h5>Date : <span><?= htmlspecialchars($recette_from_id['creation_date_formatted']) ?></span></h5>
     </section>
     </div>
     <h4>Ingrédients :</h4>
     <p><?= nl2br(htmlspecialchars($recette_from_id['ingredients_list'])) ?></p>
     <h4>Instructions :</h4>
     <p><?= nl2br(htmlspecialchars($recette_from_id['cooking_instructions'])) ?></p>
-    <h4>Notes :</h4>
-    <p><?= nl2br(htmlspecialchars($recette_from_id['note'])) ?></p>
-    <h4>Date de création :</h4>
-    <p id="recipe"><?= htmlspecialchars($recette_from_id['creation_date_formatted']) ?></p>
+    <?php if(!empty($recette_from_id['note'])): ?>
+        <h4>Notes :</h4>
+        <p><?= nl2br(htmlspecialchars($recette_from_id['note'])) ?></p>
+    <?php endif ?>
 </article>

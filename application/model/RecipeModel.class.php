@@ -1,4 +1,5 @@
 <?php
+
     
     /**
      * Class RecipeModel
@@ -7,8 +8,8 @@
      */
     class RecipeModel
     {
-        //    Cette méthode retourne un tableau contenant la recette dont l'id est passé en paramètre
-        public static function recipeFromId($id)
+        //    Cette méthode retourne un tableau contenant la recette grâce à son identifiant
+        public static function findFromId($id)
         {
             global $pdo;
             $query = '
@@ -27,7 +28,7 @@
             ORDER BY creation_date DESC
     ';
             $result_set = $pdo->prepare($query);
-            $result_set->execute($id);
+            $result_set->execute([(int)$id]);
             return $result_set->fetch();
         }
 
@@ -48,7 +49,7 @@
         }
 
 //        Cette méthode met à jour la recette spécifiée par son Id
-        public static function recipeUpdate($name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, $recette_id)
+        public static function update($name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, $recette_id)
         {
             $query = '
                   UPDATE `recette`
@@ -66,7 +67,7 @@
         }
 
 //        Cette méthode récupère la liste des ID des recettes, dans le tableau $tableIDs trié par date décroissante
-        public static function recipesListOfIDs()
+        public static function listOfIDs()
         {
             global $pdo;
             $query = '
@@ -81,7 +82,7 @@
         }
 
 //        Cette méthode génère un tableau contenant une liste des recettes existantes, avec l'ID le nom, le nom de la photo et la date de création
-        public static function listOfRecipes()
+        public static function listAll()
         {
             global $pdo;
             $query = "
@@ -99,16 +100,16 @@
         }
 
 //        Cette méthode efface une recette d'après son ID
-        public static function recipeDelete($id)
+        public static function delete($id)
         {
             $query = '
             DELETE FROM `recette`
             WHERE `id` = ?';
-            execute($query, [$id]);
+            execute($query, [(int)$id]);
         }
 
 //        Cette méthode compte le nombre de recette en base
-        public static function recipesCount()
+        public static function count()
         {
             global $pdo;
             $query = '
@@ -144,7 +145,7 @@
         }
 
 //        Cette méthode ajoute une nouvelle recette dans la base de données
-        public static function recipeAdd($name, $full_unique_name, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note)
+        public static function add($name, $full_unique_name, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note)
         {
             $query = '
             INSERT

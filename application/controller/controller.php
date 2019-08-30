@@ -1,4 +1,6 @@
 <?php
+    require_once 'application/php/utils.php';
+    sessionStart();
 // récupérations des données à renvoyer à la vue en fonction du template choisi
 switch ($template) {
     // page pour le contenu d'un article

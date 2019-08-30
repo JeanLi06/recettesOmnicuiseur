@@ -1,8 +1,7 @@
 <?php
     spl_autoload_register(function ($class) {
 //        Pour la compatibilité UNIX
-        $class = str_replace('\\', DIRECTORY_SEPARATOR, strtolower($class));
-        print_r(ROOT_PATH);
+        $class = str_replace('\\',DIRECTORY_SEPARATOR, strtolower($class));
 //        $file_name = $path . $class . '.class.php';
 //        $file_name = HOME . 'application/model/' . $class . '.class.php';
         $file_name = ROOT_PATH . '/application/model/' . $class . 'class.php';

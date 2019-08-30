@@ -1,26 +1,29 @@
 <?php
+    require_once 'utils.php';
+//    Cette page permet d'éditer une recette existante
     if (session_status() === PHP_SESSION_NONE) session_start();
     
+//    On stocke l'ID de la recette transmis en GET depuis la page edit_recipes
     if (isset($_GET) && !empty($_GET['id']) && empty($_POST['submit'])) {
-        $recette_from_id = RecipeModel::recipeFromId([(int)$_GET['id']]);
+        $recette_from_id = RecipeModel::findFromId($_GET['id']);
         //on stocke en session pour transmettre sur la page envoyée en post
         $_SESSION['recette_from_id'] = $recette_from_id;
     }
     
-    
     if (isset($_POST['submit'])) {
         //On récupère les infos d'une recette donnée par son ID
         $recette_from_id = $_SESSION['recette_from_id'];
-//    Normalement les champs vides sont gérés par le navigateur avec 'required', mais on ne sait jamais...
+//    Normalement les champs vides sont gérés par le navigateur avec 'required',
+//    mais on ne fait pas confiance aux données envoyées par l'utilisateur
         if (empty($_POST['name']) || empty($_POST['ingredients_list']) || empty($_POST['how_many_persons']) || empty($_POST['cooking_time_minutes'])
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
             if (empty($_POST['recette_id'])) $_POST['recette_id'] = 0;
             $_SESSION['flash_error_message'] = 'Certains champs sont vides';
+//            redirect('../../index.php?page=edit_single_recipe&id=' . $_POST['recette_id']);
             header('Location: ../../index.php?page=edit_single_recipe&id=' . $_POST['recette_id']);
             exit();
-            //Si les champs de sont pas des nombre, alors erreur
         }
-        
+        //Si les champs de sont pas des nombre, alors erreur
         if (!ctype_digit($_POST['how_many_persons']) || !ctype_digit($_POST['cooking_time_minutes'])) {
             $_SESSION['flash_error_message'] = 'Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson';
             header('Location: ../../index.php?page=edit_single_recipe');
@@ -49,8 +52,8 @@
             // On teste si elle fait partie des celles autorisées
             $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
             if (in_array($extension_upload, $extensions_autorisees, true)) {
-//                        // Jusqu'ici, tout va bien, donc on peut écrire le fichier temporaire sur le disque
-                //            On génère un nom de fichier unique avec un hash md5 + time
+// Jusqu'ici, tout va bien, donc on peut écrire le fichier temporaire sur le disque
+// On génère un nom de fichier unique avec un hash md5 + time
                 $unique_filename = md5(basename($photo) . time());
                 $file_extension = strrchr($photo, '.');
                 $full_unique_name = $unique_filename . $file_extension;
@@ -64,8 +67,10 @@
 //    On peut alors mettre à jour la recette
         require_once '../model/RecipeModel.class.php';
         require_once '../bdd_connection.php';
-        RecipeModel::recipeUpdate($name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, $recette_id);
+//        require_once ROOT_PATH . 'application/bdd_connection.php';
+        RecipeModel::update($name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, $recette_id);
         $_SESSION['flash_confirm_message'] = 'Modification de la recette effectuée';
+//        redirect('edit_recipes');
         header('Location: ../../index.php?page=edit_recipes');
         exit();
     }

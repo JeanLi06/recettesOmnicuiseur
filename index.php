@@ -1,15 +1,18 @@
 <?php
 //TODO verifier XSS sur <?=
 
+require_once 'application/php/utils.php';
+sessionStart();
+
 //on efface les données de a session précédente
-    $_SESSION = array();
+//    $_SESSION = array();
 
 // génération d'une constante HOME, qui contient l'url absolue vers la racine du site
-//    TODO à utiliser ?
-    define('HOME', 'http://' . $_SERVER['SERVER_NAME'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
+    $_SESSION['HOME'] = 'http://' . $_SERVER['SERVER_NAME'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
     
     // Save the project root directory as a global constant.
-    define('ROOT_PATH', __DIR__);
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+//    define('ROOT_PATH', realpath(__DIR__) . '/');
 
 //    Activation chargement automatique des classes
     require_once 'application/php/classes_autoload.php';

@@ -1,9 +1,9 @@
 <?php
     if (session_status() === PHP_SESSION_NONE) session_start();
-    require_once 'application/bdd_connection.php';
+//    require_once 'application/bdd_connection.php';
 
 // Génère un tableau contenant une liste des recettes existantes, avec l'ID le nom, le nom de la photo et la date de création
-    $list_recipes = RecipeModel::listOfRecipes();
+    $list_recipes = RecipeModel::listAll();
 
 //    Traitement de la commande transmise depuis edit_recipes.phtml
     if (isset($_GET['action']) && !empty($_GET['action'])) {
@@ -11,7 +11,7 @@
 //          Effacement de la recette
             case 'delete_recipe':
                 if (isset($_GET['id']) && !empty($_GET['id']) && ctype_digit($_GET['id'])) {
-                    RecipeModel::recipeDelete((int)$_GET['id']);
+                    RecipeModel::delete($_GET['id']);
 
 /*                Il faut aussi effacer l'image correspondante dans le répertoire img :
                     On récupère la liste des ID des différentes recettes */

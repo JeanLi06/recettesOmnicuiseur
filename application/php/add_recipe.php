@@ -52,7 +52,7 @@
 //    On peut alors écrire dans la base
         require_once '../bdd_connection.php';
         require_once '../model/RecipeModel.class.php';
-        RecipeModel::recipeAdd($name, $full_unique_name, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note);
+        RecipeModel::add($name, $full_unique_name, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note);
 //        Message de confirmation d'ajout
         $_SESSION['flash_confirm_message'] = "Ajout de la recette effectué";
         header('Location: ../../index.php?page=home');

@@ -1,5 +1,6 @@
 <?php
-    if (session_status() === PHP_SESSION_NONE) session_start();
+//    TODO Fleche pour remonter en haut (qui apparait)
+//    if (session_status() === PHP_SESSION_NONE) session_start();
 
 //On stocke la recette consultée courante, afin d'y revenir en cas de navigation sur une autre page.
 //et on l'initialise à la dernière créée (index 0 car classement par date décroissante, dans la query SQL
@@ -10,12 +11,13 @@
 //On récupère les infos d'une recette donnée par son ID
     if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] === 'recipes') {
         if (!isset($id_recette)) $id_recette = 0; //id recette par défaut, si non définie
-        $recette_from_id = RecipeModel::recipeFromId($tableIDs[$_SESSION['indexCurrentRecipe']]);
+        $recette_from_id = RecipeModel::findFromId($tableIDs[$_SESSION['indexCurrentRecipe']][0]);
         //navigation entre les recettes
                 if (!empty($_GET['action'])) {
             switch ($_GET['action']) {
                 case 'first':
                     $_SESSION['indexCurrentRecipe'] = 0;
+//                    redirect('page=recipes');
                     header('Location: index.php?page=recipes');
                     exit();
                     break;
