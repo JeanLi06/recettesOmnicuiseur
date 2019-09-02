@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-<!-- Google reCAPTCHA-->
+    <!-- Google reCAPTCHA-->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
@@ -23,11 +23,10 @@
 
     <!-- chargement de la librairie jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js">console.log('jquery')</script>
-
 </head>
 <body>
-<?php include 'header.phtml' ?>
 
+<?php include 'header.phtml' ?>
 <main class="container center">
     <!-- Chargement du template PHTML spécifié par dispatcher.php -->
     <?php include "application/view/$template.phtml"; ?>
@@ -39,5 +38,4 @@
     <p>Javascript is not enabled!</p>
 </noscript>
 </body>
-
 </html>

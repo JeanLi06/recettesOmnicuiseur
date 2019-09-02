@@ -1,6 +1,7 @@
 <?php
-    require_once 'application/php/utils.php';
     sessionStart();
+    require_once $_SESSION['ROOT_PATH'] . 'application/php/utils.php';
+    require_once $_SESSION['ROOT_PATH'] . 'application/php/classes_autoload.php';
 // récupérations des données à renvoyer à la vue en fonction du template choisi
 switch ($template) {
     // page pour le contenu d'un article
@@ -39,10 +40,10 @@ switch ($template) {
         break;
         
     case 'home':
-        require_once './index.php';
+        require_once 'index.php';
         break;
-    
-    
+        
     default :
         echo "Erreur : ce template n'existe pas";
+        break;
 }

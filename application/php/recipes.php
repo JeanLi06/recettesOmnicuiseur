@@ -1,4 +1,5 @@
 <?php
+//    Affiche une recette, et permet de naviguer parmi celles existantes
 //    TODO Fleche pour remonter en haut (qui apparait)
 //    if (session_status() === PHP_SESSION_NONE) session_start();
 
@@ -17,9 +18,6 @@
             switch ($_GET['action']) {
                 case 'first':
                     $_SESSION['indexCurrentRecipe'] = 0;
-//                    redirect('page=recipes');
-                    header('Location: index.php?page=recipes');
-                    exit();
                     break;
                 
                 case 'previous':
@@ -27,8 +25,6 @@
                     if ($_SESSION['indexCurrentRecipe'] < 0) {
                         $_SESSION['indexCurrentRecipe'] = 0;
                     }
-                    header('Location: index.php?page=recipes');
-                    exit();
                     break;
                 
                 case 'next':
@@ -36,16 +32,14 @@
                     if ($_SESSION['indexCurrentRecipe'] > count($tableIDs) - 1) {
                         $_SESSION['indexCurrentRecipe'] = count($tableIDs) - 1;
                     }
-                    header('Location: index.php?page=recipes');
-                    exit();
                     break;
                 
                 case 'last':
                     $_SESSION['indexCurrentRecipe'] = count($tableIDs) - 1;
-                    header('Location: index.php?page=recipes');
-                    exit();
                     break;
             }
+//            On recharge la page avec la nouvelle recette choisie
+            redirect('recipes');
         }
     }
 

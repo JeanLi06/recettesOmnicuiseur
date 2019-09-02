@@ -8,10 +8,11 @@ sessionStart();
 //    $_SESSION = array();
 
 // génération d'une constante HOME, qui contient l'url absolue vers la racine du site
+//    define('HTTP_ROOT', 'localhost' === $_SERVER['HTTP_HOST'] ? '/monsite1/' : '/');
     $_SESSION['HOME'] = 'http://' . $_SERVER['SERVER_NAME'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
     
     // Save the project root directory as a global constant.
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    $_SESSION['ROOT_PATH'] = __DIR__ . '/';
 //    define('ROOT_PATH', realpath(__DIR__) . '/');
 
 //    Activation chargement automatique des classes
