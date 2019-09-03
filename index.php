@@ -1,6 +1,5 @@
 <?php
 //TODO verifier XSS sur <?=
-
 require_once 'application/php/utils.php';
 sessionStart();
 
@@ -16,7 +15,7 @@ sessionStart();
 //    define('ROOT_PATH', realpath(__DIR__) . '/');
 
 //    Activation chargement automatique des classes
-    require_once 'application/php/classes_autoload.php';
+//    require_once 'application/php/classes_autoload.php';
     
     // Connection à la base avec pdo
     include_once 'application\bdd_connection.php';

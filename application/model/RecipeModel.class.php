@@ -5,6 +5,16 @@
      * Class RecipeModel
      * Comporte les méthodes suivantes :
      *
+     * findFromId ! retourne un tableau contenant la recette grâce à son identifiant
+     * lastRecipeInfos :récupère quelques valeurs de la dernière recette créée
+     * update : met à jour la recette spécifiée par son Id
+     * listOfIDs : récupère la liste des ID des recettes
+     * listAll : génère un tableau contenant une liste des recettes existantes
+     * delete : efface une recette
+     * count : compte le nombre de recette en base
+     * searchItem : retourne le résultat de la recherche d'un terme dans la base
+     * add :ajoute une nouvelle recette dans la base
+     *
      */
     class RecipeModel
     {

@@ -7,9 +7,9 @@
         <div class="
         <?php
             if (!empty($_SESSION['flash_error_message'])): ?>
-                <?= 'flash_error' ?>
+                <?= 'flash-error' ?>
             <?php elseif (!empty($_SESSION['flash_confirm_message'])): ?>
-                <?= 'flash_confirm' ?>
+                <?= 'flash-confirm' ?>
             <?php endif; ?>
 <!--            Le message est caché à l'origne et sera révélé avec du JQuery-->
         " id="flash_message" hidden>

@@ -1,7 +1,7 @@
 <!--page qui permet d'afficher une recette parmi d'autres-->
 
 <p>Recette N° <?= $_SESSION['indexCurrentRecipe'] + 1 ?> / <?= $recipes_quantity ?></p>
-<nav id="recipe_navigation">
+<nav id="recipe-navigation">
     <a href="<?php echo 'index.php?page=recipes&action=first' ?>" title="Première"><i class="fas fa-fast-backward"></i></a>
     <a href="<?php echo 'index.php?page=recipes&action=previous' ?>" title=Précédente"><i
                 class="fas fa-step-backward"></i></a>
@@ -10,12 +10,12 @@
     <a href="<?php echo 'index.php?page=recipes&action=last' ?>" title="Dernière"><i
                 class="fas fa-fast-forward"></i></a>
 </nav>
-<article id="view_recipe_article">
+<article id="view-recipe-article">
     <h3><?= htmlspecialchars($recette_from_id['name']) ?></h3>
     <div>
     <figure>
         <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>"
-             alt="<?= htmlspecialchars($recette_from_id['name']) ?>" class="viewRecipeImage">
+             alt="<?= htmlspecialchars($recette_from_id['name']) ?>" class="view-recipe-image">
     </figure>
     <section>
         <h5>Catégorie&nbsp;:&nbsp; <span><?= htmlspecialchars($recette_from_id['category']) ?></span></h5>

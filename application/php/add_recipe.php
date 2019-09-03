@@ -1,27 +1,25 @@
 <?php
+//    Permet d'ajouter une recette existante
+
 //     On démarre la session si elle n'est déjà pas créée'
-    require_once 'utils.php';
-    sessionStart();
-    
+//    require_once 'utils.php';
+//    sessionStart();
+
 //    on stocke le nom de la recette envoyée par get, en session
     $_SESSION['name'] = isset($_SESSION['name']) ? $_SESSION['name'] : null;
     if (isset($_GET['name'])) {
         $_SESSION['name'] = $_POST['name'];
     }
-    
-    if (isset($_POST['submit'])) {
+
 //Si des champs sont vides (normalement, le navigateur gère ça avec l'attribut required, mais il ne faut jamais faire confiance aux données utilisateur...), on redirige et on affiche une erreur
+    if (isset($_POST['submit'])) {
         if (empty($_POST['name']) || empty($_POST['ingredients_list']) || empty($_POST['how_many_persons']) || empty($_POST['cooking_time_minutes'])
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
-//            header('Location: ../../index.php?page=add_recipe&error=Veuillez%20remplir%20tous%20les%20champs');
-//            exit();
             redirect('add_recipe&error=Veuillez%20remplir%20tous%20les%20champs');
         }
         
         if (!ctype_digit($_POST['how_many_persons']) || !ctype_digit($_POST['cooking_time_minutes'])) {
             //Si les champs de sont pas des nombre, alors erreur
-//            header('Location: ../../index.php?page=add_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
-//            exit();
             redirect('add_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
         }
         $_GET['error'] = '';
@@ -53,16 +51,10 @@
             }
         }
 //    On peut alors écrire dans la base
-        require_once '../bdd_connection.php';
-        echo $_SESSION['ROOT_PATH'] . 'application/php/classes_autoload.php';
+        require_once $_SESSION['ROOT_PATH'] . 'application/bdd_connection.php';
         require_once $_SESSION['ROOT_PATH'] . 'application/php/classes_autoload.php';
-//        require_once '../model/RecipeModel.class.php';
-    
         RecipeModel::add($name, $full_unique_name, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note);
 //        Message de confirmation d'ajout
         $_SESSION['flash_confirm_message'] = 'Ajout de la recette effectué';
-//        header('Location: ../../index.php?page=home');
-//        exit();
-//        TODO Erreur ?
         redirect('home');
     }

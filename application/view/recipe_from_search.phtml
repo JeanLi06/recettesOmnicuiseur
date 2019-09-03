@@ -1,12 +1,12 @@
 <!--Cette page affiche la recette qui correspond au choix cliqué depuis la page search-->
 <?php $recette_from_id = RecipeModel::findFromId($_GET['id']) ?>
 
-<article id="view_recipe_article">
+<article id="view-recipe-article">
     <h3><?= htmlspecialchars($recette_from_id['name']) ?></h3>
     <div>
         <figure>
             <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>"
-                 alt="<?= htmlspecialchars($recette_from_id['name']) ?>" class="viewRecipeImage">
+                 alt="<?= htmlspecialchars($recette_from_id['name']) ?>" class="view-recipe-image">
         </figure>
         <section>
             <h5>Catégorie&nbsp;:&nbsp; <span><?= htmlspecialchars($recette_from_id['category']) ?></span></h5>

@@ -3,5 +3,3 @@
     require_once 'application/model/RecipeModel.class.php';
     $last_recipe = RecipeModel::lastRecipeInfos();
     
-    
-

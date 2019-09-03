@@ -12,7 +12,7 @@
 
 <?php if (isset($_SESSION['search_result_list_recipes'])): ?>
     <?php $list_recipes = $_SESSION['search_result_list_recipes'] ?>
-    <table class="recettes search_result">
+    <table class="recettes search-result">
         <caption><?= count($list_recipes) ?> Résultats pour
             "<?php if (isset($_SESSION['search_item'])): ?>
                 <?php echo htmlspecialchars($_SESSION['search_item']) ?>
