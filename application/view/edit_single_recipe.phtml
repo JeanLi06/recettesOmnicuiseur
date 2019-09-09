@@ -1,26 +1,27 @@
-<!--Formulaire d'édition de recette-->
-<?php include('application/php/flash_message.php'); ?>
-
-<?php // Protection de la page si non connecté ?>
-<?php require_once 'application/php/is_admin_check.php' ?>
+<!--Edition d'une recette choisie sur la page edit_recipes-->
+<?php include_once 'application/php/flash_message.php'; ?>
+<?php require_once 'application/php/is_admin_check.php'; ?>
 
 <form action="application\php\edit_single_recipe.php" method="POST" class="form" enctype="multipart/form-data">
 
-<!--    champ caché permettant d'identifier la recette concernée, après la soumission du formulaire -->
+    <!--    champ caché permettant d'identifier la recette concernée, après la soumission du formulaire -->
     <input type="hidden" name="recette_id" value="<?= (int)$_GET['id'] ?>">
-    
+
     <label for="name">Nom</label>
     <input type="text" id="name" name="name" value="<?= htmlspecialchars($recette_from_id['name']) ?>" required>
+
     <label for="photo">Photo</label>
-    <input type="hidden" name="recipe_photo" value="<?= htmlspecialchars($recette_from_id['photo'])?>">
+    <input type="hidden" name="recipe_photo" value="<?= htmlspecialchars($recette_from_id['photo']) ?>">
+
     <figure>
-    <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>" id="image_recette" width="100px" height="auto" class="photo">
+        <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>" id="image_recette" width="100px" height="auto"
+             class="photo">
     </figure>
     <input type="file" id="photo" name="photo">
-   
+
     <label for="ingredients_list">Ingrédients</label>
     <textarea id="ingredients_list" name="ingredients_list" rows="10"
-              ><?= htmlspecialchars($recette_from_id['ingredients_list']) ?></textarea>
+    ><?= htmlspecialchars($recette_from_id['ingredients_list']) ?></textarea>
 
     <label for="how_many_persons">Personnes</label>
     <input type="text" id="how_many_persons" name="how_many_persons"

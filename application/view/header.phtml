@@ -1,16 +1,17 @@
-<?php if (session_status() === PHP_SESSION_NONE) session_start() ?>
+<?php sessionStart(); ?>
+<!-- L'en-tête de chaque page, avec la navigation -->
 <header>
     <h1><a href="index.php?page=home">Recettes Omnicuiseur</a></h1>
     <nav id="main-navigation">
         <ul>
             <li><a href="index.php?page=home">Accueil</a></li>
             <li title="Parcourir les recettes"><a href="index.php?page=recipes">Voir</a></li>
+            <li title="Rechercher"><a href="index.php?page=search">&nbsp;<i class="fas fa-search"></i>&nbsp;</a></li>
             <?php if (isset($_SESSION['connected']) && $_SESSION['connected']): ?>
                 <li><a href="index.php?page=add_recipe">Ajouter</a></li>
                 <li title="Modifier une recette"><a href="index.php?page=edit_recipes">Editer</a></li>
-                <li title="Rechercher"><a href="index.php?page=search" >&nbsp;<i class="fas fa-search"></i>&nbsp;</a></li>
                 <li><a href="index.php?page=login_admin">Déconnecter</a></li>
-            <?php else:?>
+            <?php else: ?>
                 <li><a href="index.php?page=login_admin">Admin</a></li>
             <?php endif; ?>
         </ul>

@@ -1,7 +1,6 @@
 <!--Cette page affiche un formulaire de recherche, ainsi que le résultat de la recherche précédente-->
-
-<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
-
+<?php sessionStart(); ?>
+<div id="home"></div>
 <form method="POST" action="application\php\search.php" class="form">
     <label for="search_item">Recherche (dans titre ou description)</label>
     <input type="text" id="search_item" name="search_item" placeholder="Que cherchez vous ?" required>
@@ -15,8 +14,8 @@
     <table class="recettes search-result">
         <caption><?= count($list_recipes) ?> Résultats pour
             "<?php if (isset($_SESSION['search_item'])): ?>
-                <?php echo htmlspecialchars($_SESSION['search_item']) ?>
-            <?php endif ?>"
+                <?= htmlspecialchars($_SESSION['search_item']) ?>
+            <?php endif; ?>"
         </caption>
         <thead>
         <tr>
@@ -27,16 +26,16 @@
         </thead>
         <tbody>
         <?php foreach ($list_recipes as $list_recipe): ?>
-            <tr onclick="document.location='index.php?page=recipe_from_search&id=<?= $list_recipe['id']?>'">
-                <td hidden><?= htmlspecialchars($list_recipe['id']) ?></td>
+            <tr onclick="document.location='index.php?page=recipe_from_search&id=<?= $list_recipe['id'] ?>'">
                 <td>
-                    <figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>" alt="" width="100px"
-                                 height="auto" class="photo"></figure>
+                    <figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>"
+                                 alt="" width="100px" height="auto" class="photo"></figure>
                 </td>
                 <td class="td nom"><?= htmlspecialchars($list_recipe['name']) ?></td>
                 <td class="td date"><?= htmlspecialchars($list_recipe['creation_date_formatted']) ?></td>
             </tr>
-        <?php endforeach ?>
+        <?php endforeach; ?>
         </tbody>
     </table>
-<?php endif ?>
+    <a href="#home"><button type="button" class="button-scroll-to-top"><i class="fas fa-arrow-up"></i></button></a>
+<?php endif; ?>

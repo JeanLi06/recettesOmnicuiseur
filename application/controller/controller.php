@@ -31,7 +31,7 @@
             }
             break;
         
-        case 'admin':
+        case 'login_admin':
             require_once 'application/php/login_admin.php';
             break;
         

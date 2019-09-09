@@ -68,7 +68,7 @@ main {
     justify-content: flex-start;
     flex-grow: 1; /* pour occuper toute la hauteur */
     margin-top: 60px;
-    padding: 3rem 0;
+    padding-bottom: 3rem;
     width: 1200px;
     /*z-index: 10;*/
 }
@@ -103,6 +103,7 @@ nav ul:hover > li:hover {
     left: 50%;
     transform: translateY(-30%) translateX(-50%);
     color: #eeeeee;
+    padding: 5px;
 }
 
 .flash-error {
@@ -253,10 +254,6 @@ input, textarea, select {
     padding: 5px;
 }
 
-/*textarea {*/
-    /*resize: none;*/
-/*}*/
-
 button {
     color: #222222;
     background-color: chartreuse;
@@ -266,6 +263,13 @@ button {
     cursor: pointer;
     border-radius: 10px;
     font-size: 1.6rem;
+}
+
+.button-scroll-to-top {
+    position: fixed;
+    right: 15px;
+    bottom: 20px;
+    display: none;
 }
 
 button:hover {
@@ -307,11 +311,8 @@ th {
 }
 
 /********* Media Queries ************/
-@media screen and (max-width: 767px) {
-    /* smartphone */
-
-
-    /********* Page Recipes ************/
+/* smartphone */
+@media all and (max-device-width: 767px) {
     header {
         position: initial;
         flex-direction: column;
@@ -322,7 +323,27 @@ th {
         width: 90%;
     }
 
+    #view-recipe-article h3 {
+        font-size: 2rem;
+    }
+
+    #view-recipe-article h5 {
+        font-size: 1.8rem;
+    }
+
     article div {
         flex-direction: column;
+    }
+
+    nav li {
+        margin-bottom: 5px;
+    }
+
+    .recettes td:nth-child(2){
+        padding: 0 8px;
+    }
+
+    .form {
+        padding: initial;
     }
 }

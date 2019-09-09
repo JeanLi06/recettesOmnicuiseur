@@ -1,5 +1,4 @@
 <?php
-    die();
 //    Cette page gère les options d'administration
     
     // Suppression d'une recette

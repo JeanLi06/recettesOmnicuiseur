@@ -1,19 +1,20 @@
+<!--Cette page permet de connecter l'administrateur-->
+
 <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
-
 <?php include_once 'application/php/flash_message.php' ?>
+
 <?php if (isset($_SESSION['connected']) && $_SESSION['connected']): ?>
-<form method="POST" action="application\php\login_admin.php" class="form">
-<button type="submit" name="deconnection">Confirmer la déconnection</button>
-</form>
-
+    <form method="POST" action="application\php\login_admin.php" class="form">
+        <button type="submit" name="deconnection">Confirmer la déconnection</button>
+    </form>
 <?php else: ?>
-
-<form method="POST" action="application\php\login_admin.php" class="form">
-    <input type="text" placeholder="Nom d'utilisateur" name="admin_name">
-    <input type="password" placeholder="Mot de passe" name="admin_password">
-    <div class="g-recaptcha" data-sitekey="6LetI7MUAAAAAGGP6jQFl30oOqLp1-Rfqz1vPq-J"></div>
-    <p>
-    <button type="submit" name="connection">Connection</button></p>
-</form>
-<?php endif ?>
+    <form method="POST" action="application\php\login_admin.php" class="form">
+        <input type="text" placeholder="Nom d'utilisateur" name="admin_name">
+        <input type="password" placeholder="Mot de passe" name="admin_password">
+        <div class="g-recaptcha" data-sitekey="6LetI7MUAAAAAGGP6jQFl30oOqLp1-Rfqz1vPq-J"></div>
+        <p>
+            <button type="submit" name="connection">Connection</button>
+        </p>
+    </form>
+<?php endif; ?>
 

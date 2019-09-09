@@ -1,10 +1,6 @@
 <?php
-//TODO verifier XSS sur <?=
 require_once 'application/php/utils.php';
 sessionStart();
-
-//on efface les données de a session précédente
-//    $_SESSION = array();
 
 // génération d'une constante HOME, qui contient l'url absolue vers la racine du site
 //    define('HTTP_ROOT', 'localhost' === $_SERVER['HTTP_HOST'] ? '/monsite1/' : '/');
@@ -20,10 +16,10 @@ sessionStart();
     // Connection à la base avec pdo
     include_once 'application\bdd_connection.php';
 
-    // Chargement différents éléments de la page
-    include_once 'application\php\header.php';
-    include_once 'application\php\recipes.php';
-    include_once 'application\controller\last_recipe_infos.php';
+    // Chargement des différents éléments de la page
+    require_once 'application\php\header.php';
+    require_once 'application\php\recipes.php';
+    require_once 'application\controller\last_recipe_infos.php';
 
     // On choisit quelle page afficher avec le DISPATCHER
     require_once "application\php\dispatcher.php";

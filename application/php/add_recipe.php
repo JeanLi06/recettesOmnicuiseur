@@ -1,10 +1,6 @@
 <?php
 //    Permet d'ajouter une recette existante
 
-//     On démarre la session si elle n'est déjà pas créée'
-//    require_once 'utils.php';
-//    sessionStart();
-
 //    on stocke le nom de la recette envoyée par get, en session
     $_SESSION['name'] = isset($_SESSION['name']) ? $_SESSION['name'] : null;
     if (isset($_GET['name'])) {
@@ -51,6 +47,8 @@
             }
         }
 //    On peut alors écrire dans la base
+        require_once 'utils.php';
+        sessionStart();
         require_once $_SESSION['ROOT_PATH'] . 'application/bdd_connection.php';
         require_once $_SESSION['ROOT_PATH'] . 'application/php/classes_autoload.php';
         RecipeModel::add($name, $full_unique_name, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note);

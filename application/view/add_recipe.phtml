@@ -1,6 +1,6 @@
-<!--Formulaire d'ajout de recette-->
+<!--Cette page permet d'ajouter une recette-->
+<?php include_once('application/php/flash_message.php'); ?>
 
-<?php // Protection de la page si non connecté ?>
 <?php require_once 'application/php/is_admin_check.php' ?>
 
 <?php if (array_key_exists('error', $_GET) && !empty($_GET['error'])): ?>
@@ -8,20 +8,20 @@
         <?= htmlspecialchars($_GET['error']) ?>
         <?= $_SESSION['name'] ?>
     </p>
-<?php endif ?>
+<?php endif; ?>
 
 <form action="application\php\add_recipe.php" method="POST" class="form" enctype="multipart/form-data">
     <label for="name">Nom</label>
     <input type="text" id="name" name="name" placeholder="Nom de la recette" required>
 
     <label for="photo">Choisir une photo</label>
-<!--    On n'affiche la source de l'image que si un fichier a été choisit-->
     <figure>
-    <img
+        <img
+        <!--    On n'affiche la source de l'image que si un fichier a été choisit-->
         <?php if (isset($recette_from_id['photo'])): ?>
-            <?= 'src="img/' . htmlspecialchars($recette_from_id['photo']) ?>
-        <?php endif ?>
-            id="image_recette" width="100px" height="auto" class="photo">
+                <?= 'src="img/' . htmlspecialchars($recette_from_id['photo']) ?>
+            <?php endif; ?>
+                id="image_recette" width="100px" height="auto" class="photo">
     </figure>
     <input type="file" id="photo" name="photo" required>
 
@@ -38,14 +38,14 @@
     <label for="cooking_instructions">Intructions</label>
     <textarea id="cooking_instructions" name="cooking_instructions" placeholder="Instructions" rows="10"
               required></textarea>
-
+    
     <label for="category">Catégorie</label>
     <select name="category" id="category" required>
         <option value="Entrée">Entrée</option>
         <option value="Plat">Plat</option>
         <option value="Dessert">Dessert</option>
     </select>
-
+    
     <label for="note">Notes</label>
     <textarea id="note" name="note" placeholder="Notes / Instructions supplémentaires" rows="5"></textarea>
 

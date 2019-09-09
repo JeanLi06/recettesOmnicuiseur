@@ -42,8 +42,7 @@
         $category = $_POST['category'];
         $note = $_POST['note'];
         
-        //Test si fichier photo bien envoyé et pas d'erreurs
-//             +   test si la taille < 1Mo
+        //Test si fichier photo bien envoyé et pas d'erreurs + test si la taille < 1Mo
         if (isset($_FILES['photo']['name']) && $_FILES['photo']['error'] === 0 && $_FILES['photo']['size'] <= 1048576) {
             //On récupère l'extension
             $infos_fichier = pathinfo($_FILES['photo']['name']);
@@ -66,7 +65,6 @@
 //    On peut alors mettre à jour la recette
         require_once '../model/RecipeModel.class.php';
         require_once '../bdd_connection.php';
-//        require_once ROOT_PATH . 'application/bdd_connection.php';
         RecipeModel::update($name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, $recette_id);
         $_SESSION['flash_confirm_message'] = 'Modification de la recette effectuée';
         redirect('edit_recipes');

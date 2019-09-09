@@ -13,7 +13,7 @@
 	    ]
     );
 
-////////////////////         FONCTION UTILES        ////////////////////////////////
+// Fonctions utiles pour la base de données //
 function fetchAll($sql, array $params = []) {
     global $pdo;
     $request = $pdo->prepare($sql);
