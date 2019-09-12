@@ -1,7 +1,11 @@
 <?php
-//    Permet d'ajouter une recette existante
+//    Cette page permet d'ajouter une recette existante
+
+
+    use Verot\Upload\Upload;
 
 //    on stocke le nom de la recette envoyée par get, en session
+    
     $_SESSION['name'] = isset($_SESSION['name']) ? $_SESSION['name'] : null;
     if (isset($_GET['name'])) {
         $_SESSION['name'] = $_POST['name'];
@@ -13,7 +17,6 @@
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
             redirect('add_recipe&error=Veuillez%20remplir%20tous%20les%20champs');
         }
-        
         if (!ctype_digit($_POST['how_many_persons']) || !ctype_digit($_POST['cooking_time_minutes'])) {
             //Si les champs de sont pas des nombre, alors erreur
             redirect('add_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
@@ -43,7 +46,26 @@
                 $unique_filename = md5(basename($photo) . time());
                 $file_extension = strrchr($photo, '.');
                 $full_unique_name = $unique_filename . $file_extension;
+//                On écrit le fichier temporaire dans le repertoire des images
                 move_uploaded_file($_FILES['photo']['tmp_name'], '../../img/' . $full_unique_name);
+            }
+//            On change la taille de l'image avec largeur = 200px, hauteur selon le ratio,
+//              en utilisant la classe class.upload.php
+            //    On importe la classe qui va permettre de changer la taille de l'image
+            require_once '../../vendor/verot/class.upload.php/src/class.upload.php';
+            $handle = new upload('../../img/' . $full_unique_name);
+            if ($handle->uploaded) {
+//                $handle->file_new_name_body   = 'image_resized';
+                $handle->image_resize         = true;
+                $handle->image_x              = 200;
+                $handle->image_ratio_y        = true;
+                $handle->process('../../img/');
+                if ($handle->processed) {
+                    echo 'image resized';
+                    $handle->clean();
+                } else {
+                    echo 'error : ' . $handle->error;
+                }
             }
         }
 //    On peut alors écrire dans la base

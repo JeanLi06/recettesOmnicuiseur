@@ -228,6 +228,7 @@ section a, section a:visited {
     display: flex;
     flex-direction: column;
     padding: 0 5rem;
+    margin-top: 15px;
 }
 
 .error {
@@ -339,7 +340,7 @@ th {
         margin-bottom: 5px;
     }
 
-    .recettes td:nth-child(2){
+    .recettes td:nth-child(2) {
         padding: 0 8px;
     }
 

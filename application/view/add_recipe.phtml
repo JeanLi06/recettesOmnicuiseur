@@ -17,10 +17,9 @@
     <label for="photo">Choisir une photo</label>
     <figure>
         <img
-        <!--    On n'affiche la source de l'image que si un fichier a été choisit-->
-        <?php if (isset($recette_from_id['photo'])): ?>
+            <?php if (isset($recette_from_id['photo'])): ?>
                 <?= 'src="img/' . htmlspecialchars($recette_from_id['photo']) ?>
-            <?php endif; ?>
+            <?php endif ?>
                 id="image_recette" width="100px" height="auto" class="photo">
     </figure>
     <input type="file" id="photo" name="photo" required>
