@@ -1,10 +1,15 @@
 Options +FollowSymlinks
 RewriteEngine On
 
+#RewriteRule	^admin             index.php?page=admin	[QSA]
+#RewriteRule ^([a-zA-Z0-9_]+)$ index.php?page=$1 [L]
+
 #RewriteCond "%{REQUEST_FILENAME}" "!-f"
 #RewriteCond "%{REQUEST_FILENAME}" "!-d"
-RewriteRule	^admin             index.php?page=admin	[QSA]
-RewriteRule ^([a-zA-Z0-9_]+)$ index.php?page=$1 [L]
+#RewriteRule ^([a-zA-Z0-9_]+)$ index.php?page=$1 [L]
+# Permanent reirect ALL old pages to HTTPS:
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 #TODO vérifier la page 404
 ErrorDocument 404 /application/view/404.phtml

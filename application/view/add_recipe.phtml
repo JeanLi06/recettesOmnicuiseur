@@ -1,6 +1,5 @@
 <!--Cette page permet d'ajouter une recette-->
-<?php include_once('application/php/flash_message.php'); ?>
-
+<?php require_once 'application/php/flash_message.php'; ?>
 <?php require_once 'application/php/is_admin_check.php' ?>
 
 <?php if (array_key_exists('error', $_GET) && !empty($_GET['error'])): ?>
@@ -20,9 +19,10 @@
             <?php if (isset($recette_from_id['photo'])): ?>
                 <?= 'src="img/' . htmlspecialchars($recette_from_id['photo']) ?>
             <?php endif ?>
-                id="image_recette" width="100px" height="auto" class="photo">
+        id="image_recette" width="100px" height="auto" class="photo">
+        <!--        <img id="image_recette" src=""/><br/>-->
     </figure>
-    <input type="file" id="photo" name="photo" required>
+    <input type="file" id="photo" name="photo" accept="image/*" onchange="readURL(this);"/>
 
     <label for="ingredients_list">Ingrédients</label>
     <textarea id="ingredients_list" name="ingredients_list" placeholder="Liste des ingrédients" rows="10"

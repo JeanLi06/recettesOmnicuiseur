@@ -21,7 +21,7 @@
 
 //        la clé secrète est dans un fichier séparé, qui n'est pas copié dans GITHUB
         require_once 'secret_key_captcha.php';
-        
+
 //        Idem pour les identifiants administrateurs
         require_once 'secret_admin.php';
 
@@ -45,15 +45,15 @@
             $_SESSION['flash_confirm_message'] = 'Connexion Admin effectuée';
             redirect('home');
         } else {
-//            TODO Nom utilisateur
             $_SESSION['flash_error_message'] = 'Nom d\'utilisateur ou mot de passe non valide';
             redirect('login_admin');
         }
     }
-    
+
+//    Test déconnexion
     if (isset($_POST['deconnection']) && $_SESSION['connected']) {
         unset($_SESSION['connected']);
-        $_SESSION['flash_confirm_message'] = 'Déconnection Admin effectuée';
+        $_SESSION['flash_confirm_message'] = 'Déconnexion Admin effectuée';
         redirect('home');
     }
 
