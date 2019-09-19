@@ -1,5 +1,5 @@
 <!--Cette page permet d'ajouter une recette-->
-<?php require_once 'application/php/flash_message.php'; ?>
+<?php require_once 'application/php/flash-message.php'; ?>
 <?php require_once 'application/php/is_admin_check.php' ?>
 
 <?php if (array_key_exists('error', $_GET) && !empty($_GET['error'])): ?>
@@ -9,7 +9,7 @@
     </p>
 <?php endif; ?>
 
-<form action="application\php\add_recipe.php" method="POST" class="form" enctype="multipart/form-data">
+<form action="application\php\add-recipe.php" method="POST" class="form" enctype="multipart/form-data">
     <label for="name">Nom</label>
     <input type="text" id="name" name="name" placeholder="Nom de la recette" required>
 
@@ -19,7 +19,7 @@
             <?php if (isset($recette_from_id['photo'])): ?>
                 <?= 'src="img/' . htmlspecialchars($recette_from_id['photo']) ?>
             <?php endif ?>
-        id="image_recette" width="100px" height="auto" class="photo">
+                id="image_recette" width="100px" height="auto" class="photo">
         <!--        <img id="image_recette" src=""/><br/>-->
     </figure>
     <input type="file" id="photo" name="photo" accept="image/*" onchange="readURL(this);"/>
@@ -37,14 +37,14 @@
     <label for="cooking_instructions">Intructions</label>
     <textarea id="cooking_instructions" name="cooking_instructions" placeholder="Instructions" rows="10"
               required></textarea>
-    
+
     <label for="category">Catégorie</label>
     <select name="category" id="category" required>
         <option value="Entrée">Entrée</option>
         <option value="Plat">Plat</option>
         <option value="Dessert">Dessert</option>
     </select>
-    
+
     <label for="note">Notes</label>
     <textarea id="note" name="note" placeholder="Notes / Instructions supplémentaires" rows="5"></textarea>
 

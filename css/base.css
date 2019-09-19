@@ -20,30 +20,32 @@ html {
 }
 
 body {
+    font-size: 16px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 1.6rem;
-    line-height: 1.6;
     color: #e58e26;
     display: flex;
     flex-direction: column;
     position: relative;
+    margin-top: 50px; /* De la place pour la barre de nav */
 }
 
-body:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100vw;
-    opacity: 0.05;
-}
+/*body:after {*/
+    /*content: "";*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    /*width: 100vw;*/
+    /*!*opacity: 0.05;*!*/
+/*}*/
 
 a, a:hover, a:visited, a:active {
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 18px; /* Pour les navigateurs qui ne supportent pas les rem */
+    font-size: 1.8rem;
     color: #e76838;
 }
 
@@ -53,8 +55,10 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #fbf9af;
-    height: 5rem;
     width: 100%;
+    min-height: 50px;
+    top: 0;
+    padding: 0 30px; /* Pour les navigateurs qui ne supportent pas les rem */
     padding: 0 3rem;
 }
 
@@ -65,22 +69,19 @@ header a {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-around;
     flex-grow: 1; /* pour occuper toute la hauteur */
-    margin-top: 60px;
-    padding-bottom: 3rem;
-    width: 1200px;
-    /*z-index: 10;*/
+    /*margin-top: 50px;*/
 }
 
 #main-navigation a {
     color: #fefefe;
 }
 
-/*navigation page principale*/
+/*navigation Page principale*/
 nav li {
-    margin: 0 5px;
-    padding: 0 15px;
+    margin: 2px 5px;
+    padding: 2px 15px;
     background-color: #e76838;
     display: inline-block;
     border-radius: 5px;
@@ -114,12 +115,13 @@ nav ul:hover > li:hover {
     background-color: green;
 }
 
-/*la recette*/
+/* la recette */
 main aside {
     align-self: center;
     border: 15px ridge #a8026f;
+    padding: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
     padding: 3rem;
-    margin-top: 50px;
+    /*margin-top: 50px;*/
 }
 
 article p {
@@ -127,6 +129,10 @@ article p {
     margin: 0 auto;
     white-space: pre-line;
     text-align: left;
+}
+
+h1 {
+    margin: 0;
 }
 
 article h3 {
@@ -139,15 +145,21 @@ aside h2 {
 
 aside h3, article h4 {
     font-family: 'Great Vibes', Helvetica, sans-serif;
+    font-size: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 3rem;
     letter-spacing: 3px;
     color: #e76838;
     border-top: #e76838 double 4px;
+    border-bottom: #e76838 double 4px;
+    margin-top: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
     margin-top: 2rem;
+    margin-bottom: 2px; /* Pour les navigateurs qui ne supportent pas les rem */
+    margin-bottom: 2rem;
 }
 
 aside img {
     width: 200px;
+    margin-top: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
     margin-top: 2rem;
 }
 
@@ -162,11 +174,9 @@ figure {
 }
 
 .container {
-    max-width: 1000px;
-    width: 80%;
-    margin: 50px auto;
+    width: 100%;
+    /*margin: 7rem auto;*/
     background-color: #1e3799;
-    border-radius: 10px;
 }
 
 .center {
@@ -185,7 +195,10 @@ section a, section a:visited {
     color: black;
 }
 
-/********* page recipes ************/
+/************************************/
+/********** Page recipes ************/
+/************************************/
+
 #recipe-navigation {
     background-color: #3941bd;
 }
@@ -195,15 +208,17 @@ section a, section a:visited {
 }
 
 #view-recipe-article {
-    padding: 0 25px;
+    padding: 20px 50px;
 }
 
 #view-recipe-article div {
     display: flex;
+    font-size: 15px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 1.5rem;
     justify-content: space-around;
     align-items: center;
     text-align: left;
+    margin-top: 10px; /* Pour les navigateurs qui ne supportent pas les rem */
     margin-top: 1rem;
 }
 
@@ -213,22 +228,27 @@ section a, section a:visited {
 }
 
 #view-recipe-article h3 {
+    font-size: 25px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 2.5rem;
 }
 
 #view-recipe-article h5 {
     font-family: 'Great Vibes', Helvetica, sans-serif;
+
+    font-size: 22px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 2.2rem;
     letter-spacing: 2px;
     color: #e76838;
 }
 
-/********* page add_recipe ************/
+/************************************/
+/********* Page add-recipe **********/
+/************************************/
+
 .form {
     display: flex;
     flex-direction: column;
-    padding: 0 5rem;
-    margin-top: 15px;
+    padding: 20px 50px;
 }
 
 .error {
@@ -250,6 +270,7 @@ label {
 }
 
 input, textarea, select {
+    margin-bottom: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
     margin-bottom: 3rem;
     color: #222222;
     padding: 5px;
@@ -262,10 +283,12 @@ button {
     color: #222222;
     background-color: chartreuse;
     border: none;
+    padding: 5px 10px; /* Pour les navigateurs qui ne supportent pas les rem */
     padding: 0.5rem 1rem;
     align-self: center;
     cursor: pointer;
     border-radius: 10px;
+    font-size: 16px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 1.6rem;
 }
 
@@ -283,7 +306,10 @@ button:hover {
     transform: scale(1.02);
 }
 
-/********* page edit_recipes ************/
+/************************************/
+/********* Page edit_recipes ********/
+/************************************/
+
 .nom, .date {
     text-align: left;
 }
@@ -303,35 +329,74 @@ button:hover {
 }
 
 th {
+    padding: 3px 0; /* Pour les navigateurs qui ne supportent pas les rem */
     padding: 0.3rem 0;
     color: #1e3799;
     background-color: #e58e26;
 }
 
-/********* page search ************/
+/************************************/
+/********** Page search ************/
+/************************************/
+
 .search-result tr:hover {
     cursor: pointer;
     background-color: #4b3019;
 }
 
+/************************************/
 /********* Media Queries ************/
+/************************************/
+
 /* smartphone */
+
 @media all and (max-device-width: 767px) {
+    html {
+        font-size: 50%;
+    }
+
+    body {
+        margin-top: 0;
+    }
+
     header {
-        position: initial;
+        position: sticky;
         flex-direction: column;
-        height: auto;
+        min-height: auto;
     }
 
-    article p {
-        width: 90%;
+    article p, td {
+        line-height: 1.2;
+        width: auto;
     }
 
-    #view-recipe-article h3 {
+    tr > td {
+        padding-left: 3px;
+    }
+
+   header h1 {
+        margin: 2rem auto;
+        font-size: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
         font-size: 2rem;
     }
 
+    article h4 {
+        border-bottom: #e76838 solid 2px;
+        border-top: #e76838 solid 2px;
+    }
+
+    #view-recipe-article h3 {
+        font-size: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
+        font-size: 2rem;
+    }
+
+    #view-recipe-article h4 {
+        font-size: 19px; /* Pour les navigateurs qui ne supportent pas les rem */
+        font-size: 1.9rem;
+    }
+
     #view-recipe-article h5 {
+        font-size: 18px; /* Pour les navigateurs qui ne supportent pas les rem */
         font-size: 1.8rem;
     }
 
@@ -339,8 +404,14 @@ th {
         flex-direction: column;
     }
 
-    nav li {
+    #main-navigation ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #main-navigation li {
         margin-bottom: 5px;
+        text-align: center;
     }
 
     .recettes td:nth-child(2) {
@@ -348,6 +419,6 @@ th {
     }
 
     .form {
-        padding: initial;
+        padding: 10px 10px;
     }
 }

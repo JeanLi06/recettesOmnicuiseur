@@ -13,25 +13,25 @@
             }
             break;
         
-        case 'add_recipe':
-            if ($_GET['page'] === 'add_recipe' && isset($_SESSION['connected'])) {
+        case 'add-recipe':
+            if ($_GET['page'] === 'add-recipe' && isset($_SESSION['connected'])) {
                 require_once 'application/php/add_recipe.php';
             }
             break;
         
-        case 'edit_recipes':
-            if ($_GET['page'] === 'edit_recipes' && isset($_SESSION['connected'])) {
+        case 'edit-recipes':
+            if ($_GET['page'] === 'edit-recipes' && isset($_SESSION['connected'])) {
                 require_once 'application/php/edit_recipes.php';
             }
             break;
         
-        case 'edit_single_recipe':
-            if ($_GET['page'] === 'edit_single_recipe' && isset($_SESSION['connected'])) {
+        case 'edit-single-recipe':
+            if ($_GET['page'] === 'edit-single-recipe' && isset($_SESSION['connected'])) {
                 require_once 'application/php/edit_single_recipe.php';
             }
             break;
         
-        case 'login_admin':
+        case 'login-admin':
             require_once 'application/php/login_admin.php';
             break;
         
@@ -40,10 +40,11 @@
             break;
         
         case 'home':
+        case 'index' :
             require_once 'index.php';
             break;
         
-        default :
-            echo "Erreur : ce template n'existe pas";
+        case '404':
+            echo "Erreur : $template cette page n'existe pas";
             break;
     }

@@ -1,8 +1,8 @@
 <!--Cette page affiche un formulaire de recherche, ainsi que le résultat de la recherche précédente-->
 <?php sessionStart(); ?>
-<div id="home"></div>
-<form method="POST" action="application\php\search.php" class="form">
-    <label for="search_item">Recherche (dans titre ou description)</label>
+<!--<div id="home"></div>-->
+<form method="POST" action="application\php\search.php" class="form" id="home">
+    <label for="search_item">Recherche (dans titre ou description) &mdash; ex : chocolat</label>
     <input type="text" id="search_item" name="search_item" placeholder="Que cherchez vous ?" required>
     <p>
         <button type="submit" name="submit">Rechercher</button>
@@ -26,7 +26,7 @@
         </thead>
         <tbody>
         <?php foreach ($list_recipes as $list_recipe): ?>
-            <tr onclick="document.location='index.php?page=recipe_from_search&id=<?= $list_recipe['id'] ?>'">
+            <tr onclick="document.location='index.php?page=recipe-from-search&id=<?= $list_recipe['id'] ?>'">
                 <td>
                     <figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>"
                                  alt="" width="100px" height="auto" class="photo"></figure>

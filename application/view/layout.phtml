@@ -20,17 +20,14 @@
               crossorigin="anonymous">
 
         <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/base.css">
     </head>
     <body>
     
     <?php include 'header.phtml' ?>
-    <!-- Chargement de la librairie jquery -->
-    <script src="js/jquery-3.4.1.min.js">console.log('jquery')</script>
-    <!--    <script src="https://code.jquery.com/jquery-3.4.1.min.js">console.log('jquery')</script>-->
-    <script src="js/main.js"></script>
+
     <!-- Google reCAPTCHA-->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <noscript>
@@ -41,7 +38,10 @@
         <!-- Chargement du template PHTML spécifié par dispatcher.php -->
         <?php include "application/view/$template.phtml"; ?>
     </main>
-    
+    <!-- Chargement de la librairie jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script src="js/main.js"></script>
     </body>
     </html>
 <?php ob_get_flush(); ?>

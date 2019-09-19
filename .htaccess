@@ -1,12 +1,27 @@
 Options +FollowSymlinks
 RewriteEngine On
 
-#RewriteRule	^admin             index.php?page=admin	[QSA]
-#RewriteRule ^([a-zA-Z0-9_]+)$ index.php?page=$1 [L]
+# Allow any files or directories that exist to be displayed directly
+RewriteCond ${REQUEST_URI} ^.+$
+RewriteCond %{REQUEST_FILENAME} \.(gif|jpe?g|png|js|css|swf|php|ico|txt|pdf|xml)$ [OR]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -l
+RewriteRule ^ - [L]
 
-#RewriteCond "%{REQUEST_FILENAME}" "!-f"
-#RewriteCond "%{REQUEST_FILENAME}" "!-d"
-#RewriteRule ^([a-zA-Z0-9_]+)$ index.php?page=$1 [L]
+#RewriteRule (.*) index.php?page=$1 [L,QSA]
+#RewriteRule ^([a-z-]*)/$   index.php?page=$1 [L]
+
+RewriteRule ^(.*?)\.(php|css|js|jpg|jpeg|png|pdf)$ - [L]
+RewriteRule ([a-z-]+) index.php?page=$1 [L,QSA]
+
+#RewriteRule ([a-z\-]+) index.php?page=$1 [L,QSA]
+RewriteRule ^(.+)/(.+)/?$ index.php?page=$1&id=$2 [L]
+#
+#RewriteRule ([a-z\-]+[a-z]+) index.php?page=$1 [L,QSA]
+#RewriteRule ([a-z\-]+[a-z]+)/([a-z\-]+[a-z]+)/([0-9]+) index.php?page=$1&action=$2&id=$3 [L,QSA]
+RewriteRule ^([a-z]{2})/([^/]+)/?$ index.php?page=$1&action=$2id=$3 [L,QSA]
+
 # Permanent reirect ALL old pages to HTTPS:
 #RewriteCond %{HTTPS} off
 #RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

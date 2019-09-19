@@ -17,15 +17,15 @@
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
             if (empty($_POST['recette_id'])) $_POST['recette_id'] = 0;
             $_SESSION['flash_error_message'] = 'Certains champs sont vides';
-            redirect('edit_single_recipe&id=' . (int)['recette_id']);
-//            header('Location: ../../index.php?page=edit_single_recipe&id=' . $_POST['recette_id']);
+            redirect('edit-single-recipe&id=' . (int)['recette_id']);
+//            header('Location: ../../index.php?page=edit-single-recipe&id=' . $_POST['recette_id']);
             exit();
         }
         //Si les champs de sont pas des nombre, alors erreur
         if (!ctype_digit($_POST['how_many_persons']) || !ctype_digit($_POST['cooking_time_minutes'])) {
             $_SESSION['flash_error_message'] = 'Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson';
-//            header('Location: ../../index.php?page=edit_single_recipe');
-            redirect('edit_single_recipe&id=' . (int)['recette_id']);
+//            header('Location: ../../index.php?page=edit-single-recipe');
+            redirect('edit-single-recipe&id=' . (int)['recette_id']);
             exit();
         }
         
@@ -67,7 +67,7 @@
         require_once '../bdd_connection.php';
         RecipeModel::update($name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, $recette_id);
         $_SESSION['flash_confirm_message'] = 'Modification de la recette effectuée';
-        redirect('edit_recipes');
+        redirect('edit-recipes');
 //        header('Location: ../../index.php?page=edit_recipes');
         exit();
     }

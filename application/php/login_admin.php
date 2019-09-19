@@ -6,7 +6,7 @@
 //    Si le formulaire comporte un des champs vide => message d'erreur
     if (isset($_POST['connection']) && (empty($_POST['admin_name']) || empty($_POST['admin_password']))) {
         $_SESSION['flash_error_message'] = 'Les 2 champs doivent être remplis';
-        redirect('login_admin');
+        redirect('login-admin');
     }
 //    Tous les champs sont présents => on teste leur validité
     if (isset($_POST['connection']) && !empty($_POST['admin_name']) && !empty($_POST['admin_password'])) {
@@ -14,7 +14,7 @@
             $captcha_response = $_POST['g-recaptcha-response'];
         } else {
             $_SESSION['flash_error_message'] = 'Erreur de Captcha';
-            redirect('login_admin');
+            redirect('login-admin');
         }
         $admin_name = htmlspecialchars(trim($_POST['admin_name']));
         $admin_password = htmlspecialchars(trim($_POST['admin_password']));
@@ -33,7 +33,7 @@
         $responseKeys = json_decode($response, true);
         if (!$responseKeys['success']) {
             $_SESSION['flash_error_message'] = 'Captcha non validé';
-            redirect('login_admin');
+            redirect('login-admin');
         }
 
 //        On vérifie le le nom utilisateur, le captcha et le mot de passe,
@@ -46,7 +46,7 @@
             redirect('home');
         } else {
             $_SESSION['flash_error_message'] = 'Nom d\'utilisateur ou mot de passe non valide';
-            redirect('login_admin');
+            redirect('login-admin');
         }
     }
 

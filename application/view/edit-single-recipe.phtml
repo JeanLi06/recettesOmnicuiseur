@@ -1,0 +1,54 @@
+<!--Edition d'une recette choisie sur la page edit_recipes-->
+<?php include_once 'application/php/flash-message.php'; ?>
+<?php require_once 'application/php/is_admin_check.php'; ?>
+
+<form action="application\php\edit-single-recipe.php" method="POST" class="form" enctype="multipart/form-data">
+
+    <!--    champ caché permettant d'identifier la recette concernée, après la soumission du formulaire -->
+    <input type="hidden" name="recette_id" value="<?= (int)$_GET['id'] ?>">
+
+    <label for="name">Nom</label>
+    <input type="text" id="name" name="name" value="<?= htmlspecialchars($recette_from_id['name']) ?>" required>
+
+    <label for="photo">Photo</label>
+    <input type="hidden" name="recipe_photo" value="<?= htmlspecialchars($recette_from_id['photo']) ?>">
+
+    <figure>
+        <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>" id="image_recette" width="100px" height="auto"
+             class="photo">
+    </figure>
+    <input type="file" id="photo" name="photo">
+
+    <label for="ingredients_list">Ingrédients</label>
+    <textarea id="ingredients_list" name="ingredients_list" rows="10"
+    ><?= htmlspecialchars($recette_from_id['ingredients_list']) ?></textarea>
+
+    <label for="how_many_persons">Personnes</label>
+    <input type="text" id="how_many_persons" name="how_many_persons"
+           value="<?= htmlspecialchars($recette_from_id['how_many_persons']) ?>" required>
+
+    <label for="cooking_time_minutes">Temps de cuisson</label>
+    <input type="text" id="cooking_time_minutes" name="cooking_time_minutes"
+           value="<?= htmlspecialchars($recette_from_id['cooking_time_minutes']) ?>" required>
+
+    <label for="cooking_instructions">Intructions</label>
+    <textarea id="cooking_instructions" name="cooking_instructions" rows="10"
+              required><?= htmlspecialchars($recette_from_id['cooking_instructions']) ?></textarea>
+
+    <label for="category">Catégorie</label>
+    <select name="category" id="category">
+        <option value="Entrée" <?php if ($recette_from_id['category'] === 'Entrée') echo 'selected="selected"' ?>>
+            Entrée
+        </option>
+        <option value="Plat" <?php if ($recette_from_id['category'] === 'Plat') echo 'selected="selected"' ?>>Plat
+        </option>
+        <option value="Dessert" <?php if ($recette_from_id['category'] === 'Dessert') echo 'selected="selected"' ?>>
+            Dessert
+        </option>
+    </select>
+
+    <label for="note">Notes</label>
+    <textarea id="note" name="note" rows="5"><?= htmlspecialchars($recette_from_id['note']) ?></textarea>
+
+    <button type="submit" name="submit">Enregistrer</button>
+</form>

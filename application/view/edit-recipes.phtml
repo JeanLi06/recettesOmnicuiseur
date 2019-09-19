@@ -1,0 +1,40 @@
+<!--Affichage des recttes existantes avec la possibilité de modifier et d'effacer-->
+<?php include_once 'application/php/flash-message.php'; ?>
+
+<?php require_once 'application/php/is_admin_check.php'; ?>
+<!--<div id="home"></div>-->
+<table class="recettes" id="home">
+    <caption>Liste des recettes</caption>
+    <thead>
+    <tr>
+        <th>Photo</th>
+        <th class="nom">Nom</th>
+        <th class="date">Date</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($list_recipes as $list_recipe): ?>
+        <tr>
+            <td>
+                <figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>"
+                             alt="<?= htmlspecialchars($list_recipe['name']) ?>" width="100px" height="auto" class="photo">
+                </figure>
+            </td>
+            <td class="td nom"><?= htmlspecialchars($list_recipe['name']) ?></td>
+            <td class="td date"><?= htmlspecialchars($list_recipe['creation_date_formatted']) ?></td>
+            <td>
+                <a href="index.php?page=edit-recipes&action=edit-single-recipe&id=<?= $list_recipe['id'] ?>"><i
+                            class="fa fa-pen-alt" title="Editer"></i></a>
+                <!--  Demande de confirmation avant d'effacer -->
+                <a onClick="return confirm('Voulez-vous vraimenent supprimer la recette ?');"
+                   href='index.php?page=edit-recipes&action=delete_recipe&id=<?= $list_recipe['id'] ?>'>
+                    <i class="fa fa-trash" title="Effacer"></i>
+                </a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<a href="#home"><button type="button" class="button-scroll-to-top"><i class="fas fa-arrow-up"></i></button></a>
+ 

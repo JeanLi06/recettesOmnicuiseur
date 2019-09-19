@@ -19,6 +19,7 @@
     // Connection à la base avec pdo
     include_once 'application\bdd_connection.php';
     
+//    TODO mettre que des /
     // Chargement des différents éléments de la page
     require_once 'application\php\header.php';
     require_once 'application\php\recipes.php';
@@ -28,7 +29,7 @@
     require_once "application\php\dispatcher.php";
     
     // On récupère les données à afficher et on reçoit les formulaires, c'est le CONTROLLEUR
-    require_once "application\controller\controller.php";
+    require_once "application/controller/controller.php";
     
     // chargement de la vue
     include 'application\view\layout.phtml';
