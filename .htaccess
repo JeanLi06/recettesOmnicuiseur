@@ -1,5 +1,20 @@
 Options +FollowSymlinks
+# Permanent reirect ALL old pages to HTTPS:
 RewriteEngine On
+RewriteCond %{HTTP_HOST} jeanliautaud\.fr [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://jeanliautaud.fr/$1 [R,L]
+
+#***************************************************************************
+# monsite.com/page   -> monsite.com/index.php/page
+# RewriteRule ^source$ resultat [flag]
+# ^ symbolise le début d'une chaine
+# $ symbolise la fin d'une chaine
+# ? n = 0 ou 1
+# + n = 1 ou une infinité
+# * n = 0 ou une infinité
+# -  signifie une portée comme 0-9 = tous les nombres de 0 à 9
+#***************************************************************************
 
 # Allow any files or directories that exist to be displayed directly
 RewriteCond ${REQUEST_URI} ^.+$
@@ -22,20 +37,9 @@ RewriteRule ^(.+)/(.+)/?$ index.php?page=$1&id=$2 [L]
 #RewriteRule ([a-z\-]+[a-z]+)/([a-z\-]+[a-z]+)/([0-9]+) index.php?page=$1&action=$2&id=$3 [L,QSA]
 RewriteRule ^([a-z]{2})/([^/]+)/?$ index.php?page=$1&action=$2id=$3 [L,QSA]
 
-# Permanent reirect ALL old pages to HTTPS:
-#RewriteCond %{HTTPS} off
-#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 
 #TODO vérifier la page 404
 ErrorDocument 404 /application/view/404.phtml
 
-#***************************************************************************
-# monsite.com/page   -> monsite.com/index.php/page
-# RewriteRule ^source$ resultat [flag]
-# ^ symbolise le début d'une chaine
-# $ symbolise la fin d'une chaine
-# ? n = 0 ou 1
-# + n = 1 ou une infinité
-# * n = 0 ou une infinité
-# -  signifie une portée comme 0-9 = tous les nombres de 0 à 9
 

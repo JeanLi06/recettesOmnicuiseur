@@ -1,6 +1,6 @@
 "use strict";
 
-/////////////Update de l'image après choix utilisateur sur pages edit_recipe & add-recipe ////////////////
+/////////////Update de l'image après choix utilisateur sur pages édition recette & ajout recette ////////////////
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();

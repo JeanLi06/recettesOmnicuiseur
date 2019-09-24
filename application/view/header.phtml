@@ -1,12 +1,14 @@
 <?php sessionStart(); ?>
 <!-- L'en-tête de chaque page, avec la navigation -->
 <header>
-    <h1><a href="index.php?page=home">Recettes Omnicuiseur</a></h1>
+    <h1><a href="index.php?page=home">Recettes pour l'Omnicuiseur</a></h1>
     <nav id="main-navigation">
         <ul>
             <li><a href="home">Accueil</a></li>
             <li title="Parcourir les recettes"><a href="recipes">Voir</a></li>
             <li title="Rechercher"><a href="search">&nbsp;<i class="fas fa-search"></i>&nbsp;</a></li>
+        </ul>
+        <ul>
             <?php if (isset($_SESSION['connected']) && $_SESSION['connected']): ?>
                 <li><a href="add-recipe">Ajouter</a></li>
                 <li title="Modifier une recette"><a href="edit-recipes">Editer</a></li>

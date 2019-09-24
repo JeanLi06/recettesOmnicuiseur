@@ -18,7 +18,7 @@
             echo $_SESSION['flash_confirm_message'];
 //        Un petit effet d'affichage avec jQuery...
         echo '</div>
-        <script>
+        <script type="text/javascript">
             $(function () {
                 $("#flash_message").slideDown("slow").delay(2000).slideUp("low");
             });

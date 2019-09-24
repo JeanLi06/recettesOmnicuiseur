@@ -1,3 +1,4 @@
 .idea
 application/php/secret_key_captcha.php
 application/php/secret_admin.php
+/application/php/secret_bdd_connection.php
