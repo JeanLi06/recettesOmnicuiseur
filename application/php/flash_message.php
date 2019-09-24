@@ -9,8 +9,7 @@
             echo 'flash-error';
         elseif (!empty($_SESSION['flash_confirm_message']))
             echo 'flash-confirm';
-//         Le message est caché à l'origne et sera révélé avec du JQuery
-        echo '" id="flash_message" hidden>';
+        echo '" id="flash_message">';
 //        On identifie le type de message : erreur ou confirmation
         if (!empty($_SESSION['flash_error_message']))
             echo $_SESSION['flash_error_message'];
@@ -20,7 +19,8 @@
         echo '</div>
         <script type="text/javascript">
             $(function () {
-                $("#flash_message").slideDown("slow").delay(2000).slideUp("low");
+//                $("#flash_message").slideDown("slow").delay(2000).slideUp("low");
+                $("#flash_message").delay(2000).slideUp("low");
             });
         </script>';
         unset($_SESSION['flash_error_message']);

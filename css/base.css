@@ -107,7 +107,8 @@ nav a:hover {
     justify-content: space-around;
 }
 
-.flash-error, .flash-confirm {
+.flash-error,
+.flash-confirm {
     display: block;
     position: fixed;
     margin-top: 5px;
@@ -278,7 +279,9 @@ label {
     text-transform: uppercase;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
     margin-bottom: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
     margin-bottom: 3rem;
     color: #222222;
@@ -319,7 +322,8 @@ button:hover {
 /********* Page edit_recipes ********/
 /************************************/
 
-.nom, .date {
+.nom,
+.date {
     text-align: left;
 }
 

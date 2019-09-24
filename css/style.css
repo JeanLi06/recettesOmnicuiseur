@@ -10,7 +10,8 @@
     /*max-width: 1200px;*/
 /*}*/
 
-.hidden { display: none }
+.hidden { visibility: hidden }
+/*.hidden { display: none }*/
 
 .italic { font-style: italic}
 
