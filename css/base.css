@@ -37,14 +37,13 @@ body {
 }
 
 a,
-a:hover,
 a:visited,
 a:active {
     text-decoration: none;
     /*padding: 0 5px;*/
     font-size: 18px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 1.8rem;
-    color: #e76838;
+    color: #e58e26;
 }
 
 header {
@@ -82,29 +81,30 @@ main {
 }
 
 #main-navigation a {
-    color: #fefefe;
+    /* color: #fefefe; */
     border-radius: 5px;
-    padding: 1px 2px;
-    background-color: #e58e26;
+    padding: 3px 5px;
+    border: 2px solid #e58e26;
 }
 
 #main-navigation li {
-    padding-right: 3px;
+    padding-right: 10px;
+}
+
+#main-navigation a:hover {
+    background-color: #e58e26;
+    color: #eeeeee;
 }
 
 nav ul {
     list-style: none;
 }
 
-nav a:hover {
-    background-color: #a8026f;
-}
-
 #main-navigation ul {
     display: flex;
     /*flex: 50%;*/
     padding: 4px 0;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .flash-error,
@@ -151,20 +151,16 @@ article h3 {
     text-transform: uppercase;
 }
 
-/*aside h2 {*/
-    /*flex-grow: 1;*/
-/*}*/
-
 aside h3,
 article h4 {
     font-family: 'Great Vibes', Helvetica, sans-serif;
     font-size: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 3rem;
     letter-spacing: 3px;
-    color: #e76838;
+    /*color: #e76838;*/
     border-top: #e76838 double 4px;
     border-bottom: #e76838 double 4px;
-    padding: 3px 0;
+    padding: 5px 0;
     margin-top: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
     margin-top: 2rem;
     margin-bottom: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
@@ -212,6 +208,10 @@ section a:visited {
 #recipe-navigation {
     background-color: #3941bd;
     margin: 1rem 0;
+}
+
+#recipe-navigation i:hover {
+    color: #a8026f;
 }
 
 .view-recipe-image {
@@ -366,7 +366,7 @@ th {
 /*@media screen and (max-device-width: 767px) {*/
 @media screen and (max-width: 767px) {
     html {
-        font-size: 55%;
+        font-size: 60%;
     }
 
     body {
@@ -403,9 +403,17 @@ th {
         flex-direction: column;
     }
 
+    #main-navigation{
+        flex-direction: column;
+    }
+    
     #main-navigation li {
         margin-bottom: 5px;
         text-align: center;
+    }
+
+    #main-navigation ul {
+       justify-content: center;
     }
 
     .recettes td:nth-child(2) {
