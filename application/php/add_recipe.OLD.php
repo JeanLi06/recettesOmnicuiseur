@@ -15,11 +15,11 @@
     if (isset($_POST['submit'])) {
         if (empty($_POST['name']) || empty($_POST['ingredients_list']) || empty($_POST['how_many_persons']) || empty($_POST['cooking_time_minutes'])
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
-            redirect('add-recipe&error=Veuillez%20remplir%20tous%20les%20champs');
+            redirect('add_recipe&error=Veuillez%20remplir%20tous%20les%20champs');
         }
         if (!ctype_digit($_POST['how_many_persons']) || !ctype_digit($_POST['cooking_time_minutes'])) {
             //Si les champs de sont pas des nombre, alors erreur
-            redirect('add-recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
+            redirect('add_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
         }
         $_GET['error'] = '';
         //On extrait les variables de $_POST

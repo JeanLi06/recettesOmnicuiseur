@@ -5,7 +5,7 @@
 }
 
 *:hover {
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 body,
@@ -60,7 +60,7 @@ header {
 }
 
 header p {
-    /* margin-left: 3rem; */
+    margin-bottom: 1rem;
     font-size: 1.8rem;
 }
 header a {
@@ -207,11 +207,11 @@ section a:visited {
 
 #recipe-navigation {
     background-color: #3941bd;
-    margin: 1rem 0;
+    margin: 1rem 50px;
 }
 
 #recipe-navigation i:hover {
-    color: #a8026f;
+    color: #fbf9af;
 }
 
 .view-recipe-image {
@@ -252,13 +252,22 @@ section a:visited {
 }
 
 /************************************/
-/********* Page add-recipe **********/
+/*********** Page Ajouter ***********/
 /************************************/
+
 
 .form {
     display: flex;
     flex-direction: column;
     padding: 20px 50px;
+}
+
+#image_recette{
+    float: left;
+}
+
+#cooking_instructions {
+    min-height: 300px;
 }
 
 .error {
@@ -283,12 +292,14 @@ input,
 textarea,
 select {
     margin-bottom: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
+    /* min-height: auto; */
     margin-bottom: 3rem;
     color: #222222;
     padding: 5px;
     background-color: #fefefe;
     border: none;
     border-radius: 5px;
+    resize: vertical;
 }
 
 button {
@@ -319,7 +330,7 @@ button:hover {
 }
 
 /************************************/
-/********* Page edit_recipes ********/
+/************ Page Editer ***********/
 /************************************/
 
 .nom,
@@ -341,6 +352,10 @@ button:hover {
     background-color: #0c2461;
 }
 
+.recettes a:hover {
+    color: #fbf9af;
+}
+
 th {
     padding: 3px 0; /* Pour les navigateurs qui ne supportent pas les rem */
     padding: 0.3rem 0;
@@ -354,7 +369,8 @@ th {
 
 .search-result tr:hover {
     cursor: pointer;
-    background-color: #4b3019;
+    background-color: #a8026f;
+    color: #eeeeee;
 }
 
 /************************************/

@@ -24,13 +24,13 @@
     // Chargement des différents éléments de la page
     require_once 'application/php/header.php';
     require_once 'application/php/recipes.php';
-    require_once 'application/controller/last_recipe_infos.php';
+    require_once 'application/controllers/last_recipe_infos.php';
     
     // On choisit quelle page afficher avec le DISPATCHER
     require_once "application/php/dispatcher.php";
     
     // On récupère les données à afficher et on reçoit les formulaires, c'est le CONTROLLEUR
-    require_once "application/controller/controller.php";
+    require_once "application/controllers/controller.php";
     
     // chargement de la vue
     include 'application/view/layout.phtml';

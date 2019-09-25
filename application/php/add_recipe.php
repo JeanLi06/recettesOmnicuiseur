@@ -2,7 +2,6 @@
 //    Cette page permet d'ajouter une recette existante
     require_once 'utils.php';
     sessionStart();
-    use Verot\Upload\Upload;
 //    on stocke le nom de la recette envoyée par get, en session
     $_SESSION['name'] = isset($_SESSION['name']) ? $_SESSION['name'] : null;
     if (isset($_GET['name'])) {
@@ -13,11 +12,11 @@
     if (isset($_POST['submit'])) {
         if (empty($_POST['name']) || empty($_POST['ingredients_list']) || empty($_POST['how_many_persons']) || empty($_POST['cooking_time_minutes'])
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
-            redirect('add-recipe&error=Veuillez%20remplir%20tous%20les%20champs');
+            redirect('add_recipe&error=Veuillez%20remplir%20tous%20les%20champs');
         }
         if (!ctype_digit($_POST['how_many_persons']) || !ctype_digit($_POST['cooking_time_minutes'])) {
             //Si les champs de sont pas des nombre, alors erreur
-            redirect('add-recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
+            redirect('add_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
         }
         $_GET['error'] = '';
         //On extrait les variables de $_POST
@@ -57,26 +56,9 @@
             } //            Sinon, on affiche une erreur
             else {
                 $_SESSION['flash_error_message'] = 'Erreur de type de fichier';
-                redirect('add-recipe');
+                redirect('add_recipe');
             }
-//            On change la taille de l'image avec largeur = 200px, hauteur selon le ratio,
-//              en utilisant la classe class.upload.php
-            //    On importe la classe qui va permettre de changer la taille de l'image
-//            require_once '../../vendor/verot/class.upload.php/src/class.upload.php';
-//            $handle = new upload('../../img/' . $full_unique_name);
-//            if ($handle->uploaded) {
-////                $handle->file_new_name_body   = 'image_resized';
-//                $handle->image_resize         = true;
-//                $handle->image_x              = 200;
-//                $handle->image_ratio_y        = true;
-//                $handle->process('../../img/');
-//                if ($handle->processed) {
-//                    echo 'image resized';
-//                    $handle->clean();
-//                } else {
-//                    echo 'error : ' . $handle->error;
-//                }
-//            }
+//
         }
         
     }
