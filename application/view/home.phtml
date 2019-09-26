@@ -2,7 +2,7 @@
 <aside>
     <?php include_once'application/php/flash_message.php'; ?>
     <h2>Dernière recette</h2>
-    <a href="index.php?page=recipes&action=first">
+    <a href="index.php?page=recipesController&action=first">
         <h3><?= htmlspecialchars($last_recipe['name']) ?></h3>
         <figure>
             <img src="img/<?= htmlspecialchars($last_recipe['photo']) ?>"

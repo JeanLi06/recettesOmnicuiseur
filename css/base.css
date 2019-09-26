@@ -58,6 +58,15 @@ header {
     padding: 0 3rem;
 }
 
+table {
+    width: 100%;
+}
+
+td {
+    /* padding: 0; */
+    /* margin: 0; */
+ }
+
 header p {
     margin-bottom: 1rem;
     font-size: 1.8rem;
@@ -175,11 +184,13 @@ figure {
 
 .container {
     width: 100%;
+    /* height: 100%; */
     background-color: #222222;
 }
 
 .center {
     text-align: center;
+    margin: 0 auto;
 }
 
 .p404 {
@@ -302,13 +313,14 @@ button {
     color: #222222;
     background-color: chartreuse;
     border: none;
-    padding: 5px 10px; /* Pour les navigateurs qui ne supportent pas les rem */
+    /* padding: 5px 10px; */ /* Pour les navigateurs qui ne supportent pas les rem */
     padding: 0.5rem 1rem;
     align-self: center;
     cursor: pointer;
     border-radius: 10px;
     font-size: 16px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 1.6rem;
+    margin: 10px 0;
 }
 
 .button-scroll-to-top {
@@ -353,10 +365,11 @@ button:hover {
 }
 
 th {
-    padding: 3px 0; /* Pour les navigateurs qui ne supportent pas les rem */
-    padding: 0.3rem 0;
+    /* padding: 3px 0; */ /* Pour les navigateurs qui ne supportent pas les rem */
+    /* padding: 0.3rem 0; */
     color: #222222;
     background-color: #e58e26;
+    /* text-align: left; */
 }
 
 /************************************/
@@ -428,8 +441,16 @@ th {
         justify-content: center;
     }
 
-    .recettes td:nth-child(2) {
-        padding: 0 8px;
+    .recettes td:nth-child(n+2){
+        padding: 0 5px;
+    }
+
+    td.date, th.date {
+        display: none;
+    }
+
+    #view-recipe-article {
+        padding: 20px;
     }
 
     .form {

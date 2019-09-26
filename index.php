@@ -23,7 +23,7 @@
 //    TODO mettre que des /
     // Chargement des différents éléments de la page
     require_once 'application/php/header.php';
-    require_once 'application/php/recipes.php';
+    require_once 'application/php/recipesController.php';
     require_once 'application/controllers/last_recipe_infos.php';
     
     // On choisit quelle page afficher avec le DISPATCHER

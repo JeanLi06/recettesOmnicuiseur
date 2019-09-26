@@ -1,8 +1,6 @@
 <?php
-    /**
-     * Permet de choisir quelle vue afficher
-     * Tout dépend des données fournies dans la chaine de requête
-     */
+// Cette page permet de choisir quelle vue afficher selon données fournies dans la chaine de requête*
+
 // définition d'une page par défaut "home"
     $template = 'home';
 

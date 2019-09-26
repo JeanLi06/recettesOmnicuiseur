@@ -9,19 +9,19 @@
         // page pour le contenu d'un article
         case 'recipes':
             if ($_GET['page'] === 'recipes' && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
-                require_once 'application/php/recipes.php';
+                require_once 'application/php/recipesController.php';
             }
             break;
         
         case 'add-recipe':
             if ($_GET['page'] === 'add-recipe' && isset($_SESSION['connected'])) {
-                require_once 'application/php/add_recipe.php';
+                require_once 'application/php/addRecipeController.php';
             }
             break;
         
         case 'edit-recipes':
             if ($_GET['page'] === 'edit-recipes' && isset($_SESSION['connected'])) {
-                require_once 'application/php/edit_recipes.php';
+                require_once 'application/php/editRecipesController.php';
             }
             break;
         

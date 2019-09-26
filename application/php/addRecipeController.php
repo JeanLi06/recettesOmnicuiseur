@@ -12,11 +12,11 @@
     if (isset($_POST['submit'])) {
         if (empty($_POST['name']) || empty($_POST['ingredients_list']) || empty($_POST['how_many_persons']) || empty($_POST['cooking_time_minutes'])
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
-            redirect('add_recipe&error=Veuillez%20remplir%20tous%20les%20champs');
+            redirect('addRecipeController&error=Veuillez%20remplir%20tous%20les%20champs');
         }
         if (!ctype_digit($_POST['how_many_persons']) || !ctype_digit($_POST['cooking_time_minutes'])) {
             //Si les champs de sont pas des nombre, alors erreur
-            redirect('add_recipe&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
+            redirect('addRecipeController&error=' . urlencode('Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson'));
         }
         $_GET['error'] = '';
         //On extrait les variables de $_POST
@@ -56,7 +56,7 @@
             } //            Sinon, on affiche une erreur
             else {
                 $_SESSION['flash_error_message'] = 'Erreur de type de fichier';
-                redirect('add_recipe');
+                redirect('addRecipeController');
             }
 //
         }
