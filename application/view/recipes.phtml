@@ -10,26 +10,5 @@
     <a href="<?= 'index.php?page=recipes&action=last' ?>" title="Dernière"><i
                 class="fas fa-fast-forward"></i></a>
 </nav>
-<article id="view-recipe-article">
-    <h3><?= htmlspecialchars($recette_from_id['name']) ?></h3>
-    <div>
-        <figure>
-            <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>"
-                 alt="<?= htmlspecialchars($recette_from_id['name']) ?>" class="view-recipe-image">
-        </figure>
-        <section>
-            <h5>Catégorie&nbsp;:&nbsp;<span><?= htmlspecialchars($recette_from_id['category']) ?></span></h5>
-            <h5>Pour&nbsp;<span><?= htmlspecialchars($recette_from_id['how_many_persons']) ?></span> personnes</h5>
-            <h5>Temps&nbsp;:&nbsp;<span><?= htmlspecialchars($recette_from_id['cooking_time_minutes']) ?> mn</span></h5>
-            <h5>Date&nbsp;:&nbsp;<span><?= htmlspecialchars($recette_from_id['creation_date_formatted']) ?></span></h5>
-        </section>
-    </div>
-    <h4>Ingrédients&nbsp;:</h4>
-    <p><?= nl2br(htmlspecialchars($recette_from_id['ingredients_list'])) ?></p>
-    <h4>Instructions :</h4>
-    <p><?= nl2br(htmlspecialchars($recette_from_id['cooking_instructions'])) ?></p>
-    <?php if (!empty($recette_from_id['note'])): ?>
-        <h4>Notes&nbsp;:</h4>
-        <p><?= nl2br(htmlspecialchars($recette_from_id['note'])) ?></p>
-    <?php endif; ?>
-</article>
+
+<?php include_once 'article-recipe.phtml' ?>

@@ -40,7 +40,6 @@ a,
 a:visited,
 a:active {
     text-decoration: none;
-    /*padding: 0 5px;*/
     font-size: 18px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 1.8rem;
     color: #e58e26;
@@ -63,15 +62,18 @@ header p {
     margin-bottom: 1rem;
     font-size: 1.8rem;
 }
+
 header a {
     display: block;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-grow: 1; /* pour occuper toute la hauteur */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
+    /* flex-grow: 1; */    /*pour occuper toute la hauteur*/
+    /* top: 100%; */
+    /* min-height: 100vh; */
 }
 
 /*navigation Page principale*/
@@ -81,7 +83,6 @@ main {
 }
 
 #main-navigation a {
-    /* color: #fefefe; */
     border-radius: 5px;
     padding: 3px 5px;
     border: 2px solid #e58e26;
@@ -93,7 +94,7 @@ main {
 
 #main-navigation a:hover {
     background-color: #e58e26;
-    color: #eeeeee;
+    color: #fefefe;
 }
 
 nav ul {
@@ -102,7 +103,6 @@ nav ul {
 
 #main-navigation ul {
     display: flex;
-    /*flex: 50%;*/
     padding: 4px 0;
     justify-content: center;
 }
@@ -115,7 +115,7 @@ nav ul {
     top: 30%;
     left: 50%;
     transform: translateY(-30%) translateX(-50%);
-    color: #eeeeee;
+    color: #fefefe;
     padding: 5px;
 }
 
@@ -131,9 +131,9 @@ nav ul {
 main aside {
     align-self: center;
     border: 15px ridge #a8026f;
-    padding: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
-    padding: 3rem;
-    /*margin-top: 50px;*/
+    padding: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
+    padding: 2rem;
+    /* margin-top: 50px; */
 }
 
 article p {
@@ -147,13 +147,9 @@ h1 {
     margin: 0;
 }
 
-article h3 {
-    text-transform: uppercase;
-}
-
 aside h3,
 article h4 {
-    font-family: 'Great Vibes', Helvetica, sans-serif;
+    font-family: 'Great Vibes', 'Helvetica', sans-serif;
     font-size: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 3rem;
     letter-spacing: 3px;
@@ -179,8 +175,7 @@ figure {
 
 .container {
     width: 100%;
-    /*margin: 7rem auto;*/
-    background-color: #1e3799;
+    background-color: #222222;
 }
 
 .center {
@@ -202,7 +197,7 @@ section a:visited {
 }
 
 /************************************/
-/********** Page recipes ************/
+/****** Page Affichage Recettes *****/
 /************************************/
 
 #recipe-navigation {
@@ -239,12 +234,13 @@ section a:visited {
 }
 
 #view-recipe-article h3 {
-    font-size: 25px; /* Pour les navigateurs qui ne supportent pas les rem */
-    font-size: 2.5rem;
+    font-size: 45px; /* Pour les navigateurs qui ne supportent pas les rem */
+    font-size: 4.5rem;
+    font-family: 'Great Vibes', sans-serif;
 }
 
 #view-recipe-article h5 {
-    font-family: 'Great Vibes', Helvetica, sans-serif;
+    font-family: 'Great Vibes', 'Helvetica', sans-serif;
     font-size: 22px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 2.2rem;
     letter-spacing: 2px;
@@ -262,7 +258,7 @@ section a:visited {
     padding: 20px 50px;
 }
 
-#image_recette{
+#image_recette {
     float: left;
 }
 
@@ -359,18 +355,18 @@ button:hover {
 th {
     padding: 3px 0; /* Pour les navigateurs qui ne supportent pas les rem */
     padding: 0.3rem 0;
-    color: #1e3799;
+    color: #222222;
     background-color: #e58e26;
 }
 
 /************************************/
-/********** Page search ************/
+/********** Page Recherche ************/
 /************************************/
 
 .search-result tr:hover {
     cursor: pointer;
     background-color: #a8026f;
-    color: #eeeeee;
+    color: #fefefe;
 }
 
 /************************************/
@@ -400,10 +396,6 @@ th {
         width: auto;
     }
 
-    tr > td {
-        padding-left: 3px;
-    }
-
     header h1 {
         margin: 1rem auto;
         font-size: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
@@ -419,17 +411,21 @@ th {
         flex-direction: column;
     }
 
-    #main-navigation{
+    main aside {
+        padding: 0;
+    }
+
+    #main-navigation {
         flex-direction: column;
     }
-    
+
     #main-navigation li {
         margin-bottom: 5px;
         text-align: center;
     }
 
     #main-navigation ul {
-       justify-content: center;
+        justify-content: center;
     }
 
     .recettes td:nth-child(2) {
