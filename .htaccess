@@ -1,5 +1,5 @@
 Options +FollowSymlinks
-# Permanent reirect ALL old pages to HTTPS:
+# Redirection vers du HTTPS:
 RewriteEngine On
 RewriteCond %{HTTP_HOST} jeanliautaud\.fr [NC]
 RewriteCond %{SERVER_PORT} 80
@@ -24,22 +24,13 @@ RewriteCond %{REQUEST_FILENAME} -d [OR]
 RewriteCond %{REQUEST_FILENAME} -l
 RewriteRule ^ - [L]
 
-#RewriteRule (.*) index.php?page=$1 [L,QSA]
-#RewriteRule ^([a-z-]*)/$   index.php?page=$1 [L]
-
 RewriteRule ^(.*?)\.(php|css|js|jpg|jpeg|png|pdf)$ - [L]
+
 RewriteRule ([a-z-]+) index.php?page=$1 [L,QSA]
 
-#RewriteRule ([a-z\-]+) index.php?page=$1 [L,QSA]
 RewriteRule ^(.+)/(.+)/?$ index.php?page=$1&id=$2 [L]
-#
-#RewriteRule ([a-z\-]+[a-z]+) index.php?page=$1 [L,QSA]
-#RewriteRule ([a-z\-]+[a-z]+)/([a-z\-]+[a-z]+)/([0-9]+) index.php?page=$1&action=$2&id=$3 [L,QSA]
+
 RewriteRule ^([a-z]{2})/([^/]+)/?$ index.php?page=$1&action=$2id=$3 [L,QSA]
-
-
 
 #TODO vérifier la page 404
 ErrorDocument 404 /application/view/404.phtml
-
-
