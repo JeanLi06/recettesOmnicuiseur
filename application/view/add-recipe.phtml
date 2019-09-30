@@ -1,6 +1,6 @@
 <!--Cette page permet d'ajouter une recette-->
-<?php require_once 'application/php/flash_message.php'; ?>
-<?php require_once 'application/php/is_admin.php' ?>
+<?php require_once $_SESSION['ROOT_PATH'] . 'application/php/flash_message.php'; ?>
+<?php require_once $_SESSION['ROOT_PATH'] . 'application/php/is_admin.php' ?>
 
 <?php if (array_key_exists('error', $_GET) && !empty($_GET['error'])): ?>
     <p class="error">

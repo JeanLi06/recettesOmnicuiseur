@@ -1,7 +1,7 @@
 <!--Cette page affiche un formulaire de recherche, ainsi que le résultat de la recherche précédente-->
 <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
 <!--<div id="home"></div>-->
-<form method="POST" action="application\php\searchController.php" class="form" id="home">
+<form method="POST" action="application/php/controllers/searchController.php" class="form" id="home">
     <label for="search_item">Recherche (dans titre ou description) <br><span class="italic">Ex : chocolat</span>
     </label>
     <input type="text" id="search_item" name="search_item" placeholder="Que recherchez vous ?" required>
@@ -21,8 +21,8 @@
         <thead>
         <tr>
             <th>Photo</th>
-            <th class="nom">Nom</th>
-            <th class="date">Date</th>
+            <th>Nom</th>
+            <th>Date</th>
         </tr>
         </thead>
         <tbody>

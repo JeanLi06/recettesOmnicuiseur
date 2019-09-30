@@ -37,7 +37,7 @@
             break;
         
         case 'search':
-            require_once $_SESSION['ROOT_PATH'] . 'application/php/searchController.php';
+            require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/searchController.php';
             break;
         
         case 'home':
