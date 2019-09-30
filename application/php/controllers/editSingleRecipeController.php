@@ -1,8 +1,8 @@
 <?php
 //    Cette page permet d'éditer une recette existante
-    require_once 'utils.php';
-    sessionStart();
-//    On stocke l'ID de la recette transmis en GET depuis la page edit_recipes
+    if (session_status() === PHP_SESSION_NONE) session_start();
+    require_once $_SESSION['ROOT_PATH'] . 'application/php/utils.php';
+//    On stocke l'ID de la recette transmis en GET depuis la page Editer
     if (isset($_GET) && !empty($_GET['id']) && empty($_POST['submit'])) {
         $recette_from_id = RecipeModel::findFromId($_GET['id']);
         //on stocke en session pour transmettre sur la page envoyée en post
@@ -63,12 +63,11 @@
             }
         }
 //    On peut alors mettre à jour la recette
-        require_once '../model/RecipeModel.class.php';
-        require_once '../bdd_connection.php';
+        require_once $_SESSION['ROOT_PATH'] . 'application/model/RecipeModel.class.php';
+        require_once $_SESSION['ROOT_PATH'] . 'application/bdd_connection.php';
         RecipeModel::update($name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, $recette_id);
         $_SESSION['flash_confirm_message'] = 'Modification de la recette effectuée';
         redirect('edit-recipes');
-//        header('Location: ../../index.php?page=edit_recipes');
         exit();
     }
    

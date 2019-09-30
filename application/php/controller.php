@@ -1,7 +1,8 @@
 <?php
 //    Controller principal
+    if (session_status() === PHP_SESSION_NONE) session_start();
     require_once $_SESSION['ROOT_PATH'] . 'application/php/utils.php';
-    sessionStart();
+//    sessionStart();
     //    Activation chargement automatique des classes
     require_once $_SESSION['ROOT_PATH'] . 'application/php/classes_autoload.php';
     // récupérations des données à renvoyer à la vue en fonction du template choisi
@@ -9,34 +10,34 @@
         // page pour le contenu d'un article
         case 'recipes':
             if ($_GET['page'] === 'recipes' && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
-                require_once 'application/php/recipesController.php';
+                require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/recipesController.php';
             }
             break;
         
         case 'add-recipe':
             if ($_GET['page'] === 'add-recipe' && isset($_SESSION['connected'])) {
-                require_once 'application/php/addRecipeController.php';
+                require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/addRecipeController.php';
             }
             break;
         
         case 'edit-recipes':
             if ($_GET['page'] === 'edit-recipes' && isset($_SESSION['connected'])) {
-                require_once 'application/php/editRecipesController.php';
+                require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/editRecipesController.php';
             }
             break;
         
         case 'edit-single-recipe':
             if ($_GET['page'] === 'edit-single-recipe' && isset($_SESSION['connected'])) {
-                require_once 'application/php/edit_single_recipe.php';
+                require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/editSingleRecipeController.php';
             }
             break;
         
         case 'login-admin':
-            require_once 'application/php/login_admin.php';
+            require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/loginAdminController.php';
             break;
         
         case 'search':
-            require_once 'application/php/search.php';
+            require_once $_SESSION['ROOT_PATH'] . 'application/php/searchController.php';
             break;
         
         case 'home':

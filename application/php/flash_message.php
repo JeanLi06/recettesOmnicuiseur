@@ -1,7 +1,7 @@
 <?php
+    if (session_status() === PHP_SESSION_NONE) session_start();
 //     Gestion des messages flash
-    require_once 'utils.php';
-    sessionStart();
+    
     if ((!empty($_SESSION['flash_error_message']) && !empty($_SESSION['flash_error_message'])) || (isset($_SESSION['flash_confirm_message']) && !empty($_SESSION['flash_confirm_message']))) {
 //      Charge la bonne classe CSS dans le html, selon le type de message
         echo '<div class="';

@@ -1,8 +1,8 @@
 <?php
 //    Recherche d'une recette d'après un (des) mot(s) dans le titre ou les ingrédients
+    if (session_status() === PHP_SESSION_NONE) session_start();
     require_once 'utils.php';
     if (isset($_POST['submit']) && !empty($_POST['search_item'])) {
-        sessionStart();
 //        On sauve en session le mot de recherche
         $_SESSION['search_item'] = $_POST['search_item'];
         require_once '../bdd_connection.php';

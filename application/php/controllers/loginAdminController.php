@@ -20,10 +20,10 @@
         $admin_password = htmlspecialchars(trim($_POST['admin_password']));
 
 //        la clé secrète est dans un fichier séparé, qui n'est pas copié dans GITHUB
-        require_once 'secret_key_captcha.php';
+        require_once $_SESSION['ROOT_PATH'] . 'application/php/secret_key_captcha.php';
 
 //        Idem pour les identifiants administrateurs
-        require_once 'secret_admin.php';
+        require_once $_SESSION['ROOT_PATH'] . 'application/php/secret_admin.php';
 
 //        Vérification du captcha
         $ip = $_SERVER['REMOTE_ADDR'];

@@ -1,8 +1,8 @@
-<!--Edition d'une recette choisie sur la page edit_recipes-->
+<!--Edition d'une recette choisie sur la page Editer-->
 <?php include_once 'application/php/flash_message.php'; ?>
-<?php require_once 'application/php/is_admin_check.php'; ?>
+<?php require_once 'application/php/is_admin.php'; ?>
 
-<form action="application/php/edit_single_recipe.php" method="POST" class="form" enctype="multipart/form-data">
+<form action="application/php/controllers/editSingleRecipeController.php" method="POST" class="form" enctype="multipart/form-data">
 
     <!--    champ caché permettant d'identifier la recette concernée, après la soumission du formulaire -->
     <input type="hidden" name="recette_id" value="<?= (int)$_GET['id'] ?>">

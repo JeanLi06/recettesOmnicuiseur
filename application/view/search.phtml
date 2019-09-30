@@ -1,9 +1,10 @@
 <!--Cette page affiche un formulaire de recherche, ainsi que le résultat de la recherche précédente-->
-<?php sessionStart(); ?>
+<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
 <!--<div id="home"></div>-->
-<form method="POST" action="application\php\search.php" class="form" id="home">
-    <label for="search_item">Recherche (dans titre ou description) <br><span class="italic">Ex : chocolat</span> </label>
-    <input type="text" id="search_item" name="search_item" placeholder="Que cherchez vous ?" required>
+<form method="POST" action="application\php\searchController.php" class="form" id="home">
+    <label for="search_item">Recherche (dans titre ou description) <br><span class="italic">Ex : chocolat</span>
+    </label>
+    <input type="text" id="search_item" name="search_item" placeholder="Que recherchez vous ?" required>
     <p>
         <button type="submit" name="submit">Rechercher</button>
     </p>
@@ -37,5 +38,7 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-    <a href="#home"><button type="button" class="button-scroll-to-top"><i class="fas fa-arrow-up"></i></button></a>
+    <a href="#home">
+        <button type="button" class="button-scroll-to-top"><i class="fas fa-arrow-up"></i></button>
+    </a>
 <?php endif; ?>

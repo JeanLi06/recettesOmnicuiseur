@@ -1,12 +1,11 @@
 <?php
-    sessionStart();
-//    if (session_status() === PHP_SESSION_NONE) session_start();
+    if (session_status() === PHP_SESSION_NONE) session_start();
 //    require_once 'application/bdd-connection.php';
 
 // Génère un tableau contenant une liste des recettes existantes, avec l'ID le nom, le nom de la photo et la date de création
     $list_recipes = RecipeModel::listAll();
 
-//    Traitement de la commande transmise depuis edit_recipes.phtml
+//    Traitement de la commande transmise depuis Editer
     if (isset($_GET['action']) && !empty($_GET['action'])) {
         switch ($_GET['action']) {
 //          Effacement de la recette
@@ -24,14 +23,12 @@
 //                    On efface l'index stocké en session
                     $_SESSION['indexCurrentRecipe'] = 0;
                     $_SESSION['flash_confirm_message'] = 'Effacement de la recette effectué';
-//                    header('Location: index.php?page=edit_recipes');
                     redirect('edit-recipes');
                     exit();
                 }
                 break;
             // Edition de la recette
             case 'edit-single-recipe':
-//                header('Location: index.php?page=edit-single-recipe&id=' . $_GET['id']);
                 redirect('edit-single-recipe&id=' . $_GET['id']);
                 exit();
         }
