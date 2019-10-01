@@ -24,11 +24,11 @@
             <td class="td nom"><?= htmlspecialchars($list_recipe['name']) ?></td>
             <td class="td to-hide-in-media-query"><?= htmlspecialchars($list_recipe['creation_date_formatted']) ?></td>
             <td>
-                <a href="index.php?page=edit-recipes&action=edit-single-recipe&id=<?= $list_recipe['id'] ?>"><i
+                <a href="index.php?page=editer-recettes&action=edit-single-recipe&id=<?= $list_recipe['id'] ?>"><i
                             class="fa fa-pen-alt" title="Editer"></i></a>
                 <!--  Demande de confirmation avant d'effacer -->
                 <a onClick="return confirm('Voulez-vous vraimenent supprimer la recette ?');"
-                   href='index.php?page=edit-recipes&action=delete_recipe&id=<?= $list_recipe['id'] ?>'>
+                   href='index.php?page=editer-recettes&action=delete_recipe&id=<?= $list_recipe['id'] ?>'>
                     <i class="fa fa-trash" title="Effacer"></i>
                 </a>
             </td>

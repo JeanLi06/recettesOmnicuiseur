@@ -2,7 +2,7 @@
 // Cette page permet de choisir quelle vue afficher selon données fournies dans la chaine de requête*
 
 // définition d'une page par défaut "home"
-    $template = 'home';
+    $template = 'accueil';
 
 //recette par défaut
     $currentRecipe = 0;

@@ -67,7 +67,7 @@
         require_once $_SESSION['ROOT_PATH'] . 'application/bdd_connection.php';
         RecipeModel::update($name, $photo, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note, $recette_id);
         $_SESSION['flash_confirm_message'] = 'Modification de la recette effectuée';
-        redirect('edit-recipes');
+        redirect('editer-recettes');
         exit();
     }
    

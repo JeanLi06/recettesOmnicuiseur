@@ -54,7 +54,7 @@
                 RecipeModel::add($name, $full_unique_name, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note);
 //        Message de confirmation d'ajout
                 $_SESSION['flash_confirm_message'] = 'Ajout de la recette effectué';
-                redirect('home');
+                redirect('accueil');
             } //            Sinon, on affiche une erreur
             else {
                 $_SESSION['flash_error_message'] = 'Erreur de type de fichier';

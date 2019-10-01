@@ -22,7 +22,7 @@
 
 //    TODO mettre que des /
     // Chargement des différents éléments de la page
-    require_once $_SESSION['ROOT_PATH'] . 'application/php/headerController.php';
+    require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/headerController.php';
     require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/recipesController.php';
     require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/lastRecipeInfosController.php';
     

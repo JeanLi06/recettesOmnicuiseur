@@ -6,7 +6,7 @@
 //    Si le formulaire comporte un des champs vide => message d'erreur
     if (isset($_POST['connection']) && (empty($_POST['admin_name']) || empty($_POST['admin_password']))) {
         $_SESSION['flash_error_message'] = 'Les 2 champs doivent être remplis';
-        redirect('login-admin');
+        redirect('administrateur');
     }
 //    Tous les champs sont présents => on teste leur validité
     if (isset($_POST['connection']) && !empty($_POST['admin_name']) && !empty($_POST['admin_password'])) {
@@ -14,7 +14,7 @@
             $captcha_response = $_POST['g-recaptcha-response'];
         } else {
             $_SESSION['flash_error_message'] = 'Erreur de Captcha';
-            redirect('login-admin');
+            redirect('administrateur');
         }
         $admin_name = htmlspecialchars(trim($_POST['admin_name']));
         $admin_password = htmlspecialchars(trim($_POST['admin_password']));
@@ -33,7 +33,7 @@
         $responseKeys = json_decode($response, true);
         if (!$responseKeys['success']) {
             $_SESSION['flash_error_message'] = 'Captcha non validé';
-            redirect('login-admin');
+            redirect('administrateur');
         }
 
 //        On vérifie le le nom utilisateur, le captcha et le mot de passe,
@@ -42,18 +42,18 @@
             && $responseKeys['success']
             && $admin_name === $secret_admin_name) {
             $_SESSION['connected'] = true;
-            $_SESSION['flash_confirm_message'] = 'Connexion Admin effectuée';
-            redirect('home');
+            $_SESSION['flash_confirm_message'] = 'Connexion Administrateur effectuée';
+            redirect('accueil');
         } else {
             $_SESSION['flash_error_message'] = 'Nom d\'utilisateur ou mot de passe non valide';
-            redirect('login-admin');
+            redirect('administrateur');
         }
     }
 
 //    Test déconnexion
     if (isset($_POST['deconnection']) && $_SESSION['connected']) {
         unset($_SESSION['connected']);
-        $_SESSION['flash_confirm_message'] = 'Déconnexion Admin effectuée';
-        redirect('home');
+        $_SESSION['flash_confirm_message'] = 'Déconnexion Administrateur effectuée';
+        redirect('accueil');
     }
 

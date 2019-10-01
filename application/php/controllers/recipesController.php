@@ -11,7 +11,7 @@
     include_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/listIdRecipesController.php';
 
 //On récupère les infos d'une recette donnée par son ID
-    if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] === 'recipes') {
+    if (array_key_exists('page', $_GET) && !empty($_GET['page']) && $_GET['page'] === 'recettes') {
         if (!isset($id_recette)) $id_recette = 0; //id recette par défaut, si non définie
         $recette_from_id = RecipeModel::findFromId($tableIDs[$_SESSION['indexCurrentRecipe']][0]);
         //On gère le choix de l'utilisateur pour la navigation entre les recettes
@@ -37,7 +37,7 @@
                     break;
             }
 //          On recharge la page avec la nouvelle recette choisie
-            redirect('recipes');
+            redirect('recettes');
         }
     }
 

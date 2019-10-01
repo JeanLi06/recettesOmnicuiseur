@@ -23,7 +23,7 @@
 //                    On efface l'index stocké en session
                     $_SESSION['indexCurrentRecipe'] = 0;
                     $_SESSION['flash_confirm_message'] = 'Effacement de la recette effectué';
-                    redirect('edit-recipes');
+                    redirect('editer-recettes');
                     exit();
                 }
                 break;
