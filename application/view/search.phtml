@@ -1,5 +1,6 @@
 <!--Cette page affiche un formulaire de recherche, ainsi que le résultat de la recherche précédente-->
 <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+<h2>Rechercher une recette</h2>
 <form method="POST" action="application/php/controllers/searchController.php" class="form">
     <label for="search_item">Recherche (dans titre ou description) <br><span class="italic">Ex : chocolat</span>
     </label>

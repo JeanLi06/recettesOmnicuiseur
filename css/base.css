@@ -32,6 +32,10 @@ body {
     margin-top: 50px; /* De la place pour la barre de nav */
 }
 
+h2{
+    margin-top: 1rem;
+}
+
 a,
 a:visited,
 a:active {
