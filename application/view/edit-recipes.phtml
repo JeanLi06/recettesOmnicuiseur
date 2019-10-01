@@ -2,13 +2,13 @@
 <?php include_once $_SESSION['ROOT_PATH'] . 'application/php/flash_message.php'; ?>
 <?php require_once $_SESSION['ROOT_PATH'] . 'application/php/is_admin.php'; ?>
 
-<table class="recettes center" id="home">
+<table class="recettes center">
     <caption>Liste des recettes</caption>
     <thead>
     <tr>
         <th>Photo</th>
         <th>Nom</th>
-        <th>Date</th>
+        <th class="to-hide-in-media-query">Date</th>
         <th>Action</th>
     </tr>
     </thead>
@@ -22,7 +22,7 @@
                 </figure>
             </td>
             <td class="td nom"><?= htmlspecialchars($list_recipe['name']) ?></td>
-            <td class="td date"><?= htmlspecialchars($list_recipe['creation_date_formatted']) ?></td>
+            <td class="td to-hide-in-media-query"><?= htmlspecialchars($list_recipe['creation_date_formatted']) ?></td>
             <td>
                 <a href="index.php?page=edit-recipes&action=edit-single-recipe&id=<?= $list_recipe['id'] ?>"><i
                             class="fa fa-pen-alt" title="Editer"></i></a>

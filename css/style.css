@@ -1,17 +1,20 @@
 /*******************************************************
-
                         GENERIC
-
  *******************************************************/
 
-/*.content {*/
-    /*margin: 0 auto;*/
-    /*width: 90%;*/
-    /*max-width: 1200px;*/
-/*}*/
-
 .hidden { visibility: hidden }
-/*.hidden { display: none }*/
 
 .italic { font-style: italic}
 
+.left   {
+    text-align: left;
+}
+
+.right   {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+}

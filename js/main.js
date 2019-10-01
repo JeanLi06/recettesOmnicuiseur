@@ -24,7 +24,7 @@ $(window).scroll(function () {
     }
 });
 
-// Permet un défilement doux (smooth scroll) si click sur un lien qui commence par #
+// Permet un défilement doux (smooth scroll) si on clique sur un lien qui commence par #
 $('a[href^="#"]').click(function () {
     var the_id = $(this).attr("href");
     //On test si ce n'est pas juste un lien vide qui mène nulle part
