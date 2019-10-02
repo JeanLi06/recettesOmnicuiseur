@@ -1,5 +1,5 @@
 <?php
-
+    
     
     /**
      * Class RecipeModel
@@ -16,6 +16,7 @@
      * add :ajoute une nouvelle recette dans la base
      *
      */
+    
     class RecipeModel
     {
         //    Cette méthode retourne un tableau contenant la recette grâce à son identifiant
@@ -162,6 +163,6 @@
             INTO recette (name, photo, ingredients_list, how_many_persons, cooking_time_minutes, cooking_instructions, category, note, creation_date)
             VALUES (?,?,?,?,?,?,?,?, NOW())
             ';
-            execute($query,[$name, $full_unique_name, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note]);
+            execute($query, [$name, $full_unique_name, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note]);
         }
     }

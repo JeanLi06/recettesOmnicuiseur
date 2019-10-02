@@ -1,8 +1,8 @@
 <!--Cette page affiche la recette qui correspond au choix cliqué depuis la page search-->
 <?php $recette_from_id = RecipeModel::findFromId($_GET['id']) ?>
 
-<?php include_once 'article-recipe.phtml' ?>
+<?php include_once 'recette-article.phtml' ?>
 
-<a href="index.php?page=rechercher">
+<a href="rechercher">
     <button type="button">Retour aux résultats</button>
 </a>

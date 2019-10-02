@@ -32,7 +32,7 @@ body {
     margin-top: 50px; /* De la place pour la barre de nav */
 }
 
-h2{
+h2 {
     margin-top: 1rem;
 }
 
@@ -59,7 +59,8 @@ header {
 }
 
 .bandeau {
-    /* width: 100vw; */
+    width: 100vw;
+    text-align: center;
     height: 200px;
     background: url("../img/omnicuiseur-v6000-rouge.jpg") center;
     background-size: cover;
@@ -79,15 +80,6 @@ header p {
 
 header a {
     display: block;
-}
-
-main {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: space-around; */
-    /* flex-grow: 1; */ /*pour occuper toute la hauteur*/
-    /* top: 100%; */
-    /* min-height: 100vh; */
 }
 
 /*navigation Page principale*/
@@ -121,7 +113,7 @@ nav ul {
     justify-content: center;
 }
 
-thead th:last-of-type{
+thead th:last-of-type {
     padding-right: 15px;
 }
 
@@ -188,13 +180,10 @@ aside img {
     margin-top: 2rem;
 }
 
-figure {
-    /*display: block;*/
-}
-
 .container {
     width: 75%;
     background-color: #111111;
+    height: auto;
 }
 
 .p404 {
@@ -202,7 +191,7 @@ figure {
     background: rgba(255, 255, 255, 0.2) url("https://media.giphy.com/media/26BRvLjAsJoGb7vIA/source.gif");
     background-size: cover;
     width: 100%;
-    height: 100%;
+    height: 80vh;
     color: black;
 }
 
@@ -302,7 +291,6 @@ input,
 textarea,
 select {
     margin-bottom: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
-    /* min-height: auto; */
     margin-bottom: 3rem;
     color: #111111;
     padding: 5px;
@@ -316,7 +304,7 @@ button {
     color: #111111;
     background-color: chartreuse;
     border: none;
-    /* padding: 5px 10px; */ /* Pour les navigateurs qui ne supportent pas les rem */
+    padding: 5px 10px; /* Pour les navigateurs qui ne supportent pas les rem */
     padding: 0.5rem 1rem;
     align-self: center;
     cursor: pointer;
@@ -349,10 +337,6 @@ button:hover {
     text-align: left;
 }
 
-.photo {
-    /* text-align: center; */
-}
-
 .recettes caption {
     font-size: larger;
     font-weight: bold;
@@ -368,12 +352,9 @@ button:hover {
 }
 
 th {
-    /* padding: 3px 0; */ /* Pour les navigateurs qui ne supportent pas les rem */
-    /* padding: 0.3rem 0; */
     color: #111111;
     background-color: #e58e26;
     text-align: center;
-    /* text-align: left; */
 }
 
 /************************************/

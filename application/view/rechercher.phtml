@@ -1,5 +1,5 @@
-<!--Cette page affiche un formulaire de recherche, ainsi que le résultat de la recherche précédente-->
 <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+<!--Cette page affiche un formulaire de recherche, ainsi que le résultat de la recherche précédente-->
 <h2>Rechercher une recette</h2>
 <form method="POST" action="application/php/controllers/searchController.php" class="form">
     <label for="search_item">Recherche (dans titre ou description) <br><span class="italic">Ex : chocolat</span>
@@ -27,7 +27,7 @@
         </thead>
         <tbody>
         <?php foreach ($list_recipes as $list_recipe): ?>
-            <tr onclick="document.location='index.php?page=recipe-from-search&id=<?= $list_recipe['id'] ?>'">
+            <tr onclick="document.location='index.php?page=recette-depuis-recherche&id=<?= $list_recipe['id'] ?>'">
                 <td>
                     <figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>"
                                  alt="" width="100px" height="auto" class="photo"></figure>
@@ -38,7 +38,5 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-    <a href="#home">
-        <button type="button" class="button-scroll-to-top"><i class="fas fa-arrow-up"></i></button>
-    </a>
+    <?php include_once 'boutton-retour-haut.phtml' ?>
 <?php endif; ?>

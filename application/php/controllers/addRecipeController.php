@@ -1,7 +1,8 @@
 <?php
-//    Cette page permet d'ajouter une recette existante
     if (session_status() === PHP_SESSION_NONE) session_start();
+//    Cette page permet d'ajouter une recette existante
     require_once $_SESSION['ROOT_PATH'] . 'application/php/utils.php';
+    
 //    on stocke le nom de la recette envoyée par get, en session
     $_SESSION['name'] = isset($_SESSION['name']) ? $_SESSION['name'] : null;
     if (isset($_GET['name'])) {
@@ -46,9 +47,6 @@
 //                On écrit le fichier temporaire dans le repertoire des images
                 move_uploaded_file($_FILES['photo']['tmp_name'], $_SESSION['ROOT_PATH'] . 'img/' . $full_unique_name);
                 //    On peut alors écrire dans la base
-//                if (session_status() === PHP_SESSION_NONE) session_start();
-
-//                sessionStart();
                 require_once $_SESSION['ROOT_PATH'] . 'application/bdd_connection.php';
                 require_once $_SESSION['ROOT_PATH'] . 'application/php/classes_autoload.php';
                 RecipeModel::add($name, $full_unique_name, $ingredients_list, $how_many_persons, $cooking_time_minutes, $cooking_instructions, $category, $note);
@@ -60,7 +58,5 @@
                 $_SESSION['flash_error_message'] = 'Erreur de type de fichier';
                 redirect('addRecipeController');
             }
-//
         }
-        
     }

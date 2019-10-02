@@ -1,6 +1,6 @@
 <?php
-//    Cette page permet de se connecter/déconnecter en tant qu'administrateur, et pouvoir ainsi modifier ajouter ou supprimer des recettes
     if (session_status() === PHP_SESSION_NONE) session_start();
+//    Cette page permet de se connecter/déconnecter en tant qu'administrateur, et pouvoir ainsi modifier ajouter ou supprimer des recettes
     require_once $_SESSION['ROOT_PATH'] . 'application/php/utils.php';
 
 //    Si le formulaire comporte un des champs vide => message d'erreur
@@ -50,7 +50,7 @@
         }
     }
 
-//    Test déconnexion
+// Déconnexion
     if (isset($_POST['deconnection']) && $_SESSION['connected']) {
         unset($_SESSION['connected']);
         $_SESSION['flash_confirm_message'] = 'Déconnexion Administrateur effectuée';

@@ -1,7 +1,6 @@
 <?php
     if (session_status() === PHP_SESSION_NONE) session_start();
-//    require_once 'application/bdd-connection.php';
-
+// Cette page permet la gestion d'une liste de recettes : édition ou suppression
 // Génère un tableau contenant une liste des recettes existantes, avec l'ID le nom, le nom de la photo et la date de création
     $list_recipes = RecipeModel::listAll();
 
@@ -28,8 +27,8 @@
                 }
                 break;
             // Edition de la recette
-            case 'edit-single-recipe':
-                redirect('edit-single-recipe&id=' . $_GET['id']);
+            case 'editer-recette-seule':
+                redirect('editer-recette-seule&id=' . $_GET['id']);
                 exit();
         }
     }

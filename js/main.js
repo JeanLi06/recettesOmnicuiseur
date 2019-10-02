@@ -4,10 +4,10 @@
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-
         reader.onload = function (e) {
             $('#image_recette')
-                .attr('src', e.target.result);
+                .attr('src', e.target.result)
+                .attr('alt', 'image recette');
         };
         reader.readAsDataURL(input.files[0]);
     }

@@ -16,12 +16,8 @@
 
     <label for="photo">Choisir une photo</label>
     <figure>
-        <img
-            <?php if (isset($recette_from_id['photo'])): ?>
-                <?= 'src="img/' . htmlspecialchars($recette_from_id['photo']) ?>
-            <?php endif ?>
-                id="image_recette" width="100px" height="auto" class="photo">
-        <!--        <img id="image_recette" src=""/><br/>-->
+        <!-- Grâce à la fonction readURL, on ne génère le src et le alt de l'image que s'il y en a une déjà choisie. Ainsi on peut la faire appaître à ce moment -->
+            <img src="" id="image_recette" width="100px" height="auto" class="photo" alt="">
     </figure>
     <input type="file" id="photo" name="photo" accept="image/*" onchange="readURL(this);"/>
 

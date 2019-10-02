@@ -33,4 +33,4 @@ RewriteRule ^(.+)/(.+)/?$ index.php?page=$1&id=$2 [L]
 RewriteRule ^([a-z]{2})/([^/]+)/?$ index.php?page=$1&action=$2id=$3 [L,QSA]
 
 #TODO vérifier la page 404
-ErrorDocument 404 /application/view/404.phtml
+ErrorDocument 404 application/view/404.phtml

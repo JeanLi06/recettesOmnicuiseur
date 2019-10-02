@@ -1,6 +1,6 @@
+<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
 <!--Cette page permet de connecter l'administrateur-->
 
-<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
 <?php include_once $_SESSION['ROOT_PATH'] . 'application/php/flash_message.php' ?>
 
 <?php if (isset($_SESSION['connected']) && $_SESSION['connected']): ?>

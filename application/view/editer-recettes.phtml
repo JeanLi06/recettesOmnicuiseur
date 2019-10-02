@@ -16,7 +16,7 @@
     <?php foreach ($list_recipes as $list_recipe): ?>
         <tr>
             <td>
-                <figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>"
+                <figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>" id="image_recette"
                              alt="<?= htmlspecialchars($list_recipe['name']) ?>" width="100px" height="auto"
                              class="photo">
                 </figure>
@@ -24,8 +24,9 @@
             <td class="td nom"><?= htmlspecialchars($list_recipe['name']) ?></td>
             <td class="td to-hide-in-media-query"><?= htmlspecialchars($list_recipe['creation_date_formatted']) ?></td>
             <td>
-                <a href="index.php?page=editer-recettes&action=edit-single-recipe&id=<?= $list_recipe['id'] ?>"><i
+                <a href="index.php?page=editer-recettes&action=editer-recette-seule&id=<?= $list_recipe['id'] ?>"><i
                             class="fa fa-pen-alt" title="Editer"></i></a>
+                &nbsp;
                 <!--  Demande de confirmation avant d'effacer -->
                 <a onClick="return confirm('Voulez-vous vraimenent supprimer la recette ?');"
                    href='index.php?page=editer-recettes&action=delete_recipe&id=<?= $list_recipe['id'] ?>'>
@@ -36,7 +37,5 @@
     <?php endforeach; ?>
     </tbody>
 </table>
-<a href="#home">
-    <button type="button" class="button-scroll-to-top"><i class="fas fa-arrow-up"></i></button>
-</a>
+<?php include_once 'boutton-retour-haut.phtml' ?>
  

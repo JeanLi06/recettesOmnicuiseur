@@ -1,6 +1,6 @@
 <?php
-//    Cette page permet d'éditer une recette existante
     if (session_status() === PHP_SESSION_NONE) session_start();
+//    Cette page permet d'éditer une recette existante
     require_once $_SESSION['ROOT_PATH'] . 'application/php/utils.php';
 //    On stocke l'ID de la recette transmis en GET depuis la page Editer
     if (isset($_GET) && !empty($_GET['id']) && empty($_POST['submit'])) {
@@ -17,18 +17,16 @@
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
             if (empty($_POST['recette_id'])) $_POST['recette_id'] = 0;
             $_SESSION['flash_error_message'] = 'Certains champs sont vides';
-            redirect('edit-single-recipe&id=' . (int)['recette_id']);
-//            header('Location: ../../index.php?page=edit-single-recipe&id=' . $_POST['recette_id']);
+            redirect('editer-recette-seule&id=' . (int)['recette_id']);
             exit();
         }
         //Si les champs de sont pas des nombre, alors erreur
         if (!ctype_digit($_POST['how_many_persons']) || !ctype_digit($_POST['cooking_time_minutes'])) {
             $_SESSION['flash_error_message'] = 'Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson';
 //            header('Location: ../../index.php?page=edit-single-recipe');
-            redirect('edit-single-recipe&id=' . (int)['recette_id']);
+            redirect('editer-recette-seule&id=' . (int)['recette_id']);
             exit();
         }
-        
         $_GET['error'] = '';
         //On extrait les variables de $_POST
         $recette_id = (int)$_POST['recette_id'];
@@ -55,10 +53,10 @@
                 $unique_filename = md5(basename($photo) . time());
                 $file_extension = strrchr($photo, '.');
                 $full_unique_name = $unique_filename . $file_extension;
-                move_uploaded_file($_FILES['photo']['tmp_name'], '../../img/' . $full_unique_name);
-//                    On efface l'ancienne photo
-                $image_to_delete = "../../img/{$photo}";
-                unlink($image_to_delete);
+                move_uploaded_file($_FILES['photo']['tmp_name'], $_SESSION['ROOT_PATH'] . 'img/' . $full_unique_name);
+// On efface l'ancienne photo
+                $image_to_delete = "img/{$photo}";
+                unlink( $_SESSION['ROOT_PATH'] . $image_to_delete);
                 $photo = $full_unique_name; //mise à jour le nom de la photo
             }
         }

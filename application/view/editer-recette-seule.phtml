@@ -15,9 +15,9 @@
 
     <figure>
         <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>" id="image_recette" width="100px" height="auto"
-             class="photo">
+             class="photo" alt="">
     </figure>
-    <input type="file" id="photo" name="photo">
+    <input type="file" id="photo" name="photo" accept="image/*" onchange="readURL(this);"/>
 
     <label for="ingredients_list">Ingrédients</label>
     <textarea id="ingredients_list" name="ingredients_list" rows="10"

@@ -7,7 +7,6 @@
     require_once $_SESSION['ROOT_PATH'] . 'application/php/classes_autoload.php';
     // récupérations des données à renvoyer à la vue en fonction du template choisi
     switch ($template) {
-        // page pour le contenu d'un article
         case 'recettes':
             if ($_GET['page'] === 'recettes' && array_key_exists('id', $_GET) && !empty($_GET['id'])) {
                 require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/recipesController.php';
@@ -26,8 +25,8 @@
             }
             break;
         
-        case 'edit-single-recipe':
-            if ($_GET['page'] === 'edit-single-recipe' && isset($_SESSION['connected'])) {
+        case 'editer-recette-seule':
+            if ($_GET['page'] === 'editer-recette-seule' && isset($_SESSION['connected'])) {
                 require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/editSingleRecipeController.php';
             }
             break;
