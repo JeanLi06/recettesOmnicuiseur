@@ -14,6 +14,7 @@ html {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
+    background-color: #111111 !important;
 }
 
 html {
@@ -25,7 +26,7 @@ body {
     font-size: 16px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 1.6rem;
     color: #e58e26;
-    background-color: #111111;
+    /*background-color: #111111;*/
     display: flex;
     flex-direction: column;
     position: relative;
@@ -59,8 +60,6 @@ header {
 }
 
 .bandeau {
-    width: 100vw;
-    text-align: center;
     height: 200px;
     background: url("../img/omnicuiseur-v6000-rouge.jpg") center;
     background-size: cover;
@@ -140,10 +139,8 @@ thead th:last-of-type {
 /* la recette en page d'accueil */
 main aside {
     align-self: center;
-    /* border: 15px ridge #34207a; */
     padding: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
     padding: 2rem;
-    /* margin-top: 50px; */
     height: auto;
 }
 
@@ -164,7 +161,6 @@ article h4 {
     font-size: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 3rem;
     letter-spacing: 3px;
-    /*color: #e76838;*/
     border-top: #e76838 double 4px;
     border-bottom: #e76838 double 4px;
     padding: 5px 0;
@@ -183,7 +179,7 @@ aside img {
 .container {
     width: 75%;
     background-color: #111111;
-    height: auto;
+    margin-bottom: 2rem;
 }
 
 .p404 {
@@ -381,28 +377,28 @@ th {
 
     body {
         margin-top: 0;
-        min-height: auto;
+        min-height: 100vh;
     }
 
     .container {
         width: 100%;
+        /* height: 100vh; */
     }
 
     header {
         position: inherit;
         flex-direction: column;
-        min-height: inherit;
-    }
-
-    article p, td {
-        line-height: 1.2;
-        width: auto;
     }
 
     header h1 {
         margin: 1rem auto;
         font-size: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
         font-size: 2rem;
+    }
+
+    article p, td {
+        line-height: 1.2;
+        /* width: auto; */
     }
 
     .bandeau {
@@ -433,6 +429,10 @@ th {
 
     #main-navigation ul {
         justify-content: center;
+    }
+
+    figure {
+        margin: 1rem;
     }
 
     .recettes td:nth-child(n+2) {
