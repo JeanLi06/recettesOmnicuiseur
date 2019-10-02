@@ -25,8 +25,7 @@ body {
     min-height: calc(100vh - 50px);
     font-size: 16px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 1.6rem;
-    color: #e58e26;
-    /*background-color: #111111;*/
+    color: #FFA500;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -43,7 +42,7 @@ a:active {
     text-decoration: none;
     font-size: 18px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 1.8rem;
-    color: #e58e26;
+    color: #FFA500;
 }
 
 header {
@@ -90,7 +89,7 @@ header a {
 #main-navigation a {
     border-radius: 5px;
     padding: 3px 5px;
-    border: 2px solid #e58e26;
+    border: 2px solid #FFA500;
 }
 
 #main-navigation li {
@@ -98,7 +97,7 @@ header a {
 }
 
 #main-navigation a:hover {
-    background-color: #e58e26;
+    background-color: #FFA500;
     color: #fefefe;
 }
 
@@ -230,7 +229,7 @@ section a:visited {
 
 #view-recipe-article span {
     font-family: 'Montserrat', sans-serif;
-    color: #e58e26;
+    color: #FFA500;
 }
 
 #view-recipe-article h3 {
@@ -275,8 +274,8 @@ section a:visited {
 
 label {
     text-align: left;
-    background-color: #b77320;
-    color: #fefefe;
+    background-color: #FFA500;
+    color: #111111;
     border-radius: 5px;
     padding: 2px 10px;
     margin-bottom: 5px;
@@ -349,7 +348,7 @@ button:hover {
 
 th {
     color: #111111;
-    background-color: #e58e26;
+    background-color: #FFA500;
     text-align: center;
 }
 
