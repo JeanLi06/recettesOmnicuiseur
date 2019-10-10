@@ -5,31 +5,27 @@
 }
 
 *:hover {
-    transition: all 0.3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 body,
 html {
-
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #111111 !important;
-}
-
-html {
     font-size: 62.5%;
+    background-color: #111 !important;
 }
 
 body {
     min-height: calc(100vh - 50px);
-    font-size: 16px; /* Pour les navigateurs qui ne supportent pas les rem */
-    font-size: 1.6rem;
-    color: #FFA500;
     display: flex;
-    flex-direction: column;
     position: relative;
-    margin-top: 50px; /* De la place pour la barre de nav */
+    flex-direction: column;
+    /* De la place pour la barre de nav */
+    margin-top: 50px;
+    font-size: 1.6rem;
+    color: #ffa500;
 }
 
 h2 {
@@ -40,35 +36,32 @@ a,
 a:visited,
 a:active {
     text-decoration: none;
-    font-size: 18px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 1.8rem;
-    color: #FFA500;
+    color: #ffa500;
 }
 
 header {
     display: flex;
-    justify-content: space-around;
     position: fixed;
-    align-items: center;
-    background-color: #3f20cb;
-    width: 100%;
-    min-height: 50px;
     top: 0;
-    padding: 0 30px; /* Pour les navigateurs qui ne supportent pas les rem */
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
     padding: 0 3rem;
+    min-height: 50px;
+    background-color: #3f20cb;
 }
 
 .bandeau {
     height: 200px;
+    margin: 2rem 0;
     background: url("../img/omnicuiseur-v6000-rouge.jpg") center;
     background-size: cover;
-    margin: 2rem 0;
 }
 
 #recipe-navigation .fas {
-    font-size: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
-    font-size: 3rem;
     margin: 0 10px;
+    font-size: 3rem;
 }
 
 header p {
@@ -87,9 +80,9 @@ header a {
 }
 
 #main-navigation a {
-    border-radius: 5px;
     padding: 3px 5px;
-    border: 2px solid #FFA500;
+    border: 2px solid #ffa500;
+    border-radius: 5px;
 }
 
 #main-navigation li {
@@ -97,8 +90,8 @@ header a {
 }
 
 #main-navigation a:hover {
-    background-color: #FFA500;
     color: #fefefe;
+    background-color: #ffa500;
 }
 
 nav ul {
@@ -107,8 +100,8 @@ nav ul {
 
 #main-navigation ul {
     display: flex;
-    padding: 4px 0;
     justify-content: center;
+    padding: 4px 0;
 }
 
 thead th:last-of-type {
@@ -119,12 +112,12 @@ thead th:last-of-type {
 .flash-confirm {
     display: block;
     position: fixed;
-    margin-top: 5px;
     top: 30%;
     left: 50%;
-    transform: translateY(-30%) translateX(-50%);
-    color: #fefefe;
+    margin-top: 5px;
     padding: 5px;
+    color: #fefefe;
+    transform: translateY(-30%) translateX(-50%);
 }
 
 .flash-error {
@@ -138,16 +131,15 @@ thead th:last-of-type {
 /* la recette en page d'accueil */
 main aside {
     align-self: center;
-    padding: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
-    padding: 2rem;
     height: auto;
+    padding: 2rem;
 }
 
 article p {
     width: 75%;
     margin: 0 auto;
-    white-space: pre-line;
     text-align: left;
+    white-space: pre-line;
 }
 
 h1 {
@@ -156,38 +148,33 @@ h1 {
 
 aside h3,
 article h4 {
-    font-family: 'Great Vibes', 'Helvetica', sans-serif;
-    font-size: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
-    font-size: 3rem;
-    letter-spacing: 3px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 5px 0;
     border-top: #e76838 double 4px;
     border-bottom: #e76838 double 4px;
-    padding: 5px 0;
-    margin-top: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
-    margin-top: 2rem;
-    margin-bottom: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
-    margin-bottom: 2rem;
+    font-family: 'Great Vibes', 'Helvetica', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 3px;
 }
 
 aside img {
     width: 200px;
-    margin-top: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
     margin-top: 2rem;
 }
 
 .container {
     width: 75%;
-    background-color: #111111;
+    background-color: #111;
     margin-bottom: 2rem;
 }
 
 .p404 {
-    background-color: #111111;
-    background: rgba(255, 255, 255, 0.2) url("https://media.giphy.com/media/26BRvLjAsJoGb7vIA/source.gif");
-    background-size: cover;
     width: 100%;
     height: 80vh;
-    color: black;
+    color: #000;
+    background: rgba(255, 255, 255, 0.2) url("https://media.giphy.com/media/26BRvLjAsJoGb7vIA/source.gif");
+    background-size: cover;
 }
 
 section a,
@@ -195,13 +182,13 @@ section a:visited {
     color: #000;
 }
 
-/************************************/
-/****** Page Affichage Recettes *****/
-/************************************/
+/************************************
+****** Page Affichage Recettes ******
+************************************/
 
 #recipe-navigation {
-    background-color: #34207a;
     margin: 1rem 50px;
+    background-color: #34207a;
 }
 
 #recipe-navigation i:hover {
@@ -218,37 +205,33 @@ section a:visited {
 
 #view-recipe-article div {
     display: flex;
-    font-size: 15px; /* Pour les navigateurs qui ne supportent pas les rem */
-    font-size: 1.5rem;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
+    font-size: 1.5rem;
     text-align: left;
-    margin-top: 10px; /* Pour les navigateurs qui ne supportent pas les rem */
     margin-top: 1rem;
 }
 
 #view-recipe-article span {
     font-family: 'Montserrat', sans-serif;
-    color: #FFA500;
+    color: #ffa500;
 }
 
 #view-recipe-article h3 {
-    font-size: 45px; /* Pour les navigateurs qui ne supportent pas les rem */
-    font-size: 4.5rem;
     font-family: 'Great Vibes', sans-serif;
+    font-size: 4.5rem;
 }
 
 #view-recipe-article h5 {
     font-family: 'Great Vibes', 'Helvetica', sans-serif;
-    font-size: 22px; /* Pour les navigateurs qui ne supportent pas les rem */
     font-size: 2.2rem;
     letter-spacing: 2px;
     color: #e76838;
 }
 
-/************************************/
-/*********** Page Ajouter ***********/
-/************************************/
+/************************************
+*********** Page Ajouter ************
+************************************/
 
 .form {
     display: flex;
@@ -265,55 +248,52 @@ section a:visited {
 }
 
 .error {
-    color: #fefefe;
-    background-color: red;
+    padding: 2px 10px;
     border: solid 2px #a8026f;
     border-radius: 5px;
-    padding: 2px 10px;
+    color: #fefefe;
+    background-color: red;
 }
 
 label {
-    text-align: left;
-    background-color: #FFA500;
-    color: #111111;
-    border-radius: 5px;
-    padding: 2px 10px;
     margin-bottom: 5px;
+    padding: 2px 10px;
+    border-radius: 5px;
+    text-align: left;
     text-transform: uppercase;
+    color: #111;
+    background-color: #ffa500;
 }
 
 input,
 textarea,
 select {
-    margin-bottom: 30px; /* Pour les navigateurs qui ne supportent pas les rem */
     margin-bottom: 3rem;
-    color: #111111;
     padding: 5px;
-    background-color: #fefefe;
     border: none;
     border-radius: 5px;
     resize: vertical;
+    color: #111;
+    background-color: #fefefe;
 }
 
 button {
-    color: #111111;
-    background-color: chartreuse;
-    border: none;
-    padding: 5px 10px; /* Pour les navigateurs qui ne supportent pas les rem */
-    padding: 0.5rem 1rem;
     align-self: center;
-    cursor: pointer;
-    border-radius: 10px;
-    font-size: 16px; /* Pour les navigateurs qui ne supportent pas les rem */
-    font-size: 1.6rem;
     margin: 10px 0;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #111;
+    background-color: chartreuse;
 }
 
 .button-scroll-to-top {
+    display: none;
     position: fixed;
     right: 15px;
     bottom: 20px;
-    display: none;
 }
 
 button:hover {
@@ -323,9 +303,9 @@ button:hover {
     transform: scale(1.02);
 }
 
-/************************************/
-/************ Page Editer ***********/
-/************************************/
+/************************************
+************ Page Editer ************
+************************************/
 
 .nom,
 .date {
@@ -333,9 +313,9 @@ button:hover {
 }
 
 .recettes caption {
+    margin: 20px 5px;
     font-size: larger;
     font-weight: bold;
-    margin: 20px 5px;
 }
 
 .recettes tr:nth-child(odd) {
@@ -347,24 +327,24 @@ button:hover {
 }
 
 th {
-    color: #111111;
-    background-color: #FFA500;
     text-align: center;
+    color: #111;
+    background-color: #ffa500;
 }
 
-/************************************/
-/********** Page Recherche ************/
-/************************************/
+/************************************
+********** Page Recherche ***********
+************************************/
 
 .search-result tr:hover {
     cursor: pointer;
-    background-color: #7e2e34;
     color: #fefefe;
+    background-color: #7e2e34;
 }
 
-/************************************/
-/********* Media Queries ************/
-/************************************/
+/************************************
+********* Media Queries *************
+************************************/
 
 /* smartphone */
 
@@ -381,7 +361,6 @@ th {
 
     .container {
         width: 100%;
-        /* height: 100vh; */
     }
 
     header {
@@ -391,13 +370,12 @@ th {
 
     header h1 {
         margin: 1rem auto;
-        font-size: 20px; /* Pour les navigateurs qui ne supportent pas les rem */
         font-size: 2rem;
     }
 
-    article p, td {
+    article p,
+    td {
         line-height: 1.2;
-        /* width: auto; */
     }
 
     .bandeau {
@@ -405,8 +383,8 @@ th {
     }
 
     article h4 {
-        border-bottom: #e76838 solid 2px;
         border-top: #e76838 solid 2px;
+        border-bottom: #e76838 solid 2px;
     }
 
     article div {
@@ -447,6 +425,11 @@ th {
     }
 
     .form {
-        padding: 10px 10px;
+        padding: 10px;
+    }
+
+    .modal-content{
+        width: 95%;
+        height: auto;
     }
 }
