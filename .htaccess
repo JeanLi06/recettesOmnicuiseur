@@ -1,9 +1,10 @@
 Options +FollowSymlinks
-# Redirection vers du HTTPS:
 RewriteEngine On
-RewriteCond %{HTTP_HOST} jeanliautaud\.fr [NC]
-RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://jeanliautaud.fr/$1 [R,L]
+
+# Redirection vers du HTTPS:
+#RewriteCond %{HTTP_HOST} jeanliautaud\.fr [NC]
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ https://jeanliautaud.fr/omnicuiseur/$1 [R,L]
 
 #***************************************************************************
 # monsite.com/page   -> monsite.com/index.php/page
@@ -24,11 +25,13 @@ RewriteCond %{REQUEST_FILENAME} -d [OR]
 RewriteCond %{REQUEST_FILENAME} -l
 RewriteRule ^ - [L]
 
+#RewriteBase "/omnicuiseur/"
+
 RewriteRule ^(.*?)\.(php|css|js|jpg|jpeg|png|pdf)$ - [L]
 
 RewriteRule ([a-z-]+) index.php?page=$1 [L,QSA]
 
-RewriteRule ^(.+)/(.+)/?$ index.php?page=$1&id=$2 [L]
+#RewriteRule ^(.+)/([0-9]+)/?$ index.php?page=$1&id=$2 [L,QSA]
 
 RewriteRule ^([a-z]{2})/([^/]+)/?$ index.php?page=$1&action=$2id=$3 [L,QSA]
 

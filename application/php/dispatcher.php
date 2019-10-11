@@ -15,5 +15,5 @@
         if (!is_file("application/view/$template.phtml") || $_GET['page'] == '404') {
             $template = 404;
         }
-    }
+     }
     

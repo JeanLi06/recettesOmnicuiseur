@@ -10,5 +10,6 @@
 //        On sauve en session le résultat de recherche, pour l'afficher sur la page search
         $_SESSION['search_result_list_recipes'] = RecipeModel::searchItem($_POST['search_item']);
         redirect('rechercher');
+//        header("Location:" . $_SESSION['HOME'] . "index.php?page=rechercher");
         exit();
     }

@@ -2,7 +2,6 @@
 //    Controller principal
     if (session_status() === PHP_SESSION_NONE) session_start();
     require_once $_SESSION['ROOT_PATH'] . 'application/php/utils.php';
-//    sessionStart();
     //    Activation chargement automatique des classes
     require_once $_SESSION['ROOT_PATH'] . 'application/php/classes_autoload.php';
     // récupérations des données à renvoyer à la vue en fonction du template choisi
@@ -37,11 +36,6 @@
         
         case 'rechercher':
             require_once $_SESSION['ROOT_PATH'] . 'application/php/controllers/searchController.php';
-            break;
-        
-        case 'home':
-        case 'index' :
-            require_once 'index.php';
             break;
         
         case '404':
