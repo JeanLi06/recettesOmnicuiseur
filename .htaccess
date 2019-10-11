@@ -1,5 +1,7 @@
 Options +FollowSymlinks
 RewriteEngine On
+#Empêcher le listage des répertoires
+Options All -Indexes
 
 # Redirection vers du HTTPS:
 #RewriteCond %{HTTP_HOST} jeanliautaud\.fr [NC]
@@ -35,5 +37,4 @@ RewriteRule ([a-z-]+) index.php?page=$1 [L,QSA]
 
 RewriteRule ^([a-z]{2})/([^/]+)/?$ index.php?page=$1&action=$2id=$3 [L,QSA]
 
-#TODO vérifier la page 404
-ErrorDocument 404 application/view/404.phtml
+ErrorDocument 404 /index/404

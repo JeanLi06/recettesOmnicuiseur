@@ -37,7 +37,6 @@
         }
 
 //        On vérifie le le nom utilisateur, le captcha et le mot de passe,
-//        TODO Ajouter l'URL de l'hébergeur dans les Paramètres de google.com/captcha
         if (password_verify($admin_password, $secret_admin_password)
             && $responseKeys['success']
             && $admin_name === $secret_admin_name) {

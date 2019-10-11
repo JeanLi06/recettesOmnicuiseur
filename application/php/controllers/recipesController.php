@@ -1,7 +1,6 @@
 <?php
     if (session_status() === PHP_SESSION_NONE) session_start();
 //    Cette page affiche une recette, et permet de naviguer parmi celles existantes
-//    TODO Fleche pour remonter en haut (qui apparait)
     require_once $_SESSION['ROOT_PATH'] . 'application/php/utils.php';
 
 //On stocke la recette consultée courante, afin d'y revenir en cas de navigation sur une autre page.
