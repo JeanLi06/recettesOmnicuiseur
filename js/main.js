@@ -1,6 +1,6 @@
 "use strict";
 
-/////////////Update de l'image après choix utilisateur sur pages édition recette & ajout recette ////////////////
+///////Update de l'image après choix utilisateur sur pages édition recette & ajout recette ///////
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -12,7 +12,6 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Apparition de la flêche retour vers le haut, après un défilement de 100px

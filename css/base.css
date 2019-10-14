@@ -294,6 +294,7 @@ button {
     position: fixed;
     right: 15px;
     bottom: 20px;
+    opacity: 0.7;
 }
 
 button:hover {

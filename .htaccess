@@ -1,7 +1,7 @@
 Options +FollowSymlinks
 RewriteEngine On
 #Empêcher le listage des répertoires
-Options All -Indexes
+#Options All -Indexes
 
 # Redirection vers du HTTPS:
 #RewriteCond %{HTTP_HOST} jeanliautaud\.fr [NC]
