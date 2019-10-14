@@ -15,7 +15,7 @@
 
     <figure>
         <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>" id="image_recette" width="100px" height="auto"
-             class="photo" alt="">
+             class="photo" alt="photo recette">
     </figure>
     <input type="file" id="photo" name="photo" accept="image/*" onchange="readURL(this);"/>
 
@@ -49,6 +49,5 @@
 
     <label for="note">Notes</label>
     <textarea id="note" name="note" rows="5"><?= htmlspecialchars($recette_from_id['note']) ?></textarea>
-
     <button type="submit" name="submit">Enregistrer</button>
 </form>

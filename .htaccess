@@ -11,8 +11,8 @@ Header set X-Content-Type-Options nosniff
 Header set X-XSS-Protection "1; mode=block"
 
 # Redirection vers du HTTPS:
-RewriteCond %{SERVER_PORT} 80
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 #***************************************************************************
 # monsite.com/page   -> monsite.com/index.php/page
