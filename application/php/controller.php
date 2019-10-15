@@ -39,6 +39,6 @@
             break;
         
         case '404':
-            echo "Erreur : $template cette page n'existe pas";
+            echo "Erreur : cette page n'existe pas";
             break;
     }

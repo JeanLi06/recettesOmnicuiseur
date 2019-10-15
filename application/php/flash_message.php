@@ -1,7 +1,8 @@
 <?php
     if (session_status() === PHP_SESSION_NONE) session_start();
-// Gestion des messages flash
-    
+// Gestion des messages flash.
+//    Ce fichier est à inclure au début des pages où les messages-flash sont utilisés.
+
     if ((!empty($_SESSION['flash_error_message']) && !empty($_SESSION['flash_error_message'])) || (isset($_SESSION['flash_confirm_message']) && !empty($_SESSION['flash_confirm_message']))) {
 //      On écrit la bonne classe CSS dans le html, selon le type de message
         if (!empty($_SESSION['flash_error_message']))

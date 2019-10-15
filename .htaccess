@@ -33,9 +33,9 @@ RewriteCond %{REQUEST_FILENAME} -d [OR]
 RewriteCond %{REQUEST_FILENAME} -l
 RewriteRule ^ - [L]
 
-#RewriteBase "/omnicuiseur/"
-
 RewriteRule ^(.*?)\.(php|css|js|jpg|jpeg|png|pdf)$ - [L]
+
+RewriteRule (^404$) index.php?page=404 [L,QSA]
 
 RewriteRule ([a-z-]+) index.php?page=$1 [L,QSA]
 
@@ -43,4 +43,4 @@ RewriteRule ([a-z-]+) index.php?page=$1 [L,QSA]
 
 RewriteRule ^([a-z]{2})/([^/]+)/?$ index.php?page=$1&action=$2id=$3 [L,QSA]
 
-#ErrorDocument 404 /index/404
+ErrorDocument 404 /index/404
