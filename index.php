@@ -2,7 +2,7 @@
     if (session_status() === PHP_SESSION_NONE) session_start();
 
 //    Cacher les erreurs (précaution utile pour la mise en ligne)
-    error_reporting(0);
+//    error_reporting(0);
 
 // génération d'une constante HOME, qui contient l'url absolue vers la racine du site
     $_SESSION['HOME'] = 'http://' . $_SERVER['SERVER_NAME'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);

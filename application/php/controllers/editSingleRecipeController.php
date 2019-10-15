@@ -2,10 +2,10 @@
     if (session_status() === PHP_SESSION_NONE) session_start();
 //    Cette page permet d'éditer une recette existante
     require_once $_SESSION['ROOT_PATH'] . 'application/php/utils.php';
-//    On stocke l'ID de la recette transmis en GET depuis la page Editer
+//    On stocke l'ID de la recette transmise en GET depuis la page Editer
     if (isset($_GET) && !empty($_GET['id']) && empty($_POST['submit'])) {
         $recette_from_id = RecipeModel::findFromId($_GET['id']);
-        //on stocke en session pour transmettre sur la page envoyée en post
+        //on stocke en session la recette pour transmettre sur la page envoyée en post
         $_SESSION['recette_from_id'] = $recette_from_id;
     }
     if (isset($_POST['submit'])) {
@@ -17,14 +17,15 @@
             || empty($_POST['cooking_instructions']) || empty($_POST['category'])) {
             if (empty($_POST['recette_id'])) $_POST['recette_id'] = 0;
             $_SESSION['flash_error_message'] = 'Certains champs sont vides';
-            redirect('editer-recette-seule&id=' . (int)['recette_id']);
+//      On redirige en transmettant l'ID de la recette en cours, pour éviter de tout retaper
+            header('Location:' . $_SESSION['HOME'] . 'index.php?page=editer-recettes&action=editer-recette-seule&id=' . $_SESSION['recette_from_id']['id']);
             exit();
         }
-        //Si les champs de sont pas des nombre, alors erreur
+        //Si ces champs de sont pas des nombre, alors erreur
         if (!ctype_digit($_POST['how_many_persons']) || !ctype_digit($_POST['cooking_time_minutes'])) {
             $_SESSION['flash_error_message'] = 'Utilisez des numéros dans les champs Nombre de personnes et Temps de cuisson';
-//            header('Location: ../../index.php?page=edit-single-recipe');
-            redirect('editer-recette-seule&id=' . (int)['recette_id']);
+//      On redirige en transmettant l'ID de la recette en cours, pour éviter de tout retaper
+            header('Location:' . $_SESSION['HOME'] . 'index.php?page=editer-recettes&action=editer-recette-seule&id=' . $_SESSION['recette_from_id']['id']);
             exit();
         }
         $_GET['error'] = '';
@@ -56,7 +57,7 @@
                 move_uploaded_file($_FILES['photo']['tmp_name'], $_SESSION['ROOT_PATH'] . 'img/' . $full_unique_name);
 // On efface l'ancienne photo
                 $image_to_delete = "img/{$photo}";
-                unlink( $_SESSION['ROOT_PATH'] . $image_to_delete);
+                unlink($_SESSION['ROOT_PATH'] . $image_to_delete);
                 $photo = $full_unique_name; //mise à jour le nom de la photo
             }
         }

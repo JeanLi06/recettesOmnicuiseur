@@ -25,6 +25,7 @@
             global $pdo;
             $query = '
             SELECT
+                id,
                 name,
                 photo,
                 how_many_persons,
