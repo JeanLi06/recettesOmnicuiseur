@@ -3,7 +3,7 @@
     <?php include_once 'application/php/flash_message.php'; ?>
     <div class="bandeau"></div>
     <h2>Dernière recette</h2>
-    <a href="recettes&action=first">
+    <a href="index.php?page=recettes&action=first">
         <h3><?= htmlspecialchars($last_recipe['name']) ?></h3>
         <figure>
             <img src="img/<?= htmlspecialchars($last_recipe['photo']) ?>"
