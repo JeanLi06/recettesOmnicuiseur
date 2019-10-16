@@ -16,8 +16,9 @@
 
     <label for="photo">Choisir une photo</label>
     <figure>
-        <!-- Grâce à la fonction readURL, on ne génère le src et le alt de l'image que s'il y en a une déjà choisie. Ainsi on peut la faire appaître à ce moment -->
-            <img src="" id="image_recette" width="100px" height="auto" class="photo" alt="">
+        <!-- Grâce à la fonction readURL, on ne génère le src et le alt de l'image que s'il y en a une déjà choisie.
+        Ainsi on peut la faire appaître à ce moment. Le src d'origine est pour générer une image vide de 26 octets-->
+            <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" class="photo image_recette" alt="Photo de la recette">
     </figure>
     <input type="file" id="photo" name="photo" accept="image/*" onchange="readURL(this);"/>
 
@@ -37,6 +38,7 @@
 
     <label for="category">Catégorie</label>
     <select name="category" id="category" required>
+        <option value="" disabled selected>Type de plat</option>
         <option value="Entrée">Entrée</option>
         <option value="Plat">Plat</option>
         <option value="Dessert">Dessert</option>

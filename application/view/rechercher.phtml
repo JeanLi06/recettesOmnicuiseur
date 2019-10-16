@@ -30,7 +30,7 @@
             <tr onclick="document.location='index.php?page=recette-depuis-recherche&id=<?= $list_recipe['id'] ?>'">
                 <td>
                     <figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>"
-                                 alt="" width="100px" height="auto" class="photo"></figure>
+                                 alt="Photo de recette" class="photo"></figure>
                 </td>
                 <td class="td nom"><?= htmlspecialchars($list_recipe['name']) ?></td>
                 <td class="td date"><?= htmlspecialchars($list_recipe['creation_date_formatted']) ?></td>
@@ -38,5 +38,5 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-    <?php include_once 'boutton-retour-haut.phtml' ?>
+    <?php include_once 'bouton-retour-haut.phtml' ?>
 <?php endif; ?>

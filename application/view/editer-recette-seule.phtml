@@ -14,8 +14,7 @@
     <input type="hidden" name="recipe_photo" value="<?= htmlspecialchars($recette_from_id['photo']) ?>">
 
     <figure>
-        <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>" id="image_recette" width="100px" height="auto"
-             class="photo" alt="photo recette">
+        <img src="img/<?= htmlspecialchars($recette_from_id['photo']) ?>" class="photo image_recette" alt="Photo de recette">
     </figure>
     <input type="file" id="photo" name="photo" accept="image/*" onchange="readURL(this);"/>
 

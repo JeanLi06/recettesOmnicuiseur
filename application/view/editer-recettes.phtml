@@ -16,9 +16,8 @@
     <?php foreach ($list_recipes as $list_recipe): ?>
         <tr>
             <td>
-                <figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>" id="image_recette"
-                             alt="<?= htmlspecialchars($list_recipe['name']) ?>" width="100px" height="auto"
-                             class="photo">
+                <figure><img src="img/<?= htmlspecialchars($list_recipe['photo']) ?>" alt="<?= htmlspecialchars($list_recipe['name']) ?>"
+                             class="photo image_recette">
                 </figure>
             </td>
             <td class="td nom"><?= htmlspecialchars($list_recipe['name']) ?></td>
@@ -37,5 +36,5 @@
     <?php endforeach; ?>
     </tbody>
 </table>
-<?php include_once 'boutton-retour-haut.phtml' ?>
+<?php include_once 'bouton-retour-haut.phtml' ?>
  

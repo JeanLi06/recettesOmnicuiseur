@@ -25,7 +25,7 @@ Header set X-XSS-Protection "1; mode=block"
 # -  signifie une portée comme 0-9 = tous les nombres de 0 à 9
 #***************************************************************************
 
-# Allow any files or directories that exist to be displayed directly
+# Autoriser l'affichage des fichiers ou répertoires existants (pour le choix de l'image)
 RewriteCond ${REQUEST_URI} ^.+$
 RewriteCond %{REQUEST_FILENAME} \.(gif|jpe?g|png|js|css|swf|php|ico|txt|pdf|xml)$ [OR]
 RewriteCond %{REQUEST_FILENAME} -f [OR]

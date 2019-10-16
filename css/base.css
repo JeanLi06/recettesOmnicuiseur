@@ -12,18 +12,19 @@ body,
 html {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat',sans-serif;
     font-size: 62.5%;
     background-color: #111 !important;
 }
 
 body {
-    min-height: calc(100vh - 50px);
+    /* De la place pour la barre de nav */
+
     display: flex;
     position: relative;
     flex-direction: column;
-    /* De la place pour la barre de nav */
     margin-top: 50px;
+    min-height: calc(100vh - 50px);
     font-size: 1.6rem;
     color: #ffa500;
 }
@@ -53,10 +54,15 @@ header {
 }
 
 .bandeau {
-    height: 200px;
+    height: 300px;
     margin: 2rem 0;
     background: url("../img/omnicuiseur-v6000-rouge.jpg") center;
     background-size: cover;
+}
+
+.photo {
+    width: 100px;
+    height: auto;
 }
 
 #recipe-navigation .fas {
@@ -74,6 +80,7 @@ header a {
 }
 
 /*navigation Page principale*/
+
 #main-navigation {
     display: flex;
     border-radius: 5px;
@@ -129,6 +136,7 @@ thead th:last-of-type {
 }
 
 /* la recette en page d'accueil */
+
 main aside {
     align-self: center;
     height: auto;
@@ -153,7 +161,7 @@ article h4 {
     padding: 5px 0;
     border-top: #e76838 double 4px;
     border-bottom: #e76838 double 4px;
-    font-family: 'Great Vibes', 'Helvetica', sans-serif;
+    font-family: 'Great Vibes','Helvetica',sans-serif;
     font-size: 3rem;
     letter-spacing: 3px;
 }
@@ -165,8 +173,8 @@ aside img {
 
 .container {
     width: 75%;
-    background-color: #111;
     margin-bottom: 2rem;
+    background-color: #111;
 }
 
 .p404 {
@@ -207,23 +215,23 @@ section a:visited {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    font-size: 1.5rem;
-    text-align: left;
     margin-top: 1rem;
+    text-align: left;
+    font-size: 1.5rem;
 }
 
 #view-recipe-article span {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat',sans-serif;
     color: #ffa500;
 }
 
 #view-recipe-article h3 {
-    font-family: 'Great Vibes', sans-serif;
+    font-family: 'Great Vibes',sans-serif;
     font-size: 4.5rem;
 }
 
 #view-recipe-article h5 {
-    font-family: 'Great Vibes', 'Helvetica', sans-serif;
+    font-family: 'Great Vibes','Helvetica',sans-serif;
     font-size: 2.2rem;
     letter-spacing: 2px;
     color: #e76838;
@@ -239,7 +247,7 @@ section a:visited {
     padding: 20px 50px;
 }
 
-#image_recette {
+.image_recette {
     float: left;
 }
 
@@ -272,11 +280,12 @@ select {
     padding: 5px;
     border: none;
     border-radius: 5px;
-    resize: vertical;
     color: #111;
     background-color: #fefefe;
+    resize: vertical;
 }
 
+.bouton,
 button {
     align-self: center;
     margin: 10px 0;
@@ -284,9 +293,9 @@ button {
     border: none;
     border-radius: 10px;
     font-size: 1.6rem;
-    cursor: pointer;
     color: #111;
     background-color: chartreuse;
+    cursor: pointer;
 }
 
 .button-scroll-to-top {
@@ -294,7 +303,10 @@ button {
     position: fixed;
     right: 15px;
     bottom: 20px;
+    padding: 5px;
+    color: #111;
     opacity: 0.7;
+    background-color: chartreuse;
 }
 
 button:hover {
@@ -338,9 +350,9 @@ th {
 ************************************/
 
 .search-result tr:hover {
-    cursor: pointer;
     color: #fefefe;
     background-color: #7e2e34;
+    cursor: pointer;
 }
 
 /************************************
@@ -350,7 +362,8 @@ th {
 /* smartphone */
 
 /*@media screen and (max-device-width: 767px) {*/
-@media screen and (max-width: 767px) {
+
+@media screen and (max-width:767px) {
     html {
         font-size: 60%;
     }
@@ -429,7 +442,7 @@ th {
         padding: 10px;
     }
 
-    .modal-content{
+    .modal-content {
         width: 95%;
         height: auto;
     }

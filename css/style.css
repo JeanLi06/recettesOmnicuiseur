@@ -2,15 +2,23 @@
                         GENERIC
  *******************************************************/
 
-.hidden { visibility: hidden }
+.hidden {
+    visibility: hidden
+}
 
-.italic { font-style: italic}
+.visible {
+    visibility: visible
+}
 
-.left   {
+.italic {
+    font-style: italic
+}
+
+.left {
     text-align: left;
 }
 
-.right   {
+.right {
     text-align: right;
 }
 
