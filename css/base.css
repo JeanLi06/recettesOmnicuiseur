@@ -12,7 +12,7 @@ body,
 html {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat',sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 62.5%;
     background-color: #111 !important;
 }
@@ -56,7 +56,7 @@ header {
 .bandeau {
     height: 300px;
     margin: 2rem 0;
-    background: url("../img/omnicuiseur-v6000-rouge.jpg") center;
+    background: url("../img/omnicuiseur-v6000-rouge.jpg") center no-repeat;
     background-size: cover;
 }
 
@@ -161,7 +161,7 @@ article h4 {
     padding: 5px 0;
     border-top: #e76838 double 4px;
     border-bottom: #e76838 double 4px;
-    font-family: 'Great Vibes','Helvetica',sans-serif;
+    font-family: 'Great Vibes', 'Helvetica', sans-serif;
     font-size: 3rem;
     letter-spacing: 3px;
 }
@@ -221,17 +221,17 @@ section a:visited {
 }
 
 #view-recipe-article span {
-    font-family: 'Montserrat',sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #ffa500;
 }
 
 #view-recipe-article h3 {
-    font-family: 'Great Vibes',sans-serif;
+    font-family: 'Great Vibes', sans-serif;
     font-size: 4.5rem;
 }
 
 #view-recipe-article h5 {
-    font-family: 'Great Vibes','Helvetica',sans-serif;
+    font-family: 'Great Vibes', 'Helvetica', sans-serif;
     font-size: 2.2rem;
     letter-spacing: 2px;
     color: #e76838;
@@ -359,11 +359,24 @@ th {
 ********* Media Queries *************
 ************************************/
 
-/* smartphone */
+/* Tablette */
 
-/*@media screen and (max-device-width: 767px) {*/
+@media screen and (max-width: 999px) {
+    html {
+        font-size: 60%;
+    }
+    #main-navigation li{
+        padding: 0 5px;
+    }
+    header a {
+        text-align: center;
+    }
+}
 
-@media screen and (max-width:767px) {
+
+/* Smartphone */
+
+@media screen and (max-width: 768px) {
     html {
         font-size: 60%;
     }
